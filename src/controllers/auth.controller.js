@@ -16,12 +16,9 @@ export const register = async (req, res) => {
         });
 
         const userSaved = await newUser.save(); //Save the new user created
-        const token = await createAccessToken({id: userSaved._id})
+        const token = await createAccessToken({ id: userSaved._id })
 
         res.cookie('token', token)
-        // res.json({
-        //     message: "User created successfully"
-        // })
         res.json({
             id: userSaved._id,
             username: userSaved.username,
@@ -31,12 +28,46 @@ export const register = async (req, res) => {
         }); // Frontend does not need password info, so it is not here
 
 
-        //res.send('Registrando...')
-        //console.log(newUser);
     } catch (error) {
+        res.status(500).json({ message: error.message });
         console.log(error)
     }
 
 };
 
-export const login = (req, res) => res.send('login');
+export const login = async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+
+        const userFound = await User.findOne({ email })
+        if (!userFound) return res.status(400).json({ message: "User not found" });
+
+        const isMatch = await bcrypt.compare(password, userFound.password)
+        if (!isMatch) return res.status(400).json({ message: "Incorrect Password" });
+
+        const token = await createAccessToken({ id: userFound._id })
+
+        res.cookie('token', token)
+        res.json({
+            id: userFound._id,
+            username: userFound.username,
+            email: userFound.email,
+            createdAt: userFound.createdAt,
+            updatedAt: userFound.updatedAt,
+        }); // Frontend does not need password info, so it is not here
+
+
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+        console.log(error)
+    }
+
+};
+
+export const logout = (req, res) => {
+    res.cookie('token', "", {
+        expires: new Date(0)
+    })
+    return res.sendStatus(200);
+};
