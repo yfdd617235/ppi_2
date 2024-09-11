@@ -12,7 +12,8 @@ function TaskFormPage() {
   })
 
   return (
-    <div className='bg-zinc-800 max-w-md w-full p-10 rounded-md'>
+    <div className='flex h-[calc(100vh-100px)] items-center justify-center'>
+    <div className='bg-zinc-800 max-w-md p-10 rounded-md'>
       <form onSubmit={onSubmit}>
         <input type="text"
           placeholder='Title'
@@ -31,6 +32,7 @@ function TaskFormPage() {
           Save
         </button>
       </form>
+    </div>
     </div>
   )
 }

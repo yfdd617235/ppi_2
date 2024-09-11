@@ -8,19 +8,23 @@ function TasksPage() {
     getTasks();
   }, [])
 
-  if(tasks.length == 0) return (<h1>No Tasks</h1>)
+  if (tasks.length == 0) return (<h1>No Tasks</h1>)
 
   return (
-    <div>
-      {
-        tasks.map(task => (
-          <div key={task._id}>
-            <h1>{task.title}</h1>
-            <p>{task.description}</p>
-          </div>
-        ))
-      }
-    </div>
+
+    
+      <div>
+        {
+          tasks.map(task => (
+            <div key={task._id}>
+              <h1>{task.title}</h1>
+              <p>{task.description}</p>
+            </div>
+          ))
+        }
+      </div>
+
+
   )
 }
 

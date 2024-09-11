@@ -19,41 +19,46 @@ function RegisterPage() {
     })
 
     return (
-        <div className='bg-zinc-800 max-w-md p-10 rounded-md'>
 
-            {
-                registerErrors.map((error, i) => (
-                    <div className='bg-red-500 p-2 text-white text-center my-2' key={i}>
-                        {error}
-                    </div>
-                ))
-            }
-            <form
-                onSubmit={onSubmit}>
+        <div className='flex h-[calc(100vh-100px)] items-center justify-center'>
 
-                <input type='text' {...register("username", { required: true })}
-                    className='w-full bg-zinc-700 text-white px-4 py-2 my-2 rounded-md'
-                    placeholder='Username' />
-                {errors.username && <p className='text-red-500'>Username is required</p>}
 
-                <input type='email' {...register("email", { required: true })}
-                    className='w-full bg-zinc-700 text-white px-4 py-2 my-2 rounded-md'
-                    placeholder='Email' />
-                {errors.email && <p className='text-red-500'>Email is required</p>}
+            <div className='bg-zinc-800 max-w-md p-10 rounded-md'>
 
-                <input type='password' {...register("password", { required: true })}
-                    className='w-full bg-zinc-700 text-white px-4 py-2 my-2 rounded-md'
-                    placeholder='Password' />
-                {errors.password && <p className='text-red-500'>Password is required</p>}
+                {
+                    registerErrors.map((error, i) => (
+                        <div className='bg-red-500 p-2 text-white text-center my-2' key={i}>
+                            {error}
+                        </div>
+                    ))
+                }
+                <form
+                    onSubmit={onSubmit}>
 
-                <button type='submit'>Register</button>
+                    <input type='text' {...register("username", { required: true })}
+                        className='w-full bg-zinc-700 text-white px-4 py-2 my-2 rounded-md'
+                        placeholder='Username' />
+                    {errors.username && <p className='text-red-500'>Username is required</p>}
 
-            </form>
+                    <input type='email' {...register("email", { required: true })}
+                        className='w-full bg-zinc-700 text-white px-4 py-2 my-2 rounded-md'
+                        placeholder='Email' />
+                    {errors.email && <p className='text-red-500'>Email is required</p>}
 
-            <p className='flex gap-x-2 justify-between'>
-                Already have an account? {" "} <Link to="/login" className='text-sky-500'>Login</Link>
-            </p>
+                    <input type='password' {...register("password", { required: true })}
+                        className='w-full bg-zinc-700 text-white px-4 py-2 my-2 rounded-md'
+                        placeholder='Password' />
+                    {errors.password && <p className='text-red-500'>Password is required</p>}
 
+                    <button type='submit'>Register</button>
+
+                </form>
+
+                <p className='flex gap-x-2 justify-between'>
+                    Already have an account? {" "} <Link to="/login" className='text-sky-500'>Login</Link>
+                </p>
+
+            </div>
         </div>
     );
 }
