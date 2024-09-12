@@ -5,43 +5,57 @@ function NavBar() {
   const { isAuthenticated, logout, user } = useAuth();
 
   return (
-    <nav className="bg-zinc-700 my-3 flex justify-between py-5 px-10 rounded-lg items-center">
-      <Link to="/">
-        <h1 className="text-2xl font-bold">Task Manager</h1>
-      </Link>
-      <ul className="flex gap-x-3">
-        {isAuthenticated ? (
-          <>
-            <li className="text-xl font bold">
-              Welcome {user.username} !
-            </li>
-            <li>
-              <Link to='/add-task'
-              className="bg-green-950 px-4 py-1 rounded-sm"
-              >Add Task</Link>
-            </li>
-            <li>
-              <Link to='/' onClick={() => logout()}
-              className="bg-red-700 px-4 py-1 rounded-sm"
-              >logout</Link>
-            </li>
-
-          </>
-        ) : (
-          <>
-            <li>
-              <Link to='/login'
-              className="bg-green-950 px-4 py-1 rounded-sm"
-              >Login</Link>
-            </li>
-            <li>
-              <Link to='/register'
-              className="bg-green-950 px-4 py-1 rounded-sm"
-              >Register</Link>
-            </li>
-          </>
-        )}
-      </ul>
+    <nav className="bg-zinc-600 fixed top-0 left-1/2 transform -translate-x-1/2 w-full py-4 px-5 lg:px-10 z-50 my-1 rounded-lg">
+      <div className="container mx-auto flex justify-between items-center">
+        <Link to={isAuthenticated ? "/tasks" : "/"} className="hidden md:block">
+          <h1 className="text-xl sm:text-2xl font-bold">PPI - Task Manager</h1>
+        </Link>
+        <ul className="flex flex-wrap gap-x-3 gap-y-2 md:gap-y-0 items-center">
+          {isAuthenticated ? (
+            <>
+              <li className="text-sm sm:text-lg md:text-xl font-bold text-black">
+                Account: - {user.username} -
+              </li>
+              <li>
+                <Link
+                  to="/add-task"
+                  className="bg-green-900 px-3 py-1 sm:px-4 sm:py-1 rounded-sm text-sm sm:text-base"
+                >
+                  Add Task
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/"
+                  onClick={() => logout()}
+                  className="bg-red-700 px-3 py-1 sm:px-4 sm:py-1 rounded-sm text-sm sm:text-base"
+                >
+                  Logout
+                </Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link
+                  to="/login"
+                  className="bg-green-900 px-3 py-1 sm:px-4 sm:py-1 rounded-sm text-sm sm:text-base"
+                >
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/register"
+                  className="bg-green-900 px-3 py-1 sm:px-4 sm:py-1 rounded-sm text-sm sm:text-base"
+                >
+                  Register
+                </Link>
+              </li>
+            </>
+          )}
+        </ul>
+      </div>
     </nav>
   );
 }

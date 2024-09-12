@@ -28,7 +28,7 @@ function LoginPage() {
                         </div>
                     ))
                 }
-                <h1 className='text-2xl font-bold'>Login</h1>
+                <h1 className='text-xl font-bold'>Login</h1>
 
                 <form
                     onSubmit={onSubmit}>
@@ -48,7 +48,9 @@ function LoginPage() {
                         placeholder='Password' />
                     {errors.password && <p className='text-red-500'>Password is required</p>}
 
-                    <button type='submit'>Login</button>
+                    <button type='submit'
+                    className='bg-sky-800 px-4 py-1 my-3 rounded-sm'
+                    >Login</button>
 
                 </form>
 
