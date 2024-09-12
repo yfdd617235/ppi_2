@@ -10,8 +10,7 @@ dayjs.extend(timezone)
 function TaskCard({ task }) {
 
     const { deleteTask } = useTasks();
-    console.log(task)
-
+    // console.log(task)
     return (
         <div className="bg-zinc-800 max-w-md w-full p-4 rounded-md flex flex-col justify-between">
             <header className="flex justify-between">
