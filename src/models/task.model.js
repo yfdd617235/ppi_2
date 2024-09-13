@@ -17,7 +17,12 @@ const taskSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
-    } // Esto es para que cada tarea sea guardada con el usuario específico que la creó
+    }, // Esto es para que cada tarea sea guardada con el usuario específico que la creó
+    file: {  // Agregamos el campo para el archivo
+        type: String,
+        required: false, // No es obligatorio
+    }
+
 }, {
     timestamps: true
 });
