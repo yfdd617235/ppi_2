@@ -1,4 +1,5 @@
 import Task from '../models/task.model.js'
+import fs from 'fs'
 
 export const getTasks = async (req, res) => {
     try {
@@ -15,14 +16,31 @@ export const createTask = async (req, res) => {
     try {
         const { title, description, date } = req.body;
 
+        const file = req.file;
+        console.log("File received:", file)
+
         const newTask = new Task({
             title,
             description,
             date,
-            user: req.user.id
+            user: req.user.id,
+            file: file ? file.filename : null
         });
+
+        function renamefile(file) {
+            if (!file) return null;
+            const newPath = `./uploads\\${file.originalname}`;
+            fs.renameSync(file.path, newPath)
+            return newPath
+        }
+
+        if (file) {
+            newTask.file = renamefile(file); // Guarda la nueva ruta del archivo renombrado
+        }
+
         const savedTask = await newTask.save();
         res.json(savedTask);
+        console.log(savedTask)
     } catch (error) {
         return res.status(500).json({ message: "Something went wrong" })
     }
