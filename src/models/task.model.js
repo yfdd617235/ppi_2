@@ -20,7 +20,7 @@ const taskSchema = new mongoose.Schema({
     }, // Esto es para que cada tarea sea guardada con el usuario específico que la creó
     file: {  // Agregamos el campo para el archivo
         type: String,
-        required: false, // No es obligatorio
+        required: true, // es obligatorio
     }
 
 }, {
