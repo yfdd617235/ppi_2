@@ -31,13 +31,13 @@ console.log(__dirname)
 // console.log('Serving files from:', path.join(__dirname, '../uploads'));
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
-// // Configuración para servir el frontend (en producción)
-// app.use(express.static(path.join(__dirname, '../client/build')));
+// Configuración para servir el frontend (en producción)
+app.use(express.static(path.join(__dirname, '../client/build')));
 
-// // Manejar cualquier ruta no capturada por las rutas de la API, sirviendo el archivo index.html
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
-// });
+// Manejar cualquier ruta no capturada por las rutas de la API, sirviendo el archivo index.html
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+});
 
 
 export default app;
