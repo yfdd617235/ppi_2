@@ -17,7 +17,8 @@ function TaskCard({ task }) {
     // const fileUrl = `${process.env.REACT_APP_API_BASE_URL}/uploads/${task.file}`;
 
     return (
-        <div className="bg-zinc-800 max-w-md w-full p-4 rounded-md flex flex-col justify-between">
+        <div className="bg-zinc-900 max-w-md w-full p-4 rounded-md flex flex-col justify-between">
+            {/* <div className=" max-w-md w-full p-4 rounded-md flex flex-col justify-between border-2 border-zinc-800"> */}
             <header className="flex justify-between">
                 <h1 className="text-xl font-bold break-words">{task.title}</h1>
                 <div className="flex gap-x-2 items-center">

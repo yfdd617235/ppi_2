@@ -21,7 +21,7 @@ function RegisterPage() {
     return (
 
         <div className='flex h-[calc(100vh-100px)] items-center justify-center'>
-            <div className='bg-zinc-800 max-w-md p-10 rounded-md'>
+            <div className='bg-zinc-900 max-w-md p-10 rounded-md'>
                 {
                     registerErrors.map((error, i) => (
                         <div className='bg-red-500 p-2 text-white text-center my-2' key={i}>
