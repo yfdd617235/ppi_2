@@ -5,5 +5,5 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   // base: 'https://yfdd617235.github.io/ppi_2/', // Ruta base relativa
-  base: '/ppi_2', // Ruta base relativa
+  base: '/ppi_2/', // Ruta base relativa
 });
