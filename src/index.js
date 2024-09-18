@@ -1,12 +1,12 @@
-import app from './app.js'
-import { connectDB } from './db.js'
+import app from './app.js';
+import { connectDB } from './db.js';
 
-
-app.get('/', (req, res) => {
-    res.send('Welcome to the API');
-  });
-
+// Conectar a la base de datos
 connectDB();
-app.listen(3000, ()=>{
-    console.log('>>> Server on port', 3000)
+
+// Utiliza el puerto que asigna Render o, en su defecto, el puerto 3000 para desarrollo local
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log('>>> Server on port', PORT);
 });
