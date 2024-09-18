@@ -48,7 +48,7 @@ function RegisterPage() {
                     {errors.password && <p className='text-red-500'>Password is required</p>}
 
                     <button type='submit'
-                    className='bg-sky-800 px-4 py-1 my-3 rounded-sm'
+                    className='bg-sky-800 px-3 py-1 my-3 rounded-sm'
                     >Register</button>
 
                 </form>
