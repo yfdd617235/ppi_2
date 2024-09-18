@@ -3,6 +3,9 @@ import { useTasks } from "../context/TasksContext";
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
+import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid';
+
+
 
 
 dayjs.extend(utc);
@@ -17,20 +20,22 @@ function TaskCard({ task }) {
     // const fileUrl = `${process.env.REACT_APP_API_BASE_URL}/uploads/${task.file}`;
 
     return (
-        <div className="bg-black max-w-md w-full p-4 rounded-md flex flex-col justify-between border-2 border-zinc-700">
+        <div className=" max-w-md w-full p-4 rounded-md flex flex-col justify-between border border-zinc-500">
             {/* <div className=" max-w-md w-full p-4 rounded-md flex flex-col justify-between border-2 border-zinc-800"> */}
             <header className="flex justify-between">
-                <p className="text-zinc-400 break-words">#: {task.projectId}</p>
+                <p className="text-zinc-600 break-words">#: {task.projectId}</p>
                 <div className="flex gap-x-2 items-center">
-                    <button className="text-red-500"
-                        onClick={() => { deleteTask(task._id); }}>Delete</button>
-                    <Link className="text-yellow-500"
-                        to={`/tasks/${task._id}`}>Edit</Link>
+                <Link className="text-zinc-400" to={`/tasks/${task._id}`}>
+                        <PencilIcon className="h-3 w-5" />
+                    </Link>
+                    <button className="text-zinc-400" onClick={() => { deleteTask(task._id); }}>
+                        <TrashIcon className="h-4 w-4" />
+                    </button>
                 </div>
             </header>
-            <h1 className="text-xl font-bold break-words">{task.title}</h1>
+            <h1 className="text-lg font-bold break-words">{task.title}</h1>
             <p className="text-zinc-400 break-words whitespace-normal">{task.description}</p>
-            <a href={fileUrl} className="text-blue-500" target="_blank" rel="noopener noreferrer">
+            <a href={fileUrl} className="text-sky-500" target="_blank" rel="noopener noreferrer">
                 Open File
             </a>
 
