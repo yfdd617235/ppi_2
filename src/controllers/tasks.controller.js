@@ -30,42 +30,85 @@ function renamefile(file) {
 }
 
 
+// export const getTasks = async (req, res) => {
+//     try {
+//         const tasks = await Task.find({
+//             user: req.user.id
+//         }).populate('user') // trae los datos del usuario junto con las tareas
+//         res.json(tasks)
+//     } catch (error) {
+//         return res.status(500).json({ message: "Something went wrong" })
+//     }
+// }
 export const getTasks = async (req, res) => {
+    const { projectId } = req.query;  // Obtenemos `projectId` de los parámetros de consulta
     try {
-        const tasks = await Task.find({
-            user: req.user.id
-        }).populate('user') // trae los datos del usuario junto con las tareas
-        res.json(tasks)
-    } catch (error) {
-        return res.status(500).json({ message: "Something went wrong" })
-    }
-}
+        const query = { user: req.user.id };
+        if (projectId) {
+            query.projectId = projectId;  // Añadimos `projectId` al filtro si está presente
+        }
 
+        const tasks = await Task.find(query).populate('user');
+        res.json(tasks);
+    } catch (error) {
+        return res.status(500).json({ message: "Something went wrong" });
+    }
+};
+
+
+// export const createTask = async (req, res) => {
+//     try {
+//         const { title, description, date } = req.body;
+//         const file = req.file;
+//         console.log("File received:", file)
+
+//         const newTask = new Task({
+//             title,
+//             description,
+//             date,
+//             user: req.user.id,
+//             file: file ? file.filename : null
+//         });
+
+//         if (file) {
+//             newTask.file = renamefile(file); // Guarda la nueva ruta del archivo renombrado
+//         }
+
+//         const savedTask = await newTask.save();
+//         res.json(savedTask);
+//         console.log(savedTask)
+//     } catch (error) {
+//         return res.status(500).json({ message: "Something went wrong" })
+//     }
+// };
 export const createTask = async (req, res) => {
     try {
-        const { title, description, date } = req.body;
+        const { title, description, date, projectId } = req.body; // Asegúrate de que `projectId` venga en el cuerpo de la solicitud
         const file = req.file;
-        console.log("File received:", file)
+
+        console.log("File received:", file);
 
         const newTask = new Task({
+            projectId,  // Asigna el `projectId` al crear la tarea
             title,
             description,
             date,
-            user: req.user.id,
+            user: req.user.id,  // Se asocia la tarea con el usuario que la creó
             file: file ? file.filename : null
         });
 
         if (file) {
-            newTask.file = renamefile(file); // Guarda la nueva ruta del archivo renombrado
+            newTask.file = renamefile(file);  // Renombra y guarda la ruta del archivo
         }
 
         const savedTask = await newTask.save();
         res.json(savedTask);
-        console.log(savedTask)
+        console.log(savedTask);
     } catch (error) {
-        return res.status(500).json({ message: "Something went wrong" })
+        return res.status(500).json({ message: "Something went wrong" });
     }
 };
+
 
 export const getTask = async (req, res) => {
     try {
@@ -97,38 +140,70 @@ export const deleteTask = async (req, res) => {
 }
 
 
+// export const updateTask = async (req, res) => {
+//     try {
+//         // Primero obtenemos la tarea existente
+//         const existingTask = await Task.findById(req.params.id);
+//         if (!existingTask) return res.status(404).json({ message: 'Task not found' });
+
+//         const { title, description, date } = req.body;
+//         const file = req.file;
+
+//         // Preparamos los datos para la actualización
+//         const updateData = { title, description, date };
+
+//         // Si hay un nuevo archivo
+//         if (file) {
+//             // Elimina el archivo anterior si existe
+//             if (existingTask.file) {
+//                 const oldFilePath = path.join('.', 'uploads', existingTask.file);
+//                 if (fs.existsSync(oldFilePath)) {
+//                     fs.unlinkSync(oldFilePath); // Elimina el archivo antiguo
+//                 }
+//             }
+
+//             // Renombra el nuevo archivo y lo asigna a la tarea
+//             updateData.file = renamefile(file);
+//         } else {
+//             // Si no hay archivo nuevo, mantenemos el archivo anterior
+//             updateData.file = existingTask.file;
+//         }
+
+//         // Actualiza la tarea con los datos nuevos
+//         const updatedTask = await Task.findByIdAndUpdate(req.params.id, updateData, {
+//             new: true, // Devuelve la nueva tarea actualizada
+//         });
+
+//         res.json(updatedTask);
+//     } catch (error) {
+//         console.error("Error updating task:", error);
+//         return res.status(500).json({ message: "Something went wrong" });
+//     }
+// };
 export const updateTask = async (req, res) => {
     try {
-        // Primero obtenemos la tarea existente
         const existingTask = await Task.findById(req.params.id);
         if (!existingTask) return res.status(404).json({ message: 'Task not found' });
 
-        const { title, description, date } = req.body;
+        const { title, description, date, projectId } = req.body;
         const file = req.file;
 
-        // Preparamos los datos para la actualización
-        const updateData = { title, description, date };
+        const updateData = { title, description, date, projectId };  // Añadimos `projectId` a los datos actualizados
 
-        // Si hay un nuevo archivo
         if (file) {
-            // Elimina el archivo anterior si existe
             if (existingTask.file) {
                 const oldFilePath = path.join('.', 'uploads', existingTask.file);
                 if (fs.existsSync(oldFilePath)) {
-                    fs.unlinkSync(oldFilePath); // Elimina el archivo antiguo
+                    fs.unlinkSync(oldFilePath);
                 }
             }
-
-            // Renombra el nuevo archivo y lo asigna a la tarea
             updateData.file = renamefile(file);
         } else {
-            // Si no hay archivo nuevo, mantenemos el archivo anterior
             updateData.file = existingTask.file;
         }
 
-        // Actualiza la tarea con los datos nuevos
         const updatedTask = await Task.findByIdAndUpdate(req.params.id, updateData, {
-            new: true, // Devuelve la nueva tarea actualizada
+            new: true,
         });
 
         res.json(updatedTask);

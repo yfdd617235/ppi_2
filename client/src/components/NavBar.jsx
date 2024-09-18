@@ -5,7 +5,7 @@ function NavBar() {
   const { isAuthenticated, logout, user } = useAuth();
 
   return (
-    <nav className="bg-zinc-900 fixed top-0 left-1/2 transform -translate-x-1/2 w-full py-0 px-5 lg:px-10 z-50">
+    <nav className="bg-black fixed top-0 left-1/2 transform -translate-x-1/2 w-full py-0 px-5 lg:px-10 z-50 border-2 border-zinc-700">
       {/* <nav className="bg-black fixed top-0 left-1/2 transform -translate-x-1/2 w-full py-0 px-5 lg:px-10 z-50 border-2 border-zinc-800"> */}
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">

@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const taskSchema = new mongoose.Schema({
+    projectId: {
+        type: String,
+        required: true,  // El campo projectId es obligatorio para asociar la tarea con un proyecto
+    },
     title: {
         type: String,
         required: true,
@@ -16,13 +20,12 @@ const taskSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true
-    }, // Esto es para que cada tarea sea guardada con el usuario específico que la creó
-    file: {  // Agregamos el campo para el archivo
+        required: true,  // Esto es para que cada tarea esté vinculada con el usuario que la creó
+    },
+    file: {  
         type: String,
-        required: true, // es obligatorio
+        required: true,  // Se mantiene el campo para el archivo como obligatorio
     }
-
 }, {
     timestamps: true
 });

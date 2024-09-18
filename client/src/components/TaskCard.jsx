@@ -17,10 +17,10 @@ function TaskCard({ task }) {
     // const fileUrl = `${process.env.REACT_APP_API_BASE_URL}/uploads/${task.file}`;
 
     return (
-        <div className="bg-zinc-900 max-w-md w-full p-4 rounded-md flex flex-col justify-between">
+        <div className="bg-black max-w-md w-full p-4 rounded-md flex flex-col justify-between border-2 border-zinc-700">
             {/* <div className=" max-w-md w-full p-4 rounded-md flex flex-col justify-between border-2 border-zinc-800"> */}
             <header className="flex justify-between">
-                <h1 className="text-xl font-bold break-words">{task.title}</h1>
+                <p className="text-zinc-400 break-words">#: {task.projectId}</p>
                 <div className="flex gap-x-2 items-center">
                     <button className="text-red-500"
                         onClick={() => { deleteTask(task._id); }}>Delete</button>
@@ -28,7 +28,7 @@ function TaskCard({ task }) {
                         to={`/tasks/${task._id}`}>Edit</Link>
                 </div>
             </header>
-
+            <h1 className="text-xl font-bold break-words">{task.title}</h1>
             <p className="text-zinc-400 break-words whitespace-normal">{task.description}</p>
             <a href={fileUrl} className="text-blue-500" target="_blank" rel="noopener noreferrer">
                 Open File
