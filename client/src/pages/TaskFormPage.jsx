@@ -15,6 +15,7 @@ function TaskFormPage() {
   const navigate = useNavigate();
   const params = useParams();
   const [selectedProject, setSelectedProject] = useState('');
+  const [loading, setLoading] = useState(false); // Estado de loading
 
   useEffect(() => {
     async function loadTask() {
@@ -29,7 +30,9 @@ function TaskFormPage() {
     loadTask();
   }, [params.id, setValue]);
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit(async (data) => {
+    setLoading(true); // Iniciar el estado de loading cuando el formulario se envíe
+
     // Creamos FormData
     const formData = new FormData();
 
@@ -44,13 +47,18 @@ function TaskFormPage() {
       formData.append('file', data.file[0]);
     }
 
-    if (params.id) {
-      updateTask(params.id, formData);
-    } else {
-      createTask(formData);
+    try {
+      if (params.id) {
+        await updateTask(params.id, formData);
+      } else {
+        await createTask(formData);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      setLoading(false); // Detener el estado de loading después de que la tarea se haya creado o actualizado
+      navigate('/tasks');
     }
-
-    navigate('/tasks');
   });
 
   return (
@@ -93,10 +101,16 @@ function TaskFormPage() {
           </select>
 
           <div className='flex justify-between'>
-            <button className='bg-sky-800 px-3 py-1 rounded-sm'>
-              Save
+            <button 
+              type='submit'
+              className='bg-sky-800 px-3 py-1 rounded-sm'
+            >
+              {loading ? "Saving..." : "Save"} {/* Muestra "loading" mientras se guarda */}
             </button>
-            <Link to="/tasks" className='bg-red-700 px-3 py-1 rounded-sm text-white'>
+            <Link 
+              to="/tasks"
+              className='bg-red-700 px-3 py-1 rounded-sm text-white'
+            >
               Cancel
             </Link>
           </div>
