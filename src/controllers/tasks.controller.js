@@ -46,7 +46,7 @@ export const getTasks = async (req, res) => {
 
 export const createTask = async (req, res) => {
     try {
-        const { title, description, date, projectId } = req.body; // Asegúrate de que `projectId` venga en el cuerpo de la solicitud
+        const { title, description, date, projectId, status } = req.body; // Asegúrate de que `projectId` venga en el cuerpo de la solicitud
         const file = req.file;
 
         console.log("File received:", file);
@@ -57,7 +57,8 @@ export const createTask = async (req, res) => {
             description,
             date,
             user: req.user.id,  // Se asocia la tarea con el usuario que la creó
-            file: file ? file.filename : null
+            file: file ? file.filename : null,
+            status
         });
 
         if (file) {

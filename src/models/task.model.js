@@ -25,6 +25,10 @@ const taskSchema = new mongoose.Schema({
     file: {  
         type: String,
         required: true,  // Se mantiene el campo para el archivo como obligatorio
+    },
+    status: {
+        type: String,
+        default: "Sent",  // Campo status con valor predeterminado "Sent"
     }
 }, {
     timestamps: true
