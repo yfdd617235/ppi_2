@@ -18,7 +18,7 @@ const app = express();
 app.use(cors({
     // origin: 'http://localhost:5173',
     origin: ['https://yfdd617235.github.io', 'http://localhost:5173'],
-    credentials: true
+    credentials: true,
 }));
 app.use(morgan('dev'));
 app.use(express.json());
