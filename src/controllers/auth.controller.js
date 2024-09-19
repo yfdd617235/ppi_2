@@ -23,7 +23,12 @@ export const register = async (req, res) => {
         const userSaved = await newUser.save(); //Save the new user created
         const token = await createAccessToken({ id: userSaved._id })
 
-        res.cookie('token', token);
+        // res.cookie('token', token);
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production', // true en producción
+            sameSite: 'None', // Necesario para permitir cookies cross-origin
+        });
         res.json({
             id: userSaved._id,
             username: userSaved.username,
@@ -76,10 +81,19 @@ export const login = async (req, res) => {
 
 };
 
+// export const logout = (req, res) => {
+//     res.cookie('token', "", {
+//         expires: new Date(0)
+//     })
+//     return res.sendStatus(200);
+// };
 export const logout = (req, res) => {
     res.cookie('token', "", {
-        expires: new Date(0)
-    })
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production', // true en producción
+        sameSite: 'None', // Necesario para permitir cookies cross-origin
+        expires: new Date(0), // Expira inmediatamente para eliminar la cookie
+    });
     return res.sendStatus(200);
 };
 
