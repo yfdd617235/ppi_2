@@ -14,7 +14,8 @@ function App() {
   return (
     <AuthProvider>
       <TaskProvider>
-        <BrowserRouter basename="/ppi_2">
+        <BrowserRouter>
+        {/* <BrowserRouter basename="/ppi_2"> */}
         <main className="container mx-auto px-3 lg:px-25 pt-20 pb-20">
         <NavBar/>
           <Routes>
