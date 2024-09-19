@@ -44,8 +44,14 @@ function TaskCard({ task }) {
                 <p className="break-words whitespace-normal">Created: {dayjs(task.createdAt).tz("America/Bogota").format("DD/MMM/YYYY hh:mm:ss A")}</p>
                 <p className="break-words whitespace-normal">Updated: {dayjs(task.updatedAt).tz("America/Bogota").format("DD/MMM/YYYY hh:mm:ss A")}</p>
             </div>
-            <div className="text-xs text-zinc-600">
-                <p>{task.status}</p>
+            <div className="text-xs mt-2 flex justify-end">
+                <p className={`
+                    ${task.status === "Sent" ? "text-zinc-400" : ""} 
+                    ${task.status === "Rejected" ? "text-red-700" : ""} 
+                    ${task.status === "Accepted" ? "text-green-600" : ""}`}
+                >
+                    {task.status}
+                </p>
             </div>
         </div>
     );
