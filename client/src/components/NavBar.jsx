@@ -18,7 +18,7 @@ function NavBar() {
             />
           </div>
           <Link to={isAuthenticated ? "/tasks" : "/"} className="hidden md:block">
-            <h1 className="text-xl sm:text-xl font-bold">Task Manager</h1>
+            <h1 className="font-bold">Task Manager</h1>
           </Link>
         </div>
 
