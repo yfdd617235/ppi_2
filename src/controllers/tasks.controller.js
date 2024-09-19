@@ -108,10 +108,10 @@ export const updateTask = async (req, res) => {
         const existingTask = await Task.findById(req.params.id);
         if (!existingTask) return res.status(404).json({ message: 'Task not found' });
 
-        const { title, description, date, projectId } = req.body;
+        const { title, description, date, projectId, status } = req.body;
         const file = req.file;
 
-        const updateData = { title, description, date, projectId };  // Añadimos `projectId` a los datos actualizados
+        const updateData = { title, description, date, projectId, status };  // Añadimos `projectId` a los datos actualizados
 
         if (file) {
             if (existingTask.file) {
