@@ -13,5 +13,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // Esto asegura que las rutas sean relativas al dominio personalizado
+  base: 'https://panamericanprivateinvestments.com/', //Dominio personalizado
 });
