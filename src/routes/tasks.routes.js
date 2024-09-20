@@ -3,7 +3,7 @@ import { authRequired } from "../middlewares/validateToken.js";
 import { createTask, getTask, getTasks, updateTask, deleteTask } from '../controllers/tasks.controller.js';
 import { validateSchema } from "../middlewares/validator.middleware.js";
 import { createTaskSchema } from "../schemas/tasks.schema.js";
-import { upload } from "../middlewares/multermuddleware.js";
+import { upload } from "../middlewares/multermiddleware.js";
 
 const router = Router();
 
