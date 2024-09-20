@@ -51,23 +51,28 @@ export const getTasks = async (req, res) => {
     try {
         let query = {};
 
-        // Si existe un projectId, lo añadimos al filtro
-        if (projectId) {
-            query.projectId = projectId;
-        }
-
         // Si el usuario no es admin, filtramos por userId
         if (req.user.email !== 'admin@gmail.com') {
             query.user = req.user.id;
         }
 
+        // Si existe un projectId, lo añadimos al filtro
+        if (projectId) {
+            query.projectId = projectId;
+        }
+
+        // Imprime la consulta para verificar su contenido
+        console.log("Query:", query);
+
         // Busca las tareas con la query definida
         const tasks = await Task.find(query).populate('user');
         res.json(tasks);
     } catch (error) {
+        console.error("Error retrieving tasks:", error);
         return res.status(500).json({ message: "Something went wrong" });
     }
 };
+
 
 
 
