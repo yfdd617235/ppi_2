@@ -29,20 +29,43 @@ function renamefile(file) {
     }
 }
 
+// export const getTasks = async (req, res) => {
+//     const { projectId } = req.query;  // Obtenemos `projectId` de los parámetros de consulta
+//     try {
+//         const query = { user: req.user.id };
+//         if (projectId) {
+//             query.projectId = projectId;  // Añadimos `projectId` al filtro si está presente
+//         }
+
+//         const tasks = await Task.find(query).populate('user');
+//         res.json(tasks);
+//     } catch (error) {
+//         return res.status(500).json({ message: "Something went wrong" });
+//     }
+// };
 export const getTasks = async (req, res) => {
     const { projectId } = req.query;  // Obtenemos `projectId` de los parámetros de consulta
     try {
-        const query = { user: req.user.id };
-        if (projectId) {
-            query.projectId = projectId;  // Añadimos `projectId` al filtro si está presente
+        let query = {};
+
+        // Si el usuario no es admin, filtramos por userId
+        if (req.user.email !== 'admin@gmail.com') {
+            query.user = req.user.id;
         }
 
+        // Si existe un projectId, lo añadimos al filtro
+        if (projectId) {
+            query.projectId = projectId;
+        }
+
+        // Busca las tareas con la query definida
         const tasks = await Task.find(query).populate('user');
         res.json(tasks);
     } catch (error) {
         return res.status(500).json({ message: "Something went wrong" });
     }
 };
+
 
 export const createTask = async (req, res) => {
     try {
