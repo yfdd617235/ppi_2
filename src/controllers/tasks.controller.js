@@ -32,7 +32,8 @@ function renamefile(file) {
 export const getTasks = async (req, res) => {
     const { projectId } = req.query;  // Obtenemos `projectId` de los parámetros de consulta
     try {
-        const query = { user: req.user.id };
+        // const query = { user: req.user.id };
+        const query = { };
         if (projectId) {
             query.projectId = projectId;  // Añadimos `projectId` al filtro si está presente
         }
