@@ -31,7 +31,7 @@ function NavBar() {
               <li>
                 <Link
                   to="/add-task"
-                  className="bg-green-950 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-500"
+                  className="bg-green-950 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
                 >
                   Add Task
                 </Link>
@@ -40,7 +40,7 @@ function NavBar() {
                 <Link
                   to="/"
                   onClick={() => logout()}
-                  className="px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-500"
+                  className="px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
                 >
                   Logout
                 </Link>
@@ -51,7 +51,7 @@ function NavBar() {
               <li>
                 <Link
                   to="/login"
-                  className="bg-green-950 px-2 py-1 sm:px-3 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-500"
+                  className="bg-green-950 px-2 py-1 sm:px-3 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
                 >
                   Login
                 </Link>
@@ -59,7 +59,7 @@ function NavBar() {
               <li>
                 <Link
                   to="/register"
-                  className=" px-2 py-1 sm:px-3 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-500"
+                  className=" px-2 py-1 sm:px-3 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
                 >
                   Register
                 </Link>
