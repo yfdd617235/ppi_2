@@ -92,15 +92,15 @@ function TaskCard({ task }) {
                 </div>
             </header>
             <h1 className="text-lg font-bold break-words">{task.title}</h1>
-            <p className="text-zinc-400 break-words whitespace-normal">{task.description}{task.file}</p>
+            <p className="text-zinc-400 break-words whitespace-normal">{task.description}</p>
 
             {task.file && (
-                // <a href={task.file} className="text-sky-500" target="blank" rel="noopener noreferrer">
-                //     Open File
-                // </a>
-                <a href={task.file} className="text-sky-500" target="blanck" download>
-                Download File
-            </a>
+                <div className="flex items-center gap-2">
+                    <a href={task.file} className="text-sky-500" target="_blank" rel="noopener noreferrer" download>
+                        Download File
+                    </a>
+                    <span className="text-xs text-zinc-500">{task.file}</span>
+                </div>
             )}
 
             <div className="text-xs text-zinc-600">
