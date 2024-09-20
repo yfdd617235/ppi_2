@@ -44,21 +44,21 @@ function renamefile(file) {
 //     }
 // };
 export const getTasks = async (req, res) => {
-    console.log("userdata",req.user);
-    console.log("user.email",req.user.email);
-    
+    console.log("userdata", req.user);
+    console.log("user.email", req.user.email);
+
     const { projectId } = req.query;  // Obtenemos `projectId` de los parámetros de consulta
     try {
         let query = {};
 
-        // Si el usuario no es admin, filtramos por userId
-        if (req.user.email !== 'admin@gmail.com') {
-            query.user = req.user.id;
-        }
-
         // Si existe un projectId, lo añadimos al filtro
         if (projectId) {
             query.projectId = projectId;
+        }
+
+        // Si el usuario no es admin, filtramos por userId
+        if (req.user.email !== 'admin@gmail.com') {
+            query.user = req.user.id;
         }
 
         // Busca las tareas con la query definida
@@ -68,6 +68,7 @@ export const getTasks = async (req, res) => {
         return res.status(500).json({ message: "Something went wrong" });
     }
 };
+
 
 
 export const createTask = async (req, res) => {
