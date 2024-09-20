@@ -29,50 +29,17 @@ function renamefile(file) {
     }
 }
 
-// export const getTasks = async (req, res) => {
-//     const { projectId } = req.query;  // Obtenemos `projectId` de los parámetros de consulta
-//     try {
-//         const query = { user: req.user.id };
-//         if (projectId) {
-//             query.projectId = projectId;  // Añadimos `projectId` al filtro si está presente
-//         }
-
-//         const tasks = await Task.find(query).populate('user');
-//         res.json(tasks);
-//     } catch (error) {
-//         return res.status(500).json({ message: "Something went wrong" });
-//     }
-// };
 export const getTasks = async (req, res) => {
-   
     const { projectId } = req.query;  // Obtenemos `projectId` de los parámetros de consulta
     try {
-        let query = {}; 
-
-        // Verifica el correo del usuario
-        console.log("Verificando si el usuario es admin...");
-        if (req.user.email !== 'admin@gmail.com') {
-            console.log("El usuario no es admin. Aplicando filtro por userId.");
-            query.user = req.user.id;
-        } else {
-            console.log("El usuario es admin. No se aplica filtro por userId.");
-        }
-
-        // Si existe un projectId, lo añadimos al filtro
+        const query = { user: req.user.id };
         if (projectId) {
-            console.log("Aplicando filtro por projectId:", projectId);
-            query.projectId = projectId;
+            query.projectId = projectId;  // Añadimos `projectId` al filtro si está presente
         }
 
-        // Imprime la consulta para verificar su contenido
-        console.log("Consulta final:", query);
-
-        // Busca las tareas con la query definida
         const tasks = await Task.find(query).populate('user');
-        console.log("Tareas encontradas:", tasks); // Imprime las tareas encontradas
         res.json(tasks);
     } catch (error) {
-        console.error("Error retrieving tasks:", error);
         return res.status(500).json({ message: "Something went wrong" });
     }
 };
