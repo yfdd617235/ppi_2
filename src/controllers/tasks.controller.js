@@ -49,7 +49,7 @@ export const getTasks = async (req, res) => {
 
     const { projectId } = req.query;  // Obtenemos `projectId` de los parámetros de consulta
     try {
-        let query = {};
+        let query = {}; 
 
         // Si el usuario no es admin, filtramos por userId
         // if (req.user.email !== 'admin@gmail.com') {
