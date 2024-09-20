@@ -52,9 +52,9 @@ export const getTasks = async (req, res) => {
         let query = {};
 
         // Si el usuario no es admin, filtramos por userId
-        if (req.user.email !== 'admin@gmail.com') {
-            query.user = req.user.id;
-        }
+        // if (req.user.email !== 'admin@gmail.com') {
+        //     query.user = req.user.id;
+        // }
 
         // Si existe un projectId, lo añadimos al filtro
         if (projectId) {
