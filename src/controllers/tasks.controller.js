@@ -44,6 +44,7 @@ function renamefile(file) {
 //     }
 // };
 export const getTasks = async (req, res) => {
+    console.log("userdata",req.user);
     const { projectId } = req.query;  // Obtenemos `projectId` de los parámetros de consulta
     try {
         let query = {};
