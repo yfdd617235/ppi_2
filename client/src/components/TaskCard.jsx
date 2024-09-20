@@ -98,7 +98,7 @@ function TaskCard({ task }) {
                 // <a href={task.file} className="text-sky-500" target="blank" rel="noopener noreferrer">
                 //     Open File
                 // </a>
-                <a href={task.file} className="text-sky-500" download>
+                <a href={task.file} className="text-sky-500" target="blanck" download>
                 Download File
             </a>
             )}
