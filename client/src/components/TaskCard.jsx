@@ -95,7 +95,7 @@ function TaskCard({ task }) {
             <p className="text-zinc-400 break-words whitespace-normal">{task.description}</p>
 
             {task.file && (
-                <a href={task.file} className="text-sky-500" rel="noopener noreferrer">
+                <a href={task.file} className="text-sky-500" target="blank" rel="noopener noreferrer">
                     Open File
                 </a>
             )}
