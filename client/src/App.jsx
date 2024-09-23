@@ -17,7 +17,7 @@ function App() {
       <TaskProvider>
         <Router> {/* Cambiado a HashRouter */}
           {/* <main className="container mx-auto px-3 lg:px-25 pt-20 pb-20"> */}
-          <main className=" mx-auto pt-20">
+          <main className=" mx-auto">
             <NavBar/>
             <Routes>
               <Route path="/" element={<HomePage />} />

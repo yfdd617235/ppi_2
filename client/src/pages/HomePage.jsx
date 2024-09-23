@@ -3,7 +3,7 @@ import { EnvelopeIcon } from "@heroicons/react/24/solid"
 
 const LandingPage = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col pt-10">
       {/* Jumbotron Section */}
       <div
         className="h-screen w-full bg-repeat bg-center flex justify-center items-center"
@@ -103,7 +103,6 @@ const LandingPage = () => {
             <div className="flex items-center justify-center">
               <div className="flex flex-col space-y-2 text-left">
                 <h5 className="text-xs md:text-sm lg:text-lg font-semibold">Services</h5>
-                <br />
                 <p className="text-xs md:text-sm lg:text-base">- Trading and financial investments</p>
                 <p className="text-xs md:text-sm lg:text-base">- Project evaluation, structuring and management</p>
                 <p className="text-xs md:text-sm lg:text-base">- International business consulting</p>
@@ -113,7 +112,7 @@ const LandingPage = () => {
             <div className="flex items-center justify-center">
               <div className="flex flex-col space-y-2 text-left">
                 <h5 className="text-xs md:text-sm lg:text-lg font-semibold">Contact Us</h5>
-                <br />
+                
                 <p className="text-xs md:text-sm lg:text-base">
                   Address: Cra 42 C #3 Sur 81, Torre 1, Piso 15, CE Milla de Oro <br />
                   Medellín Colombia

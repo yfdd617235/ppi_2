@@ -22,7 +22,7 @@ function LoginPage() {
   }, [isAuthenticated, navigate]);
 
   return (
-    <div className='flex h-[calc(100vh-100px)] items-center justify-center'>
+    <div className='m-3 flex h-[calc(100vh-100px)] items-center justify-center'>
       <div className='max-w-md w-full p-10 rounded-md border border-zinc-500'>
         {
           signinErrors.map((error, i) => (

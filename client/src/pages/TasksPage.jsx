@@ -34,7 +34,7 @@ function TasksPage() {
 
   return (
 
-    <div className=" mx-6 lg:mx-28">
+    <div className=" mx-6 lg:mx-28 pt-20">
       {/* Menú desplegable para seleccionar el proyecto */}
       <select
         value={selectedProject}
