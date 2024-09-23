@@ -39,7 +39,7 @@ export const createTask = async (req, res) => {
             title,
             description,
             date,
-            user: userId,
+            user: req.user.id,
             username,  // Guardamos el nombre de usuario
             email,     // Guardamos el email
             file: fileUrl,  // Guardamos la URL del archivo

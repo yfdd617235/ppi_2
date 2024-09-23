@@ -29,7 +29,7 @@ function TaskTable() {
         <div className="overflow-x-auto">
             <table className="min-w-full text-left border-collapse">
                 <thead>
-                    <tr className="bg-black">
+                    <tr className="border-b">
                         <th className="text-white px-2 py-1 text-sm sm:text-xs">#</th>
                         <th className="text-white px-2 py-1 text-sm sm:text-xs">Project ID</th>
                         <th className="text-white px-2 py-1 text-sm sm:text-xs">Title</th>
