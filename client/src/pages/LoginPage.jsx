@@ -35,29 +35,36 @@ function LoginPage() {
         <h1 className='text-xl font-bold'>Login</h1>
 
         <form onSubmit={onSubmit}>
-          <input 
-            type='email' 
-            {...register("email", { required: true })} 
-            className='w-full bg-zinc-700 text-white px-4 py-2 my-2 rounded-md' 
-            placeholder='Email' 
+          <input
+            type='email'
+            {...register("email", { required: true })}
+            className='w-full bg-zinc-700 text-white px-4 py-2 my-2 rounded-md'
+            placeholder='Email'
           />
           {errors.email && <p className='text-red-500'>Email is required</p>}
 
-          <input 
-            type='password' 
-            {...register("password", { required: true })} 
-            className='w-full bg-zinc-700 text-white px-4 py-2 my-2 rounded-md' 
-            placeholder='Password' 
+          <input
+            type='password'
+            {...register("password", { required: true })}
+            className='w-full bg-zinc-700 text-white px-4 py-2 my-2 rounded-md'
+            placeholder='Password'
           />
           {errors.password && <p className='text-red-500'>Password is required</p>}
 
-          <button 
-            type='submit' 
-            className='bg-green-950 px-3 py-1 my-3 rounded-sm'
-            
-          >
-            {loading ? "Loading..." : "Login"} {/* Botón muestra loading */}
-          </button>
+          <div className='flex justify-between'>
+            <button
+              type='submit'
+              className='bg-green-950 px-3 py-1 my-3 rounded-sm'
+            >
+              {loading ? "Loading..." : "Login"} {/* Botón muestra loading */}
+            </button>
+            <Link
+              to="/"
+              className='bg-red-700 px-3 py-1 my-3 rounded-sm'
+            >
+              Cancel
+            </Link>
+          </div>
         </form>
 
         {/* <p className='flex gap-x-2 justify-between'>

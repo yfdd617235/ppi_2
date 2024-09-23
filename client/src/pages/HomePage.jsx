@@ -36,7 +36,7 @@ const LandingPage = () => {
             <div className="p-4 md:p-6">
               <h5 className="text-base md:text-xl font-semibold">CONSULTING</h5>
               <br />
-              <div className="flex flex-col space-y-2 text-left">
+              <div className="flex flex-col space-y-3 text-left">
                 <p className="text-xs md:text-sm">- Projects Structuring</p>
                 <p className="text-xs md:text-sm">- Evaluation and Valuation of companies and projects</p>
                 <p className="text-xs md:text-sm">- Networking, Startups and angel investors</p>
@@ -54,7 +54,7 @@ const LandingPage = () => {
             <div className="p-4 md:p-6">
               <h5 className="text-base md:text-xl font-semibold">INVESTMENTS</h5>
               <br />
-              <div className="flex flex-col space-y-2 text-left">
+              <div className="flex flex-col space-y-3 text-left">
                 <p className="text-xs md:text-sm">- Leverage for Environmental Investments</p>
                 <p className="text-xs md:text-sm">- Financial arbitraje with licensed entities</p>
                 <p className="text-xs md:text-sm">- International Commerce (Food and other commodities)</p>
@@ -75,7 +75,7 @@ const LandingPage = () => {
                 SUSTAINABLE DEVELOPMENT GOALS PROJECTS (SDG)
               </h5>
               <br />
-              <div className="flex flex-col space-y-2 text-left">
+              <div className="flex flex-col space-y-3 text-left">
                 <p className="text-xs md:text-sm">- Structuring</p>
                 <p className="text-xs md:text-sm">- Implementation, support and management</p>
                 <p className="text-xs md:text-sm">- Promotion and marketing for fundraising</p>
@@ -103,18 +103,18 @@ const LandingPage = () => {
               <img className="h-48 md:h-64" src={`${import.meta.env.BASE_URL}logoT.png`} alt="Logo" />
             </div>
             <div className="flex items-center justify-left m-6">
-              <div className="flex flex-col space-y-2 text-left">
-                <h5 className="text-xs md:text-sm lg:text-lg font-semibold">Services</h5>
-                <p className="text-xs md:text-sm lg:text-base">- Trading and financial investments</p>
-                <p className="text-xs md:text-sm lg:text-base">- Project evaluation, structuring and management</p>
-                <p className="text-xs md:text-sm lg:text-base">- International business consulting</p>
-                <p className="text-xs md:text-sm lg:text-base">- Software and Artificial Intelligence development</p>
+              <div className="flex flex-col space-y-3 text-left">
+                <h5 className="text-xs md:text-sm lg:text-lg font-bold">Services</h5> <br/>
+                <p className="text-xs md:text-sm ">- Trading and financial investments</p>
+                <p className="text-xs md:text-sm ">- Project evaluation, structuring and management</p>
+                <p className="text-xs md:text-sm ">- International business consulting</p>
+                <p className="text-xs md:text-sm ">- Software and Artificial Intelligence development</p>
               </div>
             </div>
             <div className="flex items-center justify-left m-6">
-              <div className="flex flex-col space-y-2 text-left">
-                <h5 className="text-xs md:text-sm lg:text-lg font-semibold">Contact Us</h5>
-                <p className="text-xs md:text-sm lg:text-base">
+              <div className="flex flex-col space-y-3 text-left">
+                <h5 className="text-xs md:text-sm lg:text-lg font-bold">Contact Us</h5> <br/>
+                <p className="text-xs md:text-sm ">
                   Address: Cra 42 C #3 Sur 81, Torre 1, Piso 15 <br />
                   CE Milla de Oro, Medellín Colombia
                 </p>
@@ -122,7 +122,7 @@ const LandingPage = () => {
                   href="mailto:panamerican.pi@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-2 text-xs md:text-sm lg:text-base"
+                  className="flex items-center space-x-2 text-xs md:text-sm"
                 >
                   <EnvelopeIcon className="w-4 h-4 text-white" /> {/* Ícono de Heroicons v2 */}
                   <span>panamerican.pi@gmail.com</span>
