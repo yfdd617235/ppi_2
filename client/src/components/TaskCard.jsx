@@ -85,7 +85,7 @@ function TaskCard({ task }) {
     return (
         <a 
             href={task.file || '#'} 
-            className="relative block max-w-md w-full p-4 rounded-md flex flex-col justify-between border border-zinc-700 transition-colors duration-300 hover:bg-zinc-800" 
+            className="relative max-w-md w-full p-4 rounded-md flex flex-col justify-between border border-zinc-700 transition-colors duration-300 hover:bg-zinc-800" 
             target="_blank" 
             rel="noopener noreferrer" 
             download

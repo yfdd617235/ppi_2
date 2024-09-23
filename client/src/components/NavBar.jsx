@@ -5,21 +5,23 @@ function NavBar() {
   const { isAuthenticated, logout, user } = useAuth();
 
   return (
-    <nav className="bg-black fixed top-0 left-1/2 transform -translate-x-1/2 w-full py-0 px-5 lg:px-10 z-50 border-b border-zinc-500">
+    <nav className="bg-black fixed top-0 left-1/2 transform -translate-x-1/2 w-full py-0 z-50">
       {/* <nav className="bg-black fixed top-0 left-1/2 transform -translate-x-1/2 w-full py-0 px-5 lg:px-10 z-50 border-2 border-zinc-800"> */}
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="mx-3 flex items-center justify-between">
         <div className="flex items-center">
 
-          <div className="h-14 w-14 mr-3 overflow-hidden">
-            <img
-              src={`${import.meta.env.BASE_URL}logoT.png`}
-              alt="PPI"
-              className="h-full w-full object-cover object-center scale-125"
-            />
-          </div>
-          <Link to={isAuthenticated ? "/tasks" : "/"} className="hidden md:block">
-            <h1 className="font-bold">Task Manager</h1>
+          <Link to={isAuthenticated ? "/tasks" : "/"}>
+            <div className="h-14 w-14 m-2 overflow-hidden">
+              <img
+                src={`${import.meta.env.BASE_URL}logoT.png`}
+                alt="PPI"
+                className="h-full w-full object-cover object-center scale-125"
+              />
+            </div>
           </Link>
+          {/* <Link to={isAuthenticated ? "/tasks" : "/"} className="hidden md:block">
+            <h1 className="font-bold">Task Manager</h1>
+          </Link> */}
         </div>
 
         <ul className="flex flex-wrap gap-x-3 gap-y-2 md:gap-y-0 items-center">

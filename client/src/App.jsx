@@ -1,44 +1,3 @@
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import { AuthProvider } from "./context/AuthContext";
-// import RegisterPage from "./pages/RegisterPage";
-// import LoginPage from "./pages/LoginPage";
-// import TasksPage from "./pages/TasksPage";
-// import TaskFormPage from "./pages/TaskFormPage";
-// import ProfilePage from "./pages/ProfilePage";
-// import Homepage from "./pages/Homepage";
-// import ProtectedRoute from "./ProtectedRoute";
-// import { TaskProvider } from "./context/TasksContext";
-// import NavBar from "./components/NavBar";
-
-// function App() {
-//   return (
-//     <AuthProvider>
-//       <TaskProvider>
-//         <BrowserRouter>
-//         {/* <BrowserRouter basename="/ppi_2"> */}
-//         <main className="container mx-auto px-3 lg:px-25 pt-20 pb-20">
-//         <NavBar/>
-//           <Routes>
-//             <Route path="/" element={<Homepage />} />
-//             <Route path="/login" element={<h1><LoginPage /></h1>} />
-//             <Route path="/register" element={<h1><RegisterPage /></h1>} />
-
-//             <Route element={<ProtectedRoute />}>
-//               <Route path="/tasks" element={<TasksPage />} />
-//               <Route path="/add-task" element={<TaskFormPage />} />
-//               <Route path="/tasks/:id" element={<TaskFormPage />} />
-//               <Route path="/profile" element={<ProfilePage />} />
-//             </Route>
-//             <Route path="*" element={<h1>404 - Page Not Found</h1>} />
-//           </Routes>
-//         </main>
-//         </BrowserRouter>
-//       </TaskProvider>
-//     </AuthProvider>
-//   );
-// }
-
-// export default App;
 import { HashRouter as Router, Routes, Route } from "react-router-dom"; // Cambia BrowserRouter por HashRouter
 import { AuthProvider } from "./context/AuthContext";
 import RegisterPage from "./pages/RegisterPage";
@@ -46,23 +5,24 @@ import LoginPage from "./pages/LoginPage";
 import TasksPage from "./pages/TasksPage";
 import TaskFormPage from "./pages/TaskFormPage";
 import ProfilePage from "./pages/ProfilePage";
-import Homepage from "./pages/Homepage";
+import HomePage from "./pages/HomePage";
 import ProtectedRoute from "./ProtectedRoute";
 import { TaskProvider } from "./context/TasksContext";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <AuthProvider>
       <TaskProvider>
         <Router> {/* Cambiado a HashRouter */}
-          <main className="container mx-auto px-3 lg:px-25 pt-20 pb-20">
-            <NavBar />
+          {/* <main className="container mx-auto px-3 lg:px-25 pt-20 pb-20"> */}
+          <main className=" mx-auto pt-20">
+            <NavBar/>
             <Routes>
-              <Route path="/" element={<Homepage />} />
+              <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<h1><LoginPage /></h1>} />
               <Route path="/register" element={<h1><RegisterPage /></h1>} />
-
               <Route element={<ProtectedRoute />}>
                 <Route path="/tasks" element={<TasksPage />} />
                 <Route path="/add-task" element={<TaskFormPage />} />
@@ -71,6 +31,7 @@ function App() {
               </Route>
               <Route path="*" element={<h1>404 - Page Not Found</h1>} />
             </Routes>
+            <Footer/>
           </main>
         </Router>
       </TaskProvider>
