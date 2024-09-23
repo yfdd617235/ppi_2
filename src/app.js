@@ -7,6 +7,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors'
 import authRoutes from "./routes/auth.routes.js";
 import taskRoutes from "./routes/tasks.routes.js";
+import Task from './models/task.model.js';
 
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -25,6 +26,18 @@ app.use(cookieParser());
 
 app.use('/api', authRoutes); //Las rutas empesarían con api
 app.use('/api', taskRoutes); //Las rutas empesarían con api
+
+
+// Precargar las tareas al iniciar el servidor
+const preloadTasks = async () => {
+    try {
+        const tasks = await Task.find().populate('user');  // Obtener todas las tareas
+        console.log(`It were pre-loaded ${tasks.length} Tasks`);  // Mostrar cuántas tareas fueron precargadas
+    } catch (error) {
+        console.error('Error pre-liading tasks:', error);
+    }
+};
+preloadTasks(); // Llamamos a la función para precargar las tareas al iniciar
 
 // console.log('API Base URL:', process.env.API_BASE_URL);
 console.log(__dirname)

@@ -102,7 +102,7 @@ const LandingPage = () => {
             <div className="flex items-center justify-center">
               <img className="h-48 md:h-64" src={`${import.meta.env.BASE_URL}logoT.png`} alt="Logo" />
             </div>
-            <div className="flex items-center justify-center m-6">
+            <div className="flex items-center justify-left m-6">
               <div className="flex flex-col space-y-2 text-left">
                 <h5 className="text-xs md:text-sm lg:text-lg font-semibold">Services</h5>
                 <p className="text-xs md:text-sm lg:text-base">- Trading and financial investments</p>
@@ -111,12 +111,12 @@ const LandingPage = () => {
                 <p className="text-xs md:text-sm lg:text-base">- Software and Artificial Intelligence development</p>
               </div>
             </div>
-            <div className="flex items-center justify-center m-6">
+            <div className="flex items-center justify-left m-6">
               <div className="flex flex-col space-y-2 text-left">
                 <h5 className="text-xs md:text-sm lg:text-lg font-semibold">Contact Us</h5>
                 <p className="text-xs md:text-sm lg:text-base">
-                  Address: Cra 42 C #3 Sur 81, Torre 1, Piso 15, CE Milla de Oro <br />
-                  Medellín Colombia
+                  Address: Cra 42 C #3 Sur 81, Torre 1, Piso 15 <br />
+                  CE Milla de Oro, Medellín Colombia
                 </p>
                 <a
                   href="mailto:panamerican.pi@gmail.com"
