@@ -19,7 +19,7 @@ export const getTasks = async (req, res) => {
 
 export const createTask = async (req, res) => {
     try {
-        const { title, description, date, projectId, status} = req.body;
+        const { title, description, date, projectId, status, email, username } = req.body;
         const file = req.file;
 
         let fileUrl = null;
@@ -37,8 +37,8 @@ export const createTask = async (req, res) => {
             description,
             date,
             user: req.user.id,
-            // username,  // Guardamos el nombre de usuario
-            // email,     // Guardamos el email
+            username,  // Guardamos el nombre de usuario
+            email,     // Guardamos el email
             file: fileUrl,  // Guardamos la URL del archivo
             filePublicId,   // Guardamos el `public_id` para futuras eliminaciones
             status

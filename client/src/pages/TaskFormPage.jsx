@@ -4,6 +4,7 @@
 // import { useEffect, useState } from 'react';
 // import dayjs from 'dayjs';
 // import utc from 'dayjs/plugin/utc';
+// import { useAuth } from '../context/AuthContext'; // Importa el contexto de autenticación
 // dayjs.extend(utc);
 
 // // Importa la lista de proyectos
@@ -12,10 +13,12 @@
 // function TaskFormPage() {
 //   const { register, handleSubmit, setValue } = useForm();
 //   const { createTask, getTask, updateTask } = useTasks();
+//   const { user } = useAuth(); // Obtén la información del usuario autenticado
 //   const navigate = useNavigate();
 //   const params = useParams();
 //   const [selectedProject, setSelectedProject] = useState('');
 //   const [loading, setLoading] = useState(false); // Estado de loading
+//   const [status, setStatus] = useState('Sent'); // Estado para manejar el status
 
 //   useEffect(() => {
 //     async function loadTask() {
@@ -25,6 +28,7 @@
 //         setValue('title', task.title);
 //         setValue('description', task.description);
 //         setSelectedProject(task.project || ''); // Cargar el proyecto actual
+//         setStatus(task.status || 'Sent'); // Cargar el status actual de la tarea
 //       }
 //     }
 //     loadTask();
@@ -41,6 +45,7 @@
 //     formData.append('description', data.description);
 //     formData.append('date', data.date ? dayjs.utc(data.date).format() : dayjs.utc().format());
 //     formData.append('projectId', selectedProject); // Agregar el proyecto seleccionado
+//     formData.append('status', status); // Añadir el estado de la tarea
 
 //     // Agregamos el archivo si existe
 //     if (data.file[0]) {
@@ -62,7 +67,7 @@
 //   });
 
 //   return (
-//     <div className='flex h-[calc(100vh-100px)] items-center justify-center'>
+//     <div className='m-3 flex h-[calc(100vh-100px)] items-center justify-center'>
 //       <div className='max-w-md p-10 rounded-md border border-zinc-500'>
 //         <h1 className='text-xl'>Add Task</h1>
 //         <form onSubmit={onSubmit} encType="multipart/form-data">
@@ -100,10 +105,23 @@
 //             ))}
 //           </select>
 
+//           {/* Mostrar el campo de status solo si el usuario es "admin@gmail.com" */}
+//           {user.email === 'admin@gmail.com' && (
+//             <select
+//               value={status}
+//               onChange={(e) => setStatus(e.target.value)}
+//               className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
+//             >
+//               <option value="Sent">Sent</option>
+//               <option value="Accepted">Accepted</option>
+//               <option value="Rejected">Rejected</option>
+//             </select>
+//           )}
+
 //           <div className='flex justify-between'>
 //             <button 
 //               type='submit'
-//               className='bg-sky-800 px-3 py-1 rounded-sm'
+//               className='bg-green-950 px-3 py-1 rounded-sm'
 //             >
 //               {loading ? "Saving..." : "Save"} {/* Muestra "loading" mientras se guarda */}
 //             </button>
@@ -121,6 +139,7 @@
 // }
 
 // export default TaskFormPage;
+
 import { useForm } from 'react-hook-form';
 import { useTasks } from '../context/TasksContext';
 import { useNavigate, useParams, Link } from 'react-router-dom';
@@ -169,6 +188,10 @@ function TaskFormPage() {
     formData.append('date', data.date ? dayjs.utc(data.date).format() : dayjs.utc().format());
     formData.append('projectId', selectedProject); // Agregar el proyecto seleccionado
     formData.append('status', status); // Añadir el estado de la tarea
+
+    // Añadir username y email del usuario autenticado
+    formData.append('username', user.username); 
+    formData.append('email', user.email);
 
     // Agregamos el archivo si existe
     if (data.file[0]) {
@@ -262,4 +285,3 @@ function TaskFormPage() {
 }
 
 export default TaskFormPage;
-
