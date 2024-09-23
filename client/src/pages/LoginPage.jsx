@@ -53,15 +53,16 @@ function LoginPage() {
 
           <button 
             type='submit' 
-            className='bg-sky-800 px-3 py-1 my-3 rounded-sm'
+            className='bg-green-950 px-3 py-1 my-3 rounded-sm'
+            
           >
             {loading ? "Loading..." : "Login"} {/* Botón muestra loading */}
           </button>
         </form>
 
-        <p className='flex gap-x-2 justify-between'>
+        {/* <p className='flex gap-x-2 justify-between'>
           Don't have an account? <Link to="/register" className='text-sky-500'>Sign up</Link>
-        </p>
+        </p> */}
       </div>
     </div>
   );

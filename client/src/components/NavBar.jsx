@@ -1,15 +1,27 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 function NavBar() {
+  const [isVisible, setIsVisible] = useState(false);
   const { isAuthenticated, logout, user } = useAuth();
 
+  useEffect(() => {
+    // Configura un temporizador para mostrar el Navbar después de 5 segundos
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 5000); // 5000 ms = 5 segundos
+
+    // Limpia el temporizador si el componente se desmonta antes de que el temporizador se complete
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <nav className="bg-black fixed top-0 left-1/2 transform -translate-x-1/2 w-full py-0 z-50">
-      {/* <nav className="bg-black fixed top-0 left-1/2 transform -translate-x-1/2 w-full py-0 px-5 lg:px-10 z-50 border-2 border-zinc-800"> */}
+    <nav
+      className={`bg-black fixed top-0 left-1/2 transform -translate-x-1/2 w-full py-0 z-50 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+    >
       <div className="mx-3 flex items-center justify-between">
         <div className="flex items-center">
-
           <Link to={isAuthenticated ? "/tasks" : "/"}>
             <div className="h-14 w-14 m-2 overflow-hidden">
               <img
@@ -19,9 +31,6 @@ function NavBar() {
               />
             </div>
           </Link>
-          {/* <Link to={isAuthenticated ? "/tasks" : "/"} className="hidden md:block">
-            <h1 className="font-bold">Task Manager</h1>
-          </Link> */}
         </div>
 
         <ul className="flex flex-wrap gap-x-3 gap-y-2 md:gap-y-0 items-center">

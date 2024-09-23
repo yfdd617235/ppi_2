@@ -11,6 +11,7 @@ const LandingPage = () => {
           backgroundImage: `
       linear-gradient(to top, transparent, rgba(0, 0, 0, 1)),
       linear-gradient(to bottom, transparent, black),
+      linear-gradient(to bottom, transparent, black),
       url('${import.meta.env.BASE_URL}banner.webp')`,
           backgroundSize: 'auto',
         }}
@@ -89,8 +90,9 @@ const LandingPage = () => {
         className="w-full text-left mt-16 p-4 md:p-8 bg-repeat bg-center min-h-[400px]"
         style={{
           backgroundImage: `
-      linear-gradient(to top, transparent, rgba(0, 0, 0, 1)),
       linear-gradient(to bottom, transparent, black),
+      linear-gradient(to top, transparent, black),
+      linear-gradient(to bottom, transparent, rgba(0, 0, 0, 1)),
       url('${import.meta.env.BASE_URL}banner.webp')`,
           backgroundSize: 'auto',
         }}
@@ -100,7 +102,7 @@ const LandingPage = () => {
             <div className="flex items-center justify-center">
               <img className="h-48 md:h-64" src={`${import.meta.env.BASE_URL}logoT.png`} alt="Logo" />
             </div>
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center m-6">
               <div className="flex flex-col space-y-2 text-left">
                 <h5 className="text-xs md:text-sm lg:text-lg font-semibold">Services</h5>
                 <p className="text-xs md:text-sm lg:text-base">- Trading and financial investments</p>
@@ -109,10 +111,9 @@ const LandingPage = () => {
                 <p className="text-xs md:text-sm lg:text-base">- Software and Artificial Intelligence development</p>
               </div>
             </div>
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center m-6">
               <div className="flex flex-col space-y-2 text-left">
                 <h5 className="text-xs md:text-sm lg:text-lg font-semibold">Contact Us</h5>
-                
                 <p className="text-xs md:text-sm lg:text-base">
                   Address: Cra 42 C #3 Sur 81, Torre 1, Piso 15, CE Milla de Oro <br />
                   Medellín Colombia
@@ -123,7 +124,7 @@ const LandingPage = () => {
                   rel="noopener noreferrer"
                   className="flex items-center space-x-2 text-xs md:text-sm lg:text-base"
                 >
-                  <EnvelopeIcon className="w-5 h-5 text-white" /> {/* Ícono de Heroicons v2 */}
+                  <EnvelopeIcon className="w-4 h-4 text-white" /> {/* Ícono de Heroicons v2 */}
                   <span>panamerican.pi@gmail.com</span>
                 </a>
               </div>
