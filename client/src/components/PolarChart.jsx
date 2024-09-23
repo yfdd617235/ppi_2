@@ -14,7 +14,7 @@ function PolarChart() {
     const acceptedTasks = projectTasks.filter(task => task.status === 'Accepted'); // Tareas con estado 'Accepted'
     
     // Calculamos el porcentaje de avance
-    const progress = (acceptedTasks.length / 10) * 100; // Cada proyecto tiene 10 entregas
+    const progress = (acceptedTasks.length / 10) * 100; // Cada proyecto tiene 10 tareas
     return progress > 100 ? 100 : progress; // Asegurarse de que no pase del 100%
   });
 
@@ -56,10 +56,13 @@ function PolarChart() {
 
   // Opciones para el gráfico
   const options = {
-    scale: {
-      ticks: {
+    scales: {
+      r: {
         beginAtZero: true,
-        max: 100, // El máximo progreso es 100%
+        suggestedMax: 100, // El máximo progreso es 100%
+        ticks: {
+          stepSize: 20, // Ajustar el tamaño del paso de las marcas
+        },
       },
     },
   };
