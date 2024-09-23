@@ -22,14 +22,14 @@ const taskSchema = new mongoose.Schema({
         ref: 'User',
         required: true,  // Esto es para que cada tarea esté vinculada con el usuario que la creó
     },
-    username: {
-        type: String,
-        required: true, // Asegura que cada tarea tenga un username
-    },
-    email: {
-        type: String,
-        required: true, // Asegura que cada tarea tenga un email
-    },
+    // username: {
+    //     type: String,
+    //     required: true, // Asegura que cada tarea tenga un username
+    // },
+    // email: {
+    //     type: String,
+    //     required: true, // Asegura que cada tarea tenga un email
+    // },
     file: {  
         type: String,  // URL del archivo en Cloudinary
         required: false,

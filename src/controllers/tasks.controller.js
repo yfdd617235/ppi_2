@@ -19,7 +19,7 @@ export const getTasks = async (req, res) => {
 
 export const createTask = async (req, res) => {
     try {
-        const { title, description, date, projectId, status } = req.body;
+        const { title, description, date, projectId, status} = req.body;
         const file = req.file;
 
         let fileUrl = null;
@@ -31,17 +31,14 @@ export const createTask = async (req, res) => {
             filePublicId = uploadResult.public_id;  // Guardamos el `public_id` del archivo en Cloudinary
         }
 
-        // Suponiendo que req.user contiene la información del usuario autenticado
-        const { id: userId, username, email } = req.user;
-
         const newTask = new Task({
             projectId,
             title,
             description,
             date,
             user: req.user.id,
-            username,  // Guardamos el nombre de usuario
-            email,     // Guardamos el email
+            // username,  // Guardamos el nombre de usuario
+            // email,     // Guardamos el email
             file: fileUrl,  // Guardamos la URL del archivo
             filePublicId,   // Guardamos el `public_id` para futuras eliminaciones
             status
