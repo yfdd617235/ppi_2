@@ -77,6 +77,41 @@ export const deleteTask = async (req, res) => {
     }
 };
 
+// export const updateTask = async (req, res) => {
+//     try {
+//         const existingTask = await Task.findById(req.params.id);
+//         if (!existingTask) return res.status(404).json({ message: 'Task not found' });
+
+//         const { title, description, date, projectId, status } = req.body;
+//         const file = req.file;
+
+//         const updateData = { title, description, date, projectId, status };
+
+//         if (file) {
+//             // Si hay un archivo existente, lo eliminamos de Cloudinary
+//             if (existingTask.filePublicId) {
+//                 await cloudinary.uploader.destroy(existingTask.filePublicId);
+//             }
+
+//             // Subimos el nuevo archivo
+//             const uploadResult = await uploadFileToCloudinary(file);
+//             updateData.file = uploadResult.secure_url;
+//             updateData.filePublicId = uploadResult.public_id;
+//         } else {
+//             updateData.file = existingTask.file;
+//             updateData.filePublicId = existingTask.filePublicId;
+//         }
+
+//         const updatedTask = await Task.findByIdAndUpdate(req.params.id, updateData, {
+//             new: true,
+//         });
+
+//         res.json(updatedTask);
+//     } catch (error) {
+//         console.error("Error updating task:", error);
+//         return res.status(500).json({ message: "Something went wrong" });
+//     }
+// };
 export const updateTask = async (req, res) => {
     try {
         const existingTask = await Task.findById(req.params.id);
@@ -85,7 +120,14 @@ export const updateTask = async (req, res) => {
         const { title, description, date, projectId, status } = req.body;
         const file = req.file;
 
-        const updateData = { title, description, date, projectId, status };
+        const updateData = { title, description, date, status };
+
+        // Solo actualiza el projectId si fue proporcionado, de lo contrario, mantén el actual
+        if (projectId) {
+            updateData.projectId = projectId;
+        } else {
+            updateData.projectId = existingTask.projectId;
+        }
 
         if (file) {
             // Si hay un archivo existente, lo eliminamos de Cloudinary
