@@ -17,7 +17,7 @@ function LoginPage() {
   useEffect(() => {
     if (isAuthenticated) {
       setLoading(false); // Detenemos el loading si se autentica
-      navigate('/tasks');
+      navigate('/');
     }
   }, [isAuthenticated, navigate]);
 
