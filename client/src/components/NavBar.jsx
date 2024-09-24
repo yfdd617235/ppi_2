@@ -1,7 +1,7 @@
 // import { useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 // import { useAuth } from "../context/AuthContext";
-// import { ArrowRightOnRectangleIcon, ClipboardDocumentCheckIcon, UserCircleIcon } from '@heroicons/react/24/outline';
+// import { ArrowRightOnRectangleIcon, ClipboardDocumentCheckIcon, UserCircleIcon, ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline';
 
 // function NavBar() {
 //   const [isVisible, setIsVisible] = useState(false);
@@ -21,7 +21,7 @@
 //     >
 //       <div className="mx-3 flex items-center justify-between">
 //         <div className="flex items-center">
-//           <Link to={isAuthenticated ? "/tasks" : "/"}>
+//           <Link to={isAuthenticated ? "/" : "/"}>
 //             <div className="h-14 w-14 m-2 overflow-hidden">
 //               <img
 //                 src={`${import.meta.env.BASE_URL}logoT.png`}
@@ -50,7 +50,7 @@
 //                   to="/profile"
 //                   className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
 //                 >
-//                   <UserCircleIcon className="h-5 w-5 text-green-500" />
+//                   <UserCircleIcon className="h-5 w-5 text-green-600" />
 //                   <span className="sr-only">Profile</span>
 //                 </Link>
 //               </li>
@@ -70,9 +70,10 @@
 //               <li>
 //                 <Link
 //                   to="/login"
-//                   className="bg-green-950 px-2 py-1 sm:px-3 sm:py-1 rounded-sm text-sm border border-zinc-800"
+//                   className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
 //                 >
-//                   Provider
+//                   <ArrowLeftOnRectangleIcon className="h-5 w-5 text-white" />
+//                   <span className="sr-only">Login</span>
 //                 </Link>
 //               </li>
 //               <li>
@@ -92,10 +93,11 @@
 // }
 
 // export default NavBar;
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { ArrowRightOnRectangleIcon, ClipboardDocumentCheckIcon, UserCircleIcon, ArrowLeftOnRectangleIcon } from '@heroicons/react/24/outline';
+import { ArrowRightOnRectangleIcon, ClipboardDocumentCheckIcon, UserCircleIcon, ArrowLeftOnRectangleIcon, UserPlusIcon } from '@heroicons/react/24/outline';
 
 function NavBar() {
   const [isVisible, setIsVisible] = useState(false);
@@ -148,6 +150,17 @@ function NavBar() {
                   <span className="sr-only">Profile</span>
                 </Link>
               </li>
+              {user.email === "admin@gmail.com" && (
+                <li>
+                <Link
+                  to="/register"
+                  className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm border border-zinc-800"
+                >
+                  <UserPlusIcon className="h-5 w-5 text-gray-500"/>
+                  <span className="sr-only">Register</span>
+                </Link>
+              </li>
+              )}
               <li>
                 <Link
                   to="/"
@@ -168,14 +181,6 @@ function NavBar() {
                 >
                   <ArrowLeftOnRectangleIcon className="h-5 w-5 text-white" />
                   <span className="sr-only">Login</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/register"
-                  className="px-2 py-1 sm:px-3 sm:py-1 rounded-sm text-sm border border-zinc-800"
-                >
-                  Register
                 </Link>
               </li>
             </>

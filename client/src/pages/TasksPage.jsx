@@ -58,7 +58,7 @@
 //           ))}
 //         </select>
 //       </div> <br />
-    
+
 //       {/* Mostrar las tareas filtradas */}
 //       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 justify-items-center">
 //         {displayedTasks.length === 0 ? (
@@ -109,7 +109,19 @@ function TasksPage() {
 
   if (loading) return <h1 className="flex items-center justify-center h-screen text-xl">Loading tasks...</h1>; // Mostrar loading mientras se obtienen las tareas
 
-  if (displayedTasks.length === 0) return (<h1 className="flex items-center justify-center h-screen">No Tasks</h1>);
+  if (displayedTasks.length === 0) return (
+
+    <div className="flex flex-col items-center justify-center h-screen">
+  <Link
+    to="/add-task"
+    className="text-green-600 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800 mb-4"
+  >
+    Add Task
+  </Link>
+  <h1>No Tasks</h1>
+</div>
+
+  );
 
   return (
     <div className="mx-3 lg:mx-28 pt-20">
@@ -117,7 +129,7 @@ function TasksPage() {
         {/* Enlace para añadir tarea */}
         <Link
           to="/add-task"
-          className="bg-green-950 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
+          className="text-green-600 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
         >
           Add Task
         </Link>
@@ -135,7 +147,7 @@ function TasksPage() {
             </option>
           ))}
         </select>
-      </div> 
+      </div>
       <br />
 
       {/* Mostrar las tareas filtradas */}

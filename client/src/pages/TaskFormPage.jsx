@@ -126,13 +126,13 @@ function TaskFormPage() {
           <div className='flex justify-between'>
             <button 
               type='submit'
-              className='bg-green-950 px-3 py-1 rounded-sm'
+              className='text-green-600 px-3 py-1 rounded-sm border border-zinc-800'
             >
               {loading ? "Saving..." : "Save"} {/* Muestra "loading" mientras se guarda */}
             </button>
             <Link 
               to="/tasks"
-              className='bg-red-700 px-3 py-1 rounded-sm text-white'
+              className=' px-3 py-1 rounded-sm border border-zinc-800'
             >
               Cancel
             </Link>

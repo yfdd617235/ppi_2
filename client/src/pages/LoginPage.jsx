@@ -54,13 +54,13 @@ function LoginPage() {
           <div className='flex justify-between'>
             <button
               type='submit'
-              className='bg-green-950 px-3 py-1 my-3 rounded-sm'
+              className='text-green-500 px-3 py-1 my-3 rounded-sm border border-zinc-800'
             >
               {loading ? "Loading..." : "Login"} {/* Botón muestra loading */}
             </button>
             <Link
               to="/"
-              className='bg-red-700 px-3 py-1 my-3 rounded-sm'
+              className='px-3 py-1 my-3 rounded-sm border border-zinc-800'
             >
               Cancel
             </Link>
