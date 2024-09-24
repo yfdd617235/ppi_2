@@ -115,7 +115,7 @@ function NavBar() {
     >
       <div className="mx-3 flex items-center justify-between">
         <div className="flex items-center">
-          <Link to={isAuthenticated ? "/tasks" : "/"}>
+          <Link to={isAuthenticated ? "/" : "/"}>
             <div className="h-14 w-14 m-2 overflow-hidden">
               <img
                 src={`${import.meta.env.BASE_URL}logoT.png`}
