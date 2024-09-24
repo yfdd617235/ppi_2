@@ -27,7 +27,7 @@ function TaskFormPage() {
         console.log(task);
         setValue('title', task.title);
         setValue('description', task.description);
-        setSelectedProject(task.project || ''); // Cargar el proyecto actual
+        setSelectedProject(task.projectId || ''); // Cargar el proyecto actual
         setStatus(task.status || 'Sent'); // Cargar el status actual de la tarea
       }
     }
