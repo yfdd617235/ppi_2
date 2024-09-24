@@ -111,7 +111,7 @@ function NavBar() {
 
   return (
     <nav
-      className={`bg-black fixed top-0 left-1/2 transform -translate-x-1/2 w-full py-0 z-50 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      className={` fixed top-0 left-1/2 transform -translate-x-1/2 w-full py-0 z-50 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
     >
       <div className="mx-3 flex items-center justify-between">
         <div className="flex items-center">

@@ -31,9 +31,9 @@ function TasksPage() {
     ? filteredTasks
     : filteredTasks.filter(task => task.user?.email === user.email); // Verifica que user y email existen
 
-  if (loading) return <h1>Loading tasks...</h1>; // Mostrar loading mientras se obtienen las tareas
+  if (loading) return <h1 className="flex items-center justify-center h-screen text-xl">Loading tasks...</h1>; // Mostrar loading mientras se obtienen las tareas
 
-  if (displayedTasks.length === 0) return (<h1>No Tasks</h1>);
+  if (displayedTasks.length === 0) return (<h1 className="flex items-center justify-center h-screen">No Tasks</h1>);
 
   return (
     <div className="mx-3 lg:mx-28 pt-20">
@@ -44,6 +44,7 @@ function TasksPage() {
         >
           Add Task
         </Link>
+        {/* Menú desplegable para seleccionar el proyecto */}
         <select
           value={selectedProject}
           onChange={(e) => setSelectedProject(e.target.value)}
@@ -56,13 +57,10 @@ function TasksPage() {
             </option>
           ))}
         </select>
-      </div>
-      {/* Menú desplegable para seleccionar el proyecto */}
-
-
-
+      </div> <br />
+    
       {/* Mostrar las tareas filtradas */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 justify-items-center my-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 justify-items-center">
         {displayedTasks.length === 0 ? (
           <h1>No tasks for this project</h1>
         ) : (

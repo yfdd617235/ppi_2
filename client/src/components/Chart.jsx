@@ -319,7 +319,7 @@ function BarChart() {
 
   return (
     <div className="p-4">
-      <h2 className="text-center text-xl font-bold mb-4">Projects Progress</h2>
+      <h2 className="text-center font-bold mb-4">Projects Progress</h2>
       
       {/* Filtro de proyectos */}
       <Select
