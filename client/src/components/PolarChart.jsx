@@ -54,7 +54,7 @@ function PolarChart() {
     ],
   };
 
-  // Opciones para el gráfico
+  // Opciones para el gráfico, incluyendo las líneas de los porcentajes
   const options = {
     scales: {
       r: {
@@ -63,13 +63,17 @@ function PolarChart() {
         ticks: {
           stepSize: 20, // Ajustar el tamaño del paso de las marcas
         },
+        grid: {
+          color: 'rgba(128, 128, 128, 0.5)', // Color de las líneas de la cuadrícula
+          circular: true, // Asegura que las líneas sean circulares
+        },
       },
     },
   };
 
   return (
     <div className="p-4">
-      <h2 className="text-center text-xl font-bold mb-4">Project Progress</h2>
+      <h2 className="text-center text-xl font-bold mb-4">Projects Progress</h2>
       <PolarArea data={data} options={options} />
     </div>
   );

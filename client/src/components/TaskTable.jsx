@@ -30,7 +30,7 @@ function TaskTable() {
             <table className="min-w-full text-left border-collapse">
                 <thead>
                     <tr className="border-b">
-                        <th className="text-white px-2 py-1 text-sm sm:text-xs">#</th>
+                        <th className="text-white px-2 py-2 text-sm sm:text-xs">#</th>
                         <th className="text-white px-2 py-1 text-sm sm:text-xs">Username</th>
                         <th className="text-white px-2 py-1 text-sm sm:text-xs">Email</th>
                         <th className="text-white px-2 py-1 text-sm sm:text-xs">Project ID</th>
@@ -44,7 +44,7 @@ function TaskTable() {
                 <tbody>
                     {filteredTasks.map((task, index) => (
                         <tr key={task._id} className="border-b border-zinc-600">
-                            <td className="text-zinc-400 px-2 py-1 text-sm sm:text-xs">{index + 1}</td>
+                            <td className="text-zinc-400 px-2 py-2 text-sm sm:text-xs">{index + 1}</td>
                             <td className="text-zinc-400 px-2 py-1 text-sm sm:text-xs">{task.username}</td>
                             <td className="text-zinc-400 px-2 py-1 text-sm sm:text-xs">{task.email}</td>
                             <td className="text-zinc-400 px-2 py-1 text-sm sm:text-xs">{task.projectId}</td>

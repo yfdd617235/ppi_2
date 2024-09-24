@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline';
 
 function NavBar() {
   const [isVisible, setIsVisible] = useState(false);
@@ -41,21 +42,32 @@ function NavBar() {
               </li>
               <li>
                 <Link
-                  to="/add-task"
+                  to="/tasks"
                   className="bg-green-950 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
                 >
-                  Add Task
+                  Tasks
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/profile"
+                  className="bg-green-950 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
+                >
+                  Profile
                 </Link>
               </li>
               <li>
                 <Link
                   to="/"
                   onClick={() => logout()}
-                  className="px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
+                  className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
                 >
-                  Logout
+                  {/* Icono de Logout */}
+                  <ArrowRightOnRectangleIcon className="h-6 w-6 text-red-500" />
+                  <span className="sr-only">Logout</span> {/* Texto oculto para accesibilidad */}
                 </Link>
               </li>
+
             </>
           ) : (
             <>
