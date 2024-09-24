@@ -36,10 +36,10 @@ export const register = async (req, res) => {
         //     secure: isProduction,
         //     sameSite: isProduction ? 'None' : 'Lax',
         // });
-        res.cookie('token', token, { 
-            httpOnly: true, 
-            secure: true, 
-            sameSite: 'None' 
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production', // Usa 'true' en producción
+            sameSite: 'None' // Necesario para cookies cross-origin
         });
         
         
@@ -79,10 +79,10 @@ export const login = async (req, res) => {
         //     secure: process.env.NODE_ENV === 'production', // true en producción
         //     sameSite: 'None', // Necesario para permitir cookies cross-origin
         // });
-        res.cookie('token', token, { 
-            httpOnly: true, 
-            secure: true, 
-            sameSite: 'None' 
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production', // Usa 'true' en producción
+            sameSite: 'None' // Necesario para cookies cross-origin
         });
         
 

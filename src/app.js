@@ -20,6 +20,7 @@ app.use(cors({
     origin: ['https://yfdd617235.github.io', 'http://localhost:5173', 'https://panamericanprivateinvestments.com'],
     credentials: true,
 }));
+
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(cookieParser());
