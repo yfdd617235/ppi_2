@@ -102,12 +102,8 @@ export const deleteTask = async (req, res) => {
             if (task.filePublicId) {
                 // Intenta eliminar como una imagen/video (valor predeterminado)
                 let result = await cloudinary.uploader.destroy(task.filePublicId);
-                
-                // Si la eliminación falla o no encuentra el archivo, intenta como 'raw'
-                if (result.result !== 'ok') {
-                    result = await cloudinary.uploader.destroy(task.filePublicId, { resource_type: "raw" });
-                }
-        
+                    result = await cloudinary.uploader.destroy(task.filePublicId, { resource_type: "raw" })
+                // Si la eliminación falla o no encuentra el archivo, intenta como 'raw'        
                 console.log("Cloudinary destroy result:", result);
             }
         } catch (error) {
