@@ -110,8 +110,8 @@ function TaskFormPage() {
             ))}
           </select>
 
-          {/* Mostrar el campo de status solo si el usuario es "admin@gmail.com" */}
-          {user.email === 'admin@gmail.com' && (
+          {/* Mostrar el campo de status solo si el usuario es "panamerican.pi@gmail.com" */}
+          {user.email === 'panamerican.pi@gmail.com' && (
             <select
               value={status}
               onChange={(e) => setStatus(e.target.value)}

@@ -150,7 +150,7 @@ function NavBar() {
                   <span className="sr-only">Profile</span>
                 </Link>
               </li>
-              {user.email === "admin@gmail.com" && (
+              {user.email === "panamerican.pi@gmail.com" && (
                 <li>
                 <Link
                   to="/register"
