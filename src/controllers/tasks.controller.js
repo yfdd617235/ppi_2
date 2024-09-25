@@ -32,10 +32,10 @@ export const getTasks = async (req, res) => {
             query.user = req.user.id;
         }
 
-        // // Filtra por projectId si fue proporcionado
-        // if (projectId) {
-        //     query.projectId = projectId;
-        // }
+        // Filtra por projectId si fue proporcionado
+        if (projectId) {
+            query.projectId = projectId;
+        }
 
         const tasks = await Task.find(query).populate('user');
         res.json(tasks);
