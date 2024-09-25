@@ -88,7 +88,7 @@ function TaskCard({ task }) {
             className="relative max-w-md w-full p-4 rounded-md flex flex-col justify-between border border-zinc-700 transition-colors duration-300 hover:bg-zinc-800" 
             target="_blank" 
             rel="noopener noreferrer" 
-            download
+            // download
         >
             <header className="flex justify-between relative z-20">
                 <p className="text-zinc-600 break-words">#: {task.projectId}</p>
