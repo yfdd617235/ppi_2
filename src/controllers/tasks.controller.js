@@ -95,9 +95,25 @@ export const deleteTask = async (req, res) => {
         if (!task) return res.status(404).json({ message: 'Task not found' });
 
         // Si existe un archivo, lo eliminamos de Cloudinary
-        if (task.filePublicId) {
-            await cloudinary.uploader.destroy(task.filePublicId);
+        // if (task.filePublicId) {
+        //     await cloudinary.uploader.destroy(task.filePublicId);
+        // }
+        try {
+            if (task.filePublicId) {
+                // Intenta eliminar como una imagen/video (valor predeterminado)
+                let result = await cloudinary.uploader.destroy(task.filePublicId);
+                
+                // Si la eliminación falla o no encuentra el archivo, intenta como 'raw'
+                if (result.result !== 'ok') {
+                    result = await cloudinary.uploader.destroy(task.filePublicId, { resource_type: "raw" });
+                }
+        
+                console.log("Cloudinary destroy result:", result);
+            }
+        } catch (error) {
+            console.error("Error deleting file from Cloudinary:", error);
         }
+        
 
         return res.sendStatus(204);
     } catch (error) {
