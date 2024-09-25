@@ -113,7 +113,7 @@ export const deleteTask = async (req, res) => {
         if (task.filePublicId) {
             try {
                 // Intenta eliminar el archivo como 'raw'
-                const result = await cloudinary.uploader.destroy(task.filePublicId, { resource_type: "raw" });
+                const result = await cloudinary.uploader.destroy(task.filePublicId, { resource_type: "Raw" });
                 console.log("Cloudinary destroy result:", result);
 
                 if (result.result !== 'ok') {
