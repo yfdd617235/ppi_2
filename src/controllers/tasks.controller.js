@@ -3,36 +3,10 @@ import { uploadFileToCloudinary } from '../middlewares/multermiddleware.js';
 import cloudinary from '../cloudinary.js';
 import { ADMIN_EMAIL } from '../config.js'
 
-// export const getTasks = async (req, res) => {
-//     const { projectId } = req.query;
-//     try {
-//         const query = {};
-//         if (projectId) {
-//             query.projectId = projectId;
-//         }
-
-//         const tasks = await Task.find(query).populate('user');
-//         res.json(tasks);
-//     } catch (error) {
-//         return res.status(500).json({ message: "Something went wrong" });
-//     }
-// };
-
 export const getTasks = async (req, res) => {
     const { projectId } = req.query;
-
     try {
-        // Verifica si el usuario logueado es el administrador
-        const isAdmin = req.user.email === ADMIN_EMAIL;
-
-        // Construye la consulta según si es administrador o no
-        let query = {};
-        if (!isAdmin) {
-            // Si no es administrador, filtra por el usuario logueado
-            query.user = req.user.id;
-        }
-
-        // Filtra por projectId si fue proporcionado
+        const query = {};
         if (projectId) {
             query.projectId = projectId;
         }
@@ -43,6 +17,32 @@ export const getTasks = async (req, res) => {
         return res.status(500).json({ message: "Something went wrong" });
     }
 };
+
+// export const getTasks = async (req, res) => {
+//     const { projectId } = req.query;
+
+//     try {
+//         // Verifica si el usuario logueado es el administrador
+//         const isAdmin = req.user.email === ADMIN_EMAIL;
+
+//         // Construye la consulta según si es administrador o no
+//         let query = {};
+//         if (!isAdmin) {
+//             // Si no es administrador, filtra por el usuario logueado
+//             query.user = req.user.id;
+//         }
+
+//         // Filtra por projectId si fue proporcionado
+//         if (projectId) {
+//             query.projectId = projectId;
+//         }
+
+//         const tasks = await Task.find(query).populate('user');
+//         res.json(tasks);
+//     } catch (error) {
+//         return res.status(500).json({ message: "Something went wrong" });
+//     }
+// };
 
 
 export const createTask = async (req, res) => {
