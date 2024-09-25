@@ -85,7 +85,8 @@ export const uploadFileToCloudinary = (file) => {
     const stream = cloudinary.uploader.upload_stream(
       {
         resource_type: 'auto',  // Permitir cualquier tipo de archivo (zip, pdf, etc.)
-        public_id: `ppi/${sanitizedFileName}_${uniqueSuffix}`,  // Nombre único para evitar reemplazos
+        public_id: `${sanitizedFileName}_${uniqueSuffix}`,  // Nombre único para evitar reemplazos
+        folder: 'ppi',  // Guardar el archivo en la carpeta 'ppi'
         format: getFileFormat(file),  // Establece el formato del archivo
       },
       (error, result) => {
@@ -116,5 +117,3 @@ const getFileFormat = (file) => {
   const fileExtension = file.originalname.split('.').pop().toLowerCase();
   return fileExtension;  // Cloudinary aceptará el formato como 'pdf', 'zip', etc.
 };
-
-
