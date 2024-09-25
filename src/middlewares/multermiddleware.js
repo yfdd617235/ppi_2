@@ -85,7 +85,7 @@ export const uploadFileToCloudinary = (file) => {
     const stream = cloudinary.uploader.upload_stream(
       {
         resource_type: 'auto',  // Permitir cualquier tipo de archivo (zip, pdf, etc.)
-        public_id: `my_files/${sanitizedFileName}_${uniqueSuffix}`,  // Nombre único para evitar reemplazos
+        public_id: `ppi/${sanitizedFileName}_${uniqueSuffix}`,  // Nombre único para evitar reemplazos
         format: getFileFormat(file),  // Establece el formato del archivo
       },
       (error, result) => {
