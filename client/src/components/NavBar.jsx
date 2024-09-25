@@ -151,6 +151,8 @@ function NavBar() {
                 </Link>
               </li>
               {user.email === "panamerican.pi@gmail.com" && (
+              /*{ {user.email === "admin@gmail.com" && ( }*/
+
                 <li>
                 <Link
                   to="/register"

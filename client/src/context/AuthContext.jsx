@@ -128,9 +128,9 @@ export const AuthProvider = ({ children }) => {
     const signup = async (userData) => {
         try {
             const res = await registerRequest(userData);
-            setUser(res.data);
-            setIsAuthenticated(true);
-            Cookies.set('token', res.data.token);
+            // setUser(res.data);
+            // setIsAuthenticated(true);
+            // Cookies.set('token', res.data.token);
         } catch (error) {
             setErrors(error.response ? error.response.data : ['Server Error']);
         }

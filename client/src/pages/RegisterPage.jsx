@@ -23,7 +23,7 @@ function RegisterPage() {
 
   const onSubmit = handleSubmit(async (values) => {
     setLoading(true); // Iniciar el estado de loading cuando el usuario se registre
-    // await signup(values); // Realiza el signup
+    await signup(values); // Realiza el signup
     setLoading(false); // Detiene el estado de loading
     navigate('/'); // Redirige al usuario a la página de inicio
   });
