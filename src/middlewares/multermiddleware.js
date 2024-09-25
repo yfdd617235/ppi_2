@@ -36,7 +36,7 @@ export const uploadFileToCloudinary = (file) => {
   return new Promise((resolve, reject) => {
     const stream = cloudinary.uploader.upload_stream(
       {
-        resource_type: 'txt', // Si sabes que trabajas mayormente con archivos no multimedia, podrías usar 'raw'
+        resource_type: 'auto', // Si sabes que trabajas mayormente con archivos no multimedia, podrías usar 'raw'
         format: getFileFormat(file),  // Establece el formato si es necesario
         folder: 'my_files',  // Puedes organizar archivos en una carpeta específica si lo deseas
       },
