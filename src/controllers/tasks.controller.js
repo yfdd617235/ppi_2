@@ -1,14 +1,41 @@
 import Task from '../models/task.model.js';
 import { uploadFileToCloudinary } from '../middlewares/multermiddleware.js';
 import cloudinary from '../cloudinary.js';
+import { ADMIN_EMAIL } from '../config.js'
+
+// export const getTasks = async (req, res) => {
+//     const { projectId } = req.query;
+//     try {
+//         const query = {};
+//         if (projectId) {
+//             query.projectId = projectId;
+//         }
+
+//         const tasks = await Task.find(query).populate('user');
+//         res.json(tasks);
+//     } catch (error) {
+//         return res.status(500).json({ message: "Something went wrong" });
+//     }
+// };
 
 export const getTasks = async (req, res) => {
     const { projectId } = req.query;
+
     try {
-        const query = {};
-        if (projectId) {
-            query.projectId = projectId;
+        // Verifica si el usuario logueado es el administrador
+        const isAdmin = req.user.email === ADMIN_EMAIL;
+
+        // Construye la consulta según si es administrador o no
+        let query = {};
+        if (!isAdmin) {
+            // Si no es administrador, filtra por el usuario logueado
+            query.user = req.user.id;
         }
+
+        // // Filtra por projectId si fue proporcionado
+        // if (projectId) {
+        //     query.projectId = projectId;
+        // }
 
         const tasks = await Task.find(query).populate('user');
         res.json(tasks);
@@ -16,6 +43,7 @@ export const getTasks = async (req, res) => {
         return res.status(500).json({ message: "Something went wrong" });
     }
 };
+
 
 export const createTask = async (req, res) => {
     try {
@@ -76,42 +104,6 @@ export const deleteTask = async (req, res) => {
         return res.status(404).json({ message: "Task not found" });
     }
 };
-
-// export const updateTask = async (req, res) => {
-//     try {
-//         const existingTask = await Task.findById(req.params.id);
-//         if (!existingTask) return res.status(404).json({ message: 'Task not found' });
-
-//         const { title, description, date, projectId, status } = req.body;
-//         const file = req.file;
-
-//         const updateData = { title, description, date, projectId, status };
-
-//         if (file) {
-//             // Si hay un archivo existente, lo eliminamos de Cloudinary
-//             if (existingTask.filePublicId) {
-//                 await cloudinary.uploader.destroy(existingTask.filePublicId);
-//             }
-
-//             // Subimos el nuevo archivo
-//             const uploadResult = await uploadFileToCloudinary(file);
-//             updateData.file = uploadResult.secure_url;
-//             updateData.filePublicId = uploadResult.public_id;
-//         } else {
-//             updateData.file = existingTask.file;
-//             updateData.filePublicId = existingTask.filePublicId;
-//         }
-
-//         const updatedTask = await Task.findByIdAndUpdate(req.params.id, updateData, {
-//             new: true,
-//         });
-
-//         res.json(updatedTask);
-//     } catch (error) {
-//         console.error("Error updating task:", error);
-//         return res.status(500).json({ message: "Something went wrong" });
-//     }
-// };
 export const updateTask = async (req, res) => {
     try {
         const existingTask = await Task.findById(req.params.id);
