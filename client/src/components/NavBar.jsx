@@ -133,7 +133,7 @@ function NavBar() {
 
   return (
     <nav
-      className={`bg-black fixed top-0 left-1/2 transform -translate-x-1/2 w-full py-0 z-50 `}
+      className={`bg-black fixed top-0 left-1/2 transform -translate-x-1/2 w-full py-0 z-50 print:hidden`}
     >
       <div className="mr-2 flex items-center justify-between">
         <div className="flex items-center">
