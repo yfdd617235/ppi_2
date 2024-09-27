@@ -14,6 +14,7 @@ function BarChart() {
   const { user } = useAuth();
   const [selectedProjects, setSelectedProjects] = useState([]);
   const [selectedUsernames, setSelectedUsernames] = useState([]);
+  const [usernamesOptions, setUsernamesOptions] = useState([]);
 
   useEffect(() => {
     if (user?.email === 'panamerican.pi@gmail.com') {
@@ -33,9 +34,14 @@ function BarChart() {
     return projects.map((projectId) => {
       const projectTasks = filteredTasks.filter(task => task.projectId === projectId); // Tareas del proyecto
       const acceptedTasks = projectTasks.filter(task => task.status === 'Accepted'); // Tareas con estado 'Accepted'
-      
+
+      // Verificar si el usuario no es 'panamerican.pi@gmail.com' o si se seleccionó algún usuario específico
+      const totalAcceptedTasks = (user?.email !== 'panamerican.pi@gmail.com' || selectedUsernames.length > 0)
+        ? 6  // Total para otros usuarios o si se selecciona un usuario específico
+        : 107; // Total para 'panamerican.pi@gmail.com'
+
       // Calcula el porcentaje de avance
-      const progress = (acceptedTasks.length / 10) * 100; // Cada proyecto tiene 10 tareas
+      const progress = (acceptedTasks.length / totalAcceptedTasks) * 100;
       return progress > 100 ? 100 : progress; // Asegúrate de que no pase del 100%
     });
   };
@@ -101,7 +107,6 @@ function BarChart() {
   }));
 
   // Opciones para react-select de usernames (solo si el usuario es admin)
-  const [usernamesOptions, setUsernamesOptions] = useState([]);
   const usernameOptions = usernamesOptions.map(username => ({
     value: username,
     label: username,
