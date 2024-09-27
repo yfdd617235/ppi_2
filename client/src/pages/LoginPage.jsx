@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
+import { ArrowPathIcon } from '@heroicons/react/24/outline'; // Importar el ícono de carga
 
 function LoginPage() {
   const { register, handleSubmit, formState: { errors }, } = useForm();
@@ -54,9 +55,13 @@ function LoginPage() {
           <div className='flex justify-between'>
             <button
               type='submit'
-              className='text-green-500 px-3 py-1 my-3 rounded-sm border border-zinc-800'
+              className='flex items-center justify-center text-green-500 px-3 py-1 my-3 rounded-sm border border-zinc-800'
             >
-              {loading ? "Loading..." : "Login"} {/* Botón muestra loading */}
+              {loading ? (
+                <ArrowPathIcon className="animate-spin h-5 w-5 text-green-500" />
+              ) : (
+                "Login"
+              )}
             </button>
             <Link
               to="/"

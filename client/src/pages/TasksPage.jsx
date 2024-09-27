@@ -4,6 +4,7 @@ import TaskCard from "../components/TaskCard";
 import { projectList } from "../projects"; // Importa la lista de proyectos
 import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
+import { ArrowPathIcon } from '@heroicons/react/24/outline';
 
 function TasksPage() {
   const { getTasks, tasks } = useTasks();
@@ -30,7 +31,13 @@ function TasksPage() {
     ? filteredTasks
     : filteredTasks.filter(task => task.user?.email === user.email);
 
-  if (loading) return <h1 className="flex items-center justify-center h-screen text-xl">Loading tasks...</h1>; // Mostrar loading mientras se obtienen las tareas
+  // if (loading) return <h1 className="flex items-center justify-center h-screen text-xl">Loading tasks...</h1>; // Mostrar loading mientras se obtienen las tareas
+  if (loading) return (
+    <div className="flex items-center justify-center h-screen">
+      <ArrowPathIcon className="animate-spin h-5 w-5" /> {/* Indicador de carga */}
+      <span className="ml-2">Loading tasks...</span>
+    </div>
+  );
 
   if (displayedTasks.length === 0) return (
 

@@ -84,6 +84,7 @@ import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
 import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid';
+import { ArrowPathIcon } from '@heroicons/react/24/outline'; // Importar el ícono de carga
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -115,7 +116,13 @@ function TaskTable() {
         }
     };
 
-    if (loading) return <h1>Loading tasks...</h1>; // Mostrar loading mientras se obtienen las tareas
+    // if (loading) return <h1>Loading tasks...</h1>; // Mostrar loading mientras se obtienen las tareas
+    if (loading) return (
+        <div className="flex">
+          <ArrowPathIcon className="animate-spin h-5 w-5" /> {/* Indicador de carga */}
+          <span className="ml-2">Loading tasks...</span>
+        </div>
+      );
 
     return (
         <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-800">
