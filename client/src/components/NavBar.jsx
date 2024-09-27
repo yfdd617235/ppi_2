@@ -98,7 +98,6 @@
 // }
 
 // export default NavBar;
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
@@ -134,12 +133,12 @@ function NavBar() {
 
   return (
     <nav
-      className={`bg-black fixed top-0 left-1/2 transform -translate-x-1/2 w-full py-0 z-50 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      className={`bg-black fixed top-0 left-1/2 transform -translate-x-1/2 w-full py-0 z-50 `}
     >
-      <div className="mx-3 flex items-center justify-between">
+      <div className="mr-2 flex items-center justify-between">
         <div className="flex items-center">
           <Link to="/">
-            <div className="h-14 w-14 m-2 overflow-hidden">
+            <div className="h-14 w-14 overflow-hidden">
               <img
                 src={`${import.meta.env.BASE_URL}logoT.png`}
                 alt="PPI"
@@ -149,88 +148,32 @@ function NavBar() {
           </Link>
         </div>
 
-        {/* Mostrar el nombre del usuario fuera del menú hamburguesa */}
-        {isAuthenticated && (
-          <div className="text-sm text-white hidden md:block">
-            {user.username}
-          </div>
-        )}
-
-        {/* Icono del menú hamburguesa para pantallas pequeñas */}
-        <button onClick={toggleMenu} className="text-white md:hidden">
-          <Bars3Icon className="h-5 w-5" />
-        </button>
-
-        {/* Menú de navegación para pantallas grandes */}
-        <ul className={`hidden md:flex flex-wrap gap-x-3 items-center ${!isAuthenticated ? 'justify-end' : ''}`}>
-          {isAuthenticated ? (
-            <>
-              <li>
-                <Link
-                  to="/tasks"
-                  className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
-                >
-                  <ClipboardDocumentCheckIcon className="h-5 w-5 text-white" />
-                  <span className="sr-only">Tasks</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/profile"
-                  className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
-                >
-                  <UserCircleIcon className="h-5 w-5 text-green-600" />
-                  <span className="sr-only">Profile</span>
-                </Link>
-              </li>
-              {user.email === "panamerican.pi@gmail.com" && (
-                <li>
-                  <Link
-                    to="/register"
-                    className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm border border-zinc-800"
-                  >
-                    <UserPlusIcon className="h-5 w-5 text-gray-500" />
-                    <span className="sr-only">Register</span>
-                  </Link>
-                </li>
-              )}
-              <li>
-                <Link
-                  to="/"
-                  onClick={() => {
-                    logout();
-                    closeMenu(); // Cerrar el menú al hacer clic en Logout
-                  }}
-                  className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
-                >
-                  <ArrowRightOnRectangleIcon className="h-5 w-5 text-red-500" />
-                  <span className="sr-only">Logout</span>
-                </Link>
-              </li>
-            </>
-          ) : (
-            <li>
-              <Link
-                to="/login"
-                className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
-              >
-                <ArrowLeftOnRectangleIcon className="h-5 w-5 text-white" />
-                <span className="sr-only">Login</span>
-              </Link>
-            </li>
+        <div className="flex items-center">
+          {isAuthenticated && (
+            <div className="text-sm text-green-500 flex items-center flex-grow md:flex-grow-0 mx-4">
+              {user.username}
+            </div>
           )}
-        </ul>
 
-        {/* Menú hamburguesa desplegable para pantallas pequeñas */}
-        {isMenuOpen && (
-          <ul className="absolute top-16 right-4 bg-black text-white rounded-md p-4 flex flex-col gap-4 md:hidden">
+          {/* Mostrar el menú hamburguesa o el icono de login según el estado de autenticación */}
+          {isAuthenticated ? (
+            <button onClick={toggleMenu} className="text-white md:hidden">
+              <Bars3Icon className="h-6 w-6" />
+            </button>
+          ) : (
+            <Link to="/login" className="text-white md:hidden">
+              <ArrowLeftOnRectangleIcon className="h-6 w-6" />
+            </Link>
+          )}
+
+          {/* Menú de navegación para pantallas grandes */}
+          <ul className={`hidden md:flex flex-wrap gap-x-3 items-center ${!isAuthenticated ? 'justify-end' : ''}`}>
             {isAuthenticated ? (
               <>
                 <li>
                   <Link
                     to="/tasks"
-                    className="flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-800"
-                    onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
+                    className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
                   >
                     <ClipboardDocumentCheckIcon className="h-5 w-5 text-white" />
                     <span className="sr-only">Tasks</span>
@@ -239,8 +182,7 @@ function NavBar() {
                 <li>
                   <Link
                     to="/profile"
-                    className="flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-800"
-                    onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
+                    className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
                   >
                     <UserCircleIcon className="h-5 w-5 text-green-600" />
                     <span className="sr-only">Profile</span>
@@ -250,8 +192,7 @@ function NavBar() {
                   <li>
                     <Link
                       to="/register"
-                      className="flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-800"
-                      onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
+                      className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm border border-zinc-800"
                     >
                       <UserPlusIcon className="h-5 w-5 text-gray-500" />
                       <span className="sr-only">Register</span>
@@ -276,8 +217,7 @@ function NavBar() {
               <li>
                 <Link
                   to="/login"
-                  className="flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-800"
-                  onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
+                  className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
                 >
                   <ArrowLeftOnRectangleIcon className="h-5 w-5 text-white" />
                   <span className="sr-only">Login</span>
@@ -285,10 +225,77 @@ function NavBar() {
               </li>
             )}
           </ul>
-        )}
+
+          {/* Menú hamburguesa desplegable para pantallas pequeñas */}
+          {isMenuOpen && (
+            <ul className="absolute right-0 top-12 text-white rounded-md flex flex-col gap-3 md:hidden">
+              {isAuthenticated ? (
+                <>
+                  <li>
+                    <Link
+                      to="/tasks"
+                      className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-800"
+                      onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
+                    >
+                      <ClipboardDocumentCheckIcon className="h-5 w-5 text-white" />
+                      <span className="sr-only">Tasks</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/profile"
+                      className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-800"
+                      onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
+                    >
+                      <UserCircleIcon className="h-5 w-5 text-green-600" />
+                      <span className="sr-only">Profile</span>
+                    </Link>
+                  </li>
+                  {user.email === "panamerican.pi@gmail.com" && (
+                    <li>
+                      <Link
+                        to="/register"
+                        className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-800"
+                        onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
+                      >
+                        <UserPlusIcon className="h-5 w-5 text-gray-500" />
+                        <span className="sr-only">Register</span>
+                      </Link>
+                    </li>
+                  )}
+                  <li>
+                    <Link
+                      to="/"
+                      onClick={() => {
+                        logout();
+                        closeMenu(); // Cerrar el menú al hacer clic en Logout
+                      }}
+                      className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-800"
+                    >
+                      <ArrowRightOnRectangleIcon className="h-5 w-5 text-red-500" />
+                      <span className="sr-only">Logout</span>
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <Link
+                    to="/login"
+                    className="flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-800"
+                    onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
+                  >
+                    <ArrowLeftOnRectangleIcon className="h-5 w-5 text-white" />
+                    <span className="sr-only">Login</span>
+                  </Link>
+                </li>
+              )}
+            </ul>
+          )}
+        </div>
       </div>
     </nav>
   );
 }
 
 export default NavBar;
+

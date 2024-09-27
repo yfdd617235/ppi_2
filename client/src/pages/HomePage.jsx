@@ -6,14 +6,16 @@ const LandingPage = () => {
     <div className="flex flex-col pt-10">
       {/* Jumbotron Section */}
       <div
-        className="h-screen w-full bg-repeat bg-center flex justify-center items-center"
+        className="h-screen w-full bg-center flex justify-center items-center"
         style={{
           backgroundImage: `
-      linear-gradient(to top, transparent, rgba(0, 0, 0, 1)),
-      linear-gradient(to bottom, transparent, black),
-      linear-gradient(to bottom, transparent, black),
-      url('${import.meta.env.BASE_URL}banner.webp')`,
-          backgroundSize: 'auto',
+            linear-gradient(to top, transparent, black),
+            linear-gradient(to bottom, transparent, black),
+            linear-gradient(to bottom, transparent, black),
+            url('${import.meta.env.BASE_URL}banner.webp')`,
+          backgroundSize: 'cover', // Ajusta el tamaño de fondo para cubrir el contenedor
+          backgroundRepeat: 'no-repeat', // Evita la repetición vertical y horizontal
+          backgroundPosition: 'center center' // Centra la imagen
         }}
       >
         <img
@@ -90,11 +92,13 @@ const LandingPage = () => {
         className="w-full text-left mt-16 p-4 md:p-8 bg-repeat bg-center min-h-[400px]"
         style={{
           backgroundImage: `
-      linear-gradient(to bottom, transparent, black),
-      linear-gradient(to top, transparent, black),
-      linear-gradient(to bottom, transparent, rgba(0, 0, 0, 1)),
-      url('${import.meta.env.BASE_URL}banner.webp')`,
-          backgroundSize: 'auto',
+            linear-gradient(to bottom, transparent, black),
+            linear-gradient(to top, transparent, black),
+            linear-gradient(to top, transparent, black),
+            url('${import.meta.env.BASE_URL}banner.webp')`,
+          backgroundSize: 'cover', // Ajusta el tamaño de fondo para cubrir el contenedor
+          backgroundRepeat: 'no-repeat', // Evita la repetición vertical y horizontal
+          backgroundPosition: 'center center' // Centra la imagen
         }}
       >
         <div className="px-4 md:px-8 lg:px-24">
