@@ -136,6 +136,18 @@ function TasksPage() {
 
   if (displayedTasks.length === 0) return (
     <div className="flex flex-col items-center justify-center h-screen">
+              <select
+          value={selectedProject}
+          onChange={(e) => setSelectedProject(e.target.value)}
+          className="bg-black text-white text-sm py-1 rounded-md border"
+        >
+          <option value="">All Projects</option>
+          {projectList.map((projectId, index) => (
+            <option key={index} value={projectId}>
+              {projectId}
+            </option>
+          ))}
+        </select> <br />
       <Link
         to="/add-task"
         className="text-green-600 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800 mb-4"
