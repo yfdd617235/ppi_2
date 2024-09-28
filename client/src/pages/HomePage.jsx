@@ -1,7 +1,15 @@
-import React from "react";
+import { useEffect} from "react";
 import { EnvelopeIcon } from "@heroicons/react/24/solid"
+import { wakeUpServer } from '../api/axios'; // Importa la función wakeUpServer
 
-const LandingPage = () => {
+const HomaPage = () => {
+
+  useEffect(() => {
+    // Llamada para despertar el servidor cuando la página cargue
+    wakeUpServer();
+  }, []); // Solo se ejecuta una vez al montar el componente
+
+
   return (
     <div className="flex flex-col pt-10">
       {/* Jumbotron Section */}
@@ -108,7 +116,7 @@ const LandingPage = () => {
             </div>
             <div className="flex items-center justify-left m-6">
               <div className="flex flex-col space-y-3 text-left">
-                <h5 className="text-xs md:text-sm lg:text-lg font-bold">Services</h5> <br/>
+                <h5 className="text-xs md:text-sm lg:text-lg font-bold">Services</h5> <br />
                 <p className="text-xs md:text-sm ">- Trading and financial investments</p>
                 <p className="text-xs md:text-sm ">- Project evaluation, structuring and management</p>
                 <p className="text-xs md:text-sm ">- International business consulting</p>
@@ -117,7 +125,7 @@ const LandingPage = () => {
             </div>
             <div className="flex items-center justify-left m-6">
               <div className="flex flex-col space-y-3 text-left">
-                <h5 className="text-xs md:text-sm lg:text-lg font-bold">Contact Us</h5> <br/>
+                <h5 className="text-xs md:text-sm lg:text-lg font-bold">Contact Us</h5> <br />
                 <p className="text-xs md:text-sm ">
                   Address: Cra 42 C #3 Sur 81, Torre 1, Piso 15 <br />
                   CE Milla de Oro, Medellín Colombia
@@ -140,4 +148,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default HomaPage;

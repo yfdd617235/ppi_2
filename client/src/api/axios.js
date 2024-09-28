@@ -26,6 +26,16 @@ const instance = axios.create({
     withCredentials: true, // Permitir el uso de cookies en solicitudes
 });
 
+// Función para despertar el servidor
+export const wakeUpServer = async () => {
+    try {
+      await instance.get('/ping');
+      console.log('Servidor activado');
+    } catch (error) {
+      console.error('Error al activar el servidor:', error);
+    }
+  };
+
 // Agregar el token en el encabezado de todas las solicitudes usando un interceptor
 instance.interceptors.request.use(
     (config) => {
