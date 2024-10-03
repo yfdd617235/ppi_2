@@ -173,7 +173,7 @@ function NavBar() {
                 <li>
                   <Link
                     to="/tasks"
-                    className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
+                    className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-700"
                   >
                     <ClipboardDocumentCheckIcon className="h-5 w-5 text-white" />
                     <span className="sr-only">Tasks</span>
@@ -182,7 +182,7 @@ function NavBar() {
                 <li>
                   <Link
                     to="/profile"
-                    className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
+                    className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-700"
                   >
                     <UserCircleIcon className="h-5 w-5 text-green-600" />
                     <span className="sr-only">Profile</span>
@@ -192,7 +192,7 @@ function NavBar() {
                   <li>
                     <Link
                       to="/register"
-                      className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm border border-zinc-800"
+                      className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm border border-zinc-700"
                     >
                       <UserPlusIcon className="h-5 w-5 text-gray-500" />
                       <span className="sr-only">Register</span>
@@ -206,7 +206,7 @@ function NavBar() {
                       logout();
                       closeMenu(); // Cerrar el menú al hacer clic en Logout
                     }}
-                    className="flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-800"
+                    className="flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
                   >
                     <ArrowRightOnRectangleIcon className="h-5 w-5 text-red-500" />
                     <span className="sr-only">Logout</span>
@@ -217,7 +217,7 @@ function NavBar() {
               <li>
                 <Link
                   to="/login"
-                  className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
+                  className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-700"
                 >
                   <ArrowLeftOnRectangleIcon className="h-5 w-5 text-white" />
                   <span className="sr-only">Login</span>
@@ -234,7 +234,7 @@ function NavBar() {
                   <li>
                     <Link
                       to="/tasks"
-                      className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-800"
+                      className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
                       onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
                     >
                       <ClipboardDocumentCheckIcon className="h-5 w-5 text-white" />
@@ -244,7 +244,7 @@ function NavBar() {
                   <li>
                     <Link
                       to="/profile"
-                      className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-800"
+                      className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
                       onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
                     >
                       <UserCircleIcon className="h-5 w-5 text-green-600" />
@@ -255,7 +255,7 @@ function NavBar() {
                     <li>
                       <Link
                         to="/register"
-                        className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-800"
+                        className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
                         onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
                       >
                         <UserPlusIcon className="h-5 w-5 text-gray-500" />
@@ -270,7 +270,7 @@ function NavBar() {
                         logout();
                         closeMenu(); // Cerrar el menú al hacer clic en Logout
                       }}
-                      className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-800"
+                      className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
                     >
                       <ArrowRightOnRectangleIcon className="h-5 w-5 text-red-500" />
                       <span className="sr-only">Logout</span>
@@ -281,7 +281,7 @@ function NavBar() {
                 <li>
                   <Link
                     to="/login"
-                    className="flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-800"
+                    className="flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
                     onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
                   >
                     <ArrowLeftOnRectangleIcon className="h-5 w-5 text-white" />

@@ -248,49 +248,62 @@ function BarChart() {
       {
         label: 'Project Progress (%)',
         data: progressData, // Avance por proyecto
-        backgroundColor: 'rgba(34, 197, 94, 0.2)', // Verde transparente (opacidad 0.3)
+        backgroundColor: 'rgba(34, 197, 94, 0.3)', // Verde transparente (opacidad 0.3)
         borderColor: 'rgba(34, 197, 94, 1)', // Verde sólido para el borde
-        borderWidth: 1,
+        borderWidth: 2,
       },
     ],
   };
 
   // Opciones para el gráfico
-  const options = {
-    scales: {
-      x: {
-        beginAtZero: true,
-        title: {
-          display: true,
-          text: 'Project',
-        },
-      },
-      y: {
-        beginAtZero: true,
-        suggestedMax: 100, // El máximo progreso es 100%
-        title: {
-          display: true,
-          text: 'Progress (%)',
-        },
-        ticks: {
-          stepSize: 20, // Ajustar el tamaño del paso de las marcas
-        },
-      },
-    },
-    plugins: {
-      legend: {
+const options = {
+  scales: {
+    x: {
+      beginAtZero: true,
+      title: {
         display: true,
-        position: 'top',
+        text: 'Project',
+        color: '#ffffff', // Color blanco para el título del eje X
       },
-      tooltip: {
-        callbacks: {
-          label: function (tooltipItem) {
-            return `${tooltipItem.label}: ${tooltipItem.raw}%`;
-          },
+      ticks: {
+        color: '#ffffff', // Color blanco para las etiquetas del eje X
+      },
+    },
+    y: {
+      beginAtZero: true,
+      suggestedMax: 100, // El máximo progreso es 100%
+      title: {
+        display: true,
+        text: 'Progress (%)',
+        color: '#ffffff', // Color blanco para el título del eje Y
+      },
+      ticks: {
+        stepSize: 10, // Ajustar el tamaño del paso de las marcas
+        color: '#ffffff', // Color blanco para las etiquetas del eje Y
+      },
+    },
+  },
+  plugins: {
+    legend: {
+      display: true,
+      position: 'top',
+      labels: {
+        color: '#ffffff', // Color blanco para el texto de la leyenda
+      },
+    },
+    tooltip: {
+      backgroundColor: '#333333', // Fondo oscuro del tooltip
+      titleColor: '#ffffff', // Color blanco para el título del tooltip
+      bodyColor: '#ffffff', // Color blanco para el cuerpo del tooltip (texto principal)
+      callbacks: {
+        label: function (tooltipItem) {
+          return `${tooltipItem.label}: ${tooltipItem.raw}%`;
         },
       },
     },
-  };
+  },
+};
+
 
   // Opciones para react-select de proyectos
   const projectOptions = projectList.map(projectId => ({
@@ -340,7 +353,7 @@ function BarChart() {
 
   return (
     <div className="p-4">
-      <h2 className="text-center font-bold mb-4">Projects Progress</h2>
+      <h2 className="text-center font-bold mb-4">Total Average Progress: {averageProgress}%</h2>
       
       {/* Filtro de proyectos */}
       <Select
@@ -368,12 +381,7 @@ function BarChart() {
         />
       )}
 
-      <Bar data={data} options={options} />
-
-      {/* Mostrar el progreso promedio */}
-      <div className="text-center mt-4">
-        <p className="font-semibold ">Total Average Progress: {averageProgress}%</p>
-      </div>
+      <Bar data={data} options={options}/>
     </div>
   );
 }

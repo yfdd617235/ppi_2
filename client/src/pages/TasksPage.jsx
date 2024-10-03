@@ -178,7 +178,7 @@ function TasksPage() {
         {/* Enlace para añadir tarea */}
         <Link
           to="/add-task"
-          className="text-green-600 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-800"
+          className=" px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border text-green-600 border-zinc-800"
         >
           Add Task
         </Link>
