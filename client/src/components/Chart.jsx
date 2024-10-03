@@ -224,8 +224,8 @@ function BarChart() {
 
       // Verificar si el usuario no es 'panamerican.pi@gmail.com' o si se seleccionó algún usuario específico
       const totalAcceptedTasks = (user?.email !== 'panamerican.pi@gmail.com' || selectedUsernames.length > 0)
-        ? 6  // Total para otros usuarios o si se selecciona un usuario específico
-        : 107; // Total para 'panamerican.pi@gmail.com'
+        ? 5  // Total para otros usuarios o si se selecciona un usuario específico
+        : 89; // Total para 'panamerican.pi@gmail.com'
 
       // Calcula el porcentaje de avance
       const progress = (acceptedTasks.length / totalAcceptedTasks) * 100;
