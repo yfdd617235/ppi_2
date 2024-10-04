@@ -98,6 +98,7 @@ function TaskTable() {
         async function fetchTasks() {
             await getTasks();
             setLoading(false); // Detener el loading cuando las tareas están listas
+            console.log("tasks", tasks)
         }
         fetchTasks(); // Obtener las tareas
     }, [getTasks]);

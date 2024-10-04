@@ -150,8 +150,8 @@ function ProfilePage() {
     <div className="flex sm:flex flex-wrap pt-16 h-screen">
 
       {/* Ícono de hamburguesa visible solo en pantallas pequeñas */}
-      <div className="p-1 z-40 ">
-        <button onClick={toggleMenu} className="text-white" id="hamburger-button">
+      <div className="p-1 z-40 fixed ">
+        <button onClick={toggleMenu} className="text-green-500" id="hamburger-button">
           {/* Ícono de hamburguesa */}
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
@@ -163,32 +163,33 @@ function ProfilePage() {
       {/* Menú lateral para pantallas pequeñas (controlado por el estado isOpen) */}
       <div
         id="hamburger-menu"
-        className={`flex flex-col justify-center lg:w-1/8 p-5 -ml-6 gap-5 fixed top-1/3 left-0 z-50 transition-transform duration-300 ease-in-out ${isOpen ? 'block' : 'hidden'}`}
+        className={`flex flex-col mt-10 h-screen p-5 -ml-6 gap-5 fixed left-0 z-50 transition-transform duration-300 ease-in-out ${isOpen ? 'block' : 'hidden'}`}
       >
         <p
-          className="bg-black p-2 border text-white border-zinc-800 flex items-center gap-2 rounded-lg cursor-pointer"
+          className="bg-black p-2 border text-white border-zinc-700 flex items-center gap-2 rounded-lg cursor-pointer"
           onClick={() => setActiveComponent('list')}
         >
-          <ListBulletIcon className="h-5 w-5 text-green-500" /> List
+          <ListBulletIcon className="h-5 w-5 text-white" /><span className="sr-only">List</span>
         </p>
         <p
-          className="bg-black p-2 border text-white border-zinc-800 flex items-center gap-2 rounded-lg cursor-pointer"
+          className="bg-black p-2 border text-white border-zinc-700 flex items-center gap-2 rounded-lg cursor-pointer"
           onClick={() => setActiveComponent('chart')}
         >
-          <ChartBarIcon className="h-5 w-5 text-green-500" /> Progress
+          <ChartBarIcon className="h-5 w-5 text-green-500" /> <span className="sr-only">Progress</span>
         </p>
-        <p className="bg-black p-2 border text-white border-zinc-800 flex items-center gap-2 rounded-lg">
-          <UserIcon className="h-5 w-5 text-green-500" /> Users
+        <p className="bg-black p-2 border text-white border-zinc-700 flex items-center gap-2 rounded-lg">
+          <UserIcon className="h-5 w-5 text-blue-500" /> <span className="sr-only">Users</span>
         </p>
-        <p className="bg-black p-2 border text-white border-zinc-800 flex items-center gap-2 rounded-lg">
-          <FolderIcon className="h-5 w-5 text-green-500" /> Projects
+        <p className="bg-black p-2 border text-white border-zinc-700 flex items-center gap-2 rounded-lg">
+          <FolderIcon className="h-5 w-5 text-yellow-500" /><span className="sr-only">Projects</span>
         </p>
       </div>
+
 
       {/* Sección derecha con scroll interno */}
       <div className="flex-grow h-full">
         {/* Contenido dinámico del lado derecho */}
-        <div className="flex flex-col items-center w-full px-4 pt-24">
+        <div className="flex flex-col items-center w-full px-4">
           {activeComponent === 'chart' && (
             <div className="w-full max-w-screen-lg overflow-x-auto">
               <Chart />
@@ -204,8 +205,22 @@ function ProfilePage() {
 
         {/* Footer con tu nombre y developer */}
         <footer className="w-full p-4 mt-8 print:block hidden">
-          <p className="text-black font-bold">Yosef David Giraldo Salazar</p>
-          <p>Developer</p>
+
+          <div className='flex gap-4'>
+            <div className="h-14 w-14 overflow-hidden">
+              <img
+                src={`${import.meta.env.BASE_URL}logo.svg`}
+                alt="PPI"
+                className="h-full w-full object-cover object-center scale-125 "
+              />
+            </div>
+            <div>
+              <p className="text-black font-bold">Yosef David Giraldo Salazar</p>
+              <p>Developer</p>
+            </div>
+
+          </div>
+
         </footer>
       </div>
 
