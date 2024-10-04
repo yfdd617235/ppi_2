@@ -263,10 +263,10 @@ const options = {
       title: {
         display: true,
         text: 'Project',
-        color: '#ffffff', // Color blanco para el título del eje X
+        color: '#A9A9A9', // Color blanco para el título del eje X
       },
       ticks: {
-        color: '#ffffff', // Color blanco para las etiquetas del eje X
+        color: '#A9A9A9', // Color blanco para las etiquetas del eje X
       },
     },
     y: {
@@ -275,11 +275,11 @@ const options = {
       title: {
         display: true,
         text: 'Progress (%)',
-        color: '#ffffff', // Color blanco para el título del eje Y
+        color: '#A9A9A9', // Color blanco para el título del eje Y
       },
       ticks: {
         stepSize: 10, // Ajustar el tamaño del paso de las marcas
-        color: '#ffffff', // Color blanco para las etiquetas del eje Y
+        color: '#A9A9A9', // Color blanco para las etiquetas del eje Y
       },
     },
   },
@@ -361,7 +361,7 @@ const options = {
         options={projectOptions}
         value={selectedProjects.map(project => ({ value: project, label: project }))}
         onChange={(selected) => setSelectedProjects(selected.map(option => option.value))}
-        className="mb-4 text-xs text-black"
+        className="mb-4 text-xs text-black print:hidden"
         classNamePrefix="custom-select"
         placeholder="Select Projects..."
         styles={customStyles}
@@ -374,7 +374,7 @@ const options = {
           options={usernameOptions}
           value={selectedUsernames.map(username => ({ value: username, label: username }))}
           onChange={(selected) => setSelectedUsernames(selected.map(option => option.value))}
-          className="mb-4 text-xs text-black"
+          className="mb-4 text-xs text-black print:hidden"
           classNamePrefix="custom-select"
           placeholder="Select Usernames..."
           styles={customStyles}
