@@ -371,7 +371,7 @@ function BarChart() {
   );
 
   return (
-    <div className="p-4">
+    <div>
   <h2 className="text-center font-bold mb-4">Total Average Progress: {averageProgress}%</h2>
   <Select
     isMulti
@@ -395,7 +395,7 @@ function BarChart() {
       styles={customStyles} // Asegúrate de aplicar los estilos personalizados aquí
     />
   )}
-  <Bar data={data} options={options} />
+  <Bar data={data} options={options}/>
 </div>
 
   );

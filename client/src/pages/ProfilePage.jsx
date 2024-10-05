@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ListBulletIcon, ChartBarIcon, UserIcon, FolderIcon } from '@heroicons/react/24/outline'; // Importa los iconos de Heroicons
 import TaskTable from '../components/TaskTable';
 import Chart from '../components/Chart';
+import Projects from '../components/Projects'
 
 function ProfilePage() {
   const [isOpen, setIsOpen] = useState(false); // Estado para manejar el menú hamburguesa
@@ -61,25 +62,32 @@ function ProfilePage() {
         <p className="bg-black p-2 border text-white border-zinc-700 flex items-center gap-2 rounded-lg">
           <UserIcon className="h-5 w-5 text-blue-500" /> <span className="sr-only">Users</span>
         </p>
-        <p className="bg-black p-2 border text-white border-zinc-700 flex items-center gap-2 rounded-lg">
+        <p className=" bg-black p-2 border text-white border-zinc-700 flex items-center gap-2 rounded-lg cursor-pointer"
+        onClick={() => setActiveComponent('Projects')}>
           <FolderIcon className="h-5 w-5 text-yellow-500" /><span className="sr-only">Projects</span>
         </p>
       </div>
 
 
       {/* Sección derecha con scroll interno */}
-      <div className="flex-grow h-full">
+      <div className="">
         {/* Contenido dinámico del lado derecho */}
-        <div className="flex flex-col items-center w-full px-4">
+        <div className="flex justify-center items-center w-screen px-1">
           {activeComponent === 'chart' && (
-             <div className=" max-h-screen">
-             <Chart />
-           </div>
+            <div className="lg:w-2/3 max-w-screen max-h-screen overflow-x-auto">
+              <Chart />
+            </div>
           )}
 
           {activeComponent === 'list' && (
-            <div className="w-full max-w-screen overflow-x-auto">
+            <div className="flex w-full max-w-screen overflow-x-auto justify-center lg:px-28">
               <TaskTable />
+            </div>
+          )}
+
+          {activeComponent === 'Projects' && (
+            <div className="flex w-full max-w-screen overflow-x-auto justify-center lg:px-28">
+              <Projects />
             </div>
           )}
         </div>
