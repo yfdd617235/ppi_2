@@ -364,7 +364,7 @@ function BarChart() {
   };
 
   if (loading) return (
-    <div className="flex">
+    <div className="flex items-center justify-center h-screen">
       <ArrowPathIcon className="animate-spin h-5 w-5" />
       <span className="ml-2">Loading tasks...</span>
     </div>
