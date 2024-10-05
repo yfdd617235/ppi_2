@@ -72,13 +72,13 @@ function ProfilePage() {
         {/* Contenido dinámico del lado derecho */}
         <div className="flex flex-col items-center w-full px-4">
           {activeComponent === 'chart' && (
-            <div className="w-full max-w-screen overflow-x-auto">
-              <Chart />
-            </div>
+             <div className=" max-h-screen">
+             <Chart />
+           </div>
           )}
 
           {activeComponent === 'list' && (
-            <div className="w-full max-w-full overflow-x-auto">
+            <div className="w-full max-w-screen overflow-x-auto">
               <TaskTable />
             </div>
           )}
