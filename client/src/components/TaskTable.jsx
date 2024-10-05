@@ -1,11 +1,11 @@
 // import { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
 // import { useTasks } from "../context/TasksContext";
 // import { useAuth } from "../context/AuthContext";
 // import dayjs from 'dayjs';
 // import utc from 'dayjs/plugin/utc';
 // import timezone from 'dayjs/plugin/timezone';
 // import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid';
+// import { ArrowPathIcon } from '@heroicons/react/24/outline'; // Importar el ícono de carga
 
 // dayjs.extend(utc);
 // dayjs.extend(timezone);
@@ -19,6 +19,7 @@
 //         async function fetchTasks() {
 //             await getTasks();
 //             setLoading(false); // Detener el loading cuando las tareas están listas
+//             console.log("tasks", tasks)
 //         }
 //         fetchTasks(); // Obtener las tareas
 //     }, [getTasks]);
@@ -37,10 +38,16 @@
 //         }
 //     };
 
-//     if (loading) return <h1>Loading tasks...</h1>; // Mostrar loading mientras se obtienen las tareas
+//     // if (loading) return <h1>Loading tasks...</h1>; // Mostrar loading mientras se obtienen las tareas
+//     if (loading) return (
+//         <div className="flex">
+//           <ArrowPathIcon className="animate-spin h-5 w-5" /> {/* Indicador de carga */}
+//           <span className="ml-2">Loading tasks...</span>
+//         </div>
+//       );
 
 //     return (
-//         <div className="overflow-x-auto">
+//         <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-800">
 //             <table className="min-w-full text-left border-collapse">
 //                 <thead>
 //                     <tr className="border-b">
@@ -83,7 +90,6 @@ import { useAuth } from "../context/AuthContext";
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
-import { PencilIcon, TrashIcon } from '@heroicons/react/24/solid';
 import { ArrowPathIcon } from '@heroicons/react/24/outline'; // Importar el ícono de carga
 
 dayjs.extend(utc);
@@ -92,20 +98,18 @@ dayjs.extend(timezone);
 function TaskTable() {
     const { tasks, getTasks, deleteTask } = useTasks();
     const { user } = useAuth();
-    const [loading, setLoading] = useState(true); // Estado de loading
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function fetchTasks() {
             await getTasks();
-            setLoading(false); // Detener el loading cuando las tareas están listas
-            console.log("tasks", tasks)
+            setLoading(false);
         }
-        fetchTasks(); // Obtener las tareas
+        fetchTasks();
     }, [getTasks]);
 
-    // Filtrar tareas basadas en el email del usuario
     const filteredTasks = loading
-        ? [] // Mientras se carga, no hay tareas que mostrar
+        ? []
         : user?.email === 'panamerican.pi@gmail.com'
             ? tasks
             : tasks.filter(task => task.user.email === user.email);
@@ -117,16 +121,15 @@ function TaskTable() {
         }
     };
 
-    // if (loading) return <h1>Loading tasks...</h1>; // Mostrar loading mientras se obtienen las tareas
     if (loading) return (
         <div className="flex">
-          <ArrowPathIcon className="animate-spin h-5 w-5" /> {/* Indicador de carga */}
-          <span className="ml-2">Loading tasks...</span>
+            <ArrowPathIcon className="animate-spin h-5 w-5" />
+            <span className="ml-2">Loading tasks...</span>
         </div>
-      );
+    );
 
     return (
-        <div className="overflow-x-auto scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-800">
+        <div className="overflow-x-auto max-w-full"> {/* Asegúrate de que el contenedor sea del 100% */}
             <table className="min-w-full text-left border-collapse">
                 <thead>
                     <tr className="border-b">
