@@ -113,9 +113,10 @@ function TasksPage() {
     async function fetchTasks() {
       await getTasks();
       setLoading(false); // Detener el loading cuando las tareas están listas
+    console.log(tasks)
     }
     fetchTasks(); // Obtener las tareas
-  }, [getTasks]);
+  }, []);
 
   // Filtrar las tareas por el proyecto seleccionado
   const filteredTasks = selectedProject

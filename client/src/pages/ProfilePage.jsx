@@ -94,7 +94,7 @@ function ProfilePage() {
           )}
 
           {activeComponent === 'UsersChart' && (
-            <div className="lg:w-2/3 max-w-screen max-h-screen overflow-x-auto">
+            <div className="lg:w-2/3 max-w-screen max-h-screen overflow-y-auto">
               <UsersChart />
             </div>
           )}
