@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { ListBulletIcon, ChartBarIcon, UserIcon, FolderIcon } from '@heroicons/react/24/outline'; // Importa los iconos de Heroicons
 import TaskTable from '../components/TaskTable';
 import Chart from '../components/Chart';
-import Projects from '../components/Projects'
+import Projects from '../components/Projects';
+import UsersChart from '../components/UsersChart'
 
 function ProfilePage() {
   const [isOpen, setIsOpen] = useState(false); // Estado para manejar el menú hamburguesa
@@ -59,11 +60,12 @@ function ProfilePage() {
         >
           <ChartBarIcon className="h-5 w-5 text-green-500" /> <span className="sr-only">Progress</span>
         </p>
-        <p className="bg-black p-2 border text-white border-zinc-700 flex items-center gap-2 rounded-lg">
+        <p className="bg-black p-2 border text-white border-zinc-700 flex items-center gap-2 rounded-lg"
+        onClick={() => setActiveComponent('UsersChart')}>
           <UserIcon className="h-5 w-5 text-blue-500" /> <span className="sr-only">Users</span>
         </p>
         <p className=" bg-black p-2 border text-white border-zinc-700 flex items-center gap-2 rounded-lg cursor-pointer"
-        onClick={() => setActiveComponent('Projects')}>
+          onClick={() => setActiveComponent('Projects')}>
           <FolderIcon className="h-5 w-5 text-yellow-500" /><span className="sr-only">Projects</span>
         </p>
       </div>
@@ -88,6 +90,12 @@ function ProfilePage() {
           {activeComponent === 'Projects' && (
             <div className="flex w-full max-w-screen overflow-x-auto justify-center lg:px-28">
               <Projects />
+            </div>
+          )}
+
+          {activeComponent === 'UsersChart' && (
+            <div className="lg:w-2/3 max-w-screen max-h-screen overflow-x-auto">
+              <UsersChart />
             </div>
           )}
         </div>
