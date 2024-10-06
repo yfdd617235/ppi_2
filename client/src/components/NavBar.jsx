@@ -103,8 +103,8 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import {
   ArrowRightOnRectangleIcon,
+  AdjustmentsHorizontalIcon,
   ClipboardDocumentCheckIcon,
-  UserCircleIcon,
   ArrowLeftOnRectangleIcon,
   UserPlusIcon,
   Bars3Icon
@@ -173,7 +173,7 @@ function NavBar() {
                 <li>
                   <Link
                     to="/tasks"
-                    className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-700"
+                    className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-500"
                   >
                     <ClipboardDocumentCheckIcon className="h-5 w-5 text-white" />
                     <span className="sr-only">Tasks</span>
@@ -182,9 +182,9 @@ function NavBar() {
                 <li>
                   <Link
                     to="/profile"
-                    className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-700"
+                    className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-500"
                   >
-                    <UserCircleIcon className="h-5 w-5 text-green-600" />
+                    <AdjustmentsHorizontalIcon className="h-5 w-5 text-green-500" />
                     <span className="sr-only">Profile</span>
                   </Link>
                 </li>
@@ -192,9 +192,9 @@ function NavBar() {
                   <li>
                     <Link
                       to="/register"
-                      className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm border border-zinc-700"
+                      className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm border border-zinc-500"
                     >
-                      <UserPlusIcon className="h-5 w-5 text-gray-500" />
+                      <UserPlusIcon className="h-5 w-5 text-zinc-500" />
                       <span className="sr-only">Register</span>
                     </Link>
                   </li>
@@ -206,7 +206,7 @@ function NavBar() {
                       logout();
                       closeMenu(); // Cerrar el menú al hacer clic en Logout
                     }}
-                    className="flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
+                    className="flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-500"
                   >
                     <ArrowRightOnRectangleIcon className="h-5 w-5 text-red-500" />
                     <span className="sr-only">Logout</span>
@@ -247,7 +247,7 @@ function NavBar() {
                       className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
                       onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
                     >
-                      <UserCircleIcon className="h-5 w-5 text-green-600" />
+                      <AdjustmentsHorizontalIcon className="h-5 w-5 text-green-600" />
                       <span className="sr-only">Profile</span>
                     </Link>
                   </li>

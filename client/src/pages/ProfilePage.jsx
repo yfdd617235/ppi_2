@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ListBulletIcon, ChartBarIcon, UserIcon, FolderIcon } from '@heroicons/react/24/outline'; // Importa los iconos de Heroicons
+import { BarsArrowDownIcon, ListBulletIcon, ChartBarIcon, UserCircleIcon, FolderIcon } from '@heroicons/react/24/outline'; // Importa los iconos de Heroicons
 import TaskTable from '../components/TaskTable';
 import Chart from '../components/Chart';
 import Projects from '../components/Projects';
@@ -7,7 +7,7 @@ import UsersChart from '../components/UsersChart'
 
 function ProfilePage() {
   const [isOpen, setIsOpen] = useState(false); // Estado para manejar el menú hamburguesa
-  const [activeComponent, setActiveComponent] = useState('chart'); // Estado para manejar el componente activo
+  const [activeComponent, setActiveComponent] = useState('list'); // Estado para manejar el componente activo
 
   const toggleMenu = () => {
     setIsOpen(!isOpen); // Cambiar el estado al hacer clic
@@ -33,38 +33,35 @@ function ProfilePage() {
     <div className="flex sm:flex flex-wrap pt-16 h-screen">
 
       {/* Ícono de hamburguesa visible solo en pantallas pequeñas */}
-      <div className="p-1 z-40 fixed ">
-        <button onClick={toggleMenu} className="text-green-500" id="hamburger-button">
+      <div className="ml-3 z-40 fixed bg-black rounded-sm border border-green-500">
+        <button onClick={toggleMenu} className="p-1 text-white" id="hamburger-button">
           {/* Ícono de hamburguesa */}
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-          </svg>
-
+    
+<BarsArrowDownIcon className="h-6 w-6 "/>
         </button>
       </div>
-
       {/* Menú lateral para pantallas pequeñas (controlado por el estado isOpen) */}
       <div
         id="hamburger-menu"
         className={`flex flex-col mt-10 h-screen p-5 -ml-6 gap-5 fixed left-0 z-50 transition-transform duration-300 ease-in-out ${isOpen ? 'block' : 'hidden'}`}
       >
         <p
-          className="bg-black p-2 border text-white border-zinc-700 flex items-center gap-2 rounded-lg cursor-pointer"
+          className="bg-black p-2 border text-white border-zinc-500  flex items-center gap-2 rounded-sm cursor-pointer"
           onClick={() => setActiveComponent('list')}
         >
           <ListBulletIcon className="h-5 w-5 text-white" /><span className="sr-only">List</span>
         </p>
         <p
-          className="bg-black p-2 border text-white border-zinc-700 flex items-center gap-2 rounded-lg cursor-pointer"
+          className="bg-black p-2 border text-white border-zinc-500 flex items-center gap-2 rounded-sm cursor-pointer"
           onClick={() => setActiveComponent('chart')}
         >
           <ChartBarIcon className="h-5 w-5 text-green-500" /> <span className="sr-only">Progress</span>
         </p>
-        <p className="bg-black p-2 border text-white border-zinc-700 flex items-center gap-2 rounded-lg"
+        <p className="bg-black p-2 border text-white border-zinc-500 flex items-center gap-2 rounded-sm cursor-pointer"
         onClick={() => setActiveComponent('UsersChart')}>
-          <UserIcon className="h-5 w-5 text-blue-500" /> <span className="sr-only">Users</span>
+          <UserCircleIcon className="h-5 w-5 text-blue-600" /> <span className="sr-only">Users</span>
         </p>
-        <p className=" bg-black p-2 border text-white border-zinc-700 flex items-center gap-2 rounded-lg cursor-pointer"
+        <p className=" bg-black p-2 border text-white border-zinc-500 flex items-center gap-2 rounded- cursor-pointer"
           onClick={() => setActiveComponent('Projects')}>
           <FolderIcon className="h-5 w-5 text-yellow-500" /><span className="sr-only">Projects</span>
         </p>
