@@ -22,7 +22,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie'; // Asegúrate de instalar 'js-cookie' si usas cookies
 
 const instance = axios.create({
-    baseURL: 'https://ppi-2.onrender.com/api', 
+    baseURL: 'https://ppi-2-1.onrender.com/api', 
     withCredentials: true, // Permitir el uso de cookies en solicitudes
 });
 

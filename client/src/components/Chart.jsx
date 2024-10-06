@@ -242,12 +242,13 @@ function BarChart() {
   const fetchTasks = useCallback(async () => {
     await getTasks();
     setLoading(false);
-  }, [getTasks]);
+    console.log(tasks)
+  }, []);
 
   // Fetch tasks only once when the component mounts
   useEffect(() => {
     fetchTasks();
-  }, [fetchTasks]);
+  }, []);
 
   useEffect(() => {
     // Set usernames options only if the user is an admin and tasks are loaded

@@ -4,73 +4,60 @@ import { useTasks } from '../context/TasksContext';
 import { useAuth } from '../context/AuthContext';
 import { projectList } from '../projects'; 
 import Select from 'react-select';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip, Legend } from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 function BarChart() {
   const { tasks, getTasks } = useTasks();
   const { user } = useAuth();
-  const [selectedProjects, setSelectedProjects] = useState([]);
-  const [selectedUsernames, setSelectedUsernames] = useState([]);
-  const [usernamesOptions, setUsernamesOptions] = useState([]);
+  const [selectedProjects, setSelectedProjects] = useState([]); // Proyectos seleccionados
   const [loading, setLoading] = useState(true);
-  const [progressData, setProgressData] = useState([]);
+  const [usernamesOptions, setUsernamesOptions] = useState([]);
+  const [usernameTaskCounts, setUsernameTaskCounts] = useState([]);
 
   const fetchTasks = useCallback(async () => {
     await getTasks();
     setLoading(false);
-  }, [getTasks]);
+    console.log(tasks)
+  }, []);
 
-  // Fetch tasks only once when the component mounts
   useEffect(() => {
     fetchTasks();
-  }, [fetchTasks]);
+  }, []);
 
   useEffect(() => {
-    // Set usernames options only if the user is an admin and tasks are loaded
-    if (user?.email === 'panamerican.pi@gmail.com' && !loading) {
-      const usernames = [...new Set(tasks.map(task => task.username))];
-      setUsernamesOptions(usernames);
-    }
-  }, [tasks, user, loading]);
-
-  const filteredTasks = user?.email === 'panamerican.pi@gmail.com'
-    ? tasks.filter(task => selectedUsernames.length === 0 || selectedUsernames.includes(task.username))
-    : tasks.filter(task => task.user.email === user.email);
-
-  const calculateProgress = (projects) => {
-    return projects.map((projectId) => {
-      const projectTasks = filteredTasks.filter(task => task.projectId === projectId);
-      const acceptedTasks = projectTasks.filter(task => task.status === 'Accepted');
-
-      const totalAcceptedTasks = (user?.email !== 'panamerican.pi@gmail.com' || selectedUsernames.length > 0) ? 5 : 89;
-
-      const progress = (acceptedTasks.length / totalAcceptedTasks) * 100;
-      return Math.min(progress, 100); // Ensure progress doesn't exceed 100
-    });
-  };
-
-  useEffect(() => {
+    // Actualizamos el estado con los usernames disponibles cuando se seleccionan proyectos
     if (selectedProjects.length > 0) {
-      const newProgressData = calculateProgress(selectedProjects);
-      setProgressData(newProgressData);
+      const filteredTasks = tasks.filter(task => selectedProjects.includes(task.projectId));
+      const usernames = [...new Set(filteredTasks.map(task => task.username))];
+      setUsernamesOptions(usernames);
     } else {
-      setProgressData([]); // Reset progress data when no projects are selected
+      setUsernamesOptions([]);
     }
   }, [tasks, selectedProjects]);
 
-  const averageProgress = progressData.length > 0 
-    ? (progressData.reduce((total, progress) => total + progress, 0) / progressData.length).toFixed(2)
-    : 0;
+  useEffect(() => {
+    // Si ya se han seleccionado proyectos y se han filtrado usernames, calculamos el número de tareas
+    if (selectedProjects.length > 0) {
+      const filteredTasks = tasks.filter(task => selectedProjects.includes(task.projectId));
+      const counts = usernamesOptions.map(username => ({
+        username,
+        count: filteredTasks.filter(task => task.username === username).length,
+      }));
+      setUsernameTaskCounts(counts);
+    } else {
+      setUsernameTaskCounts([]);
+    }
+  }, [tasks, selectedProjects, usernamesOptions]);
 
   const data = {
-    labels: selectedProjects,
+    labels: usernameTaskCounts.map(item => item.username), // Lista de usernames
     datasets: [
       {
-        label: 'Project Progress (%)',
-        data: progressData,
+        label: 'Tasks per Username',
+        data: usernameTaskCounts.map(item => item.count), // Cantidad de tareas por username
         backgroundColor: 'rgba(34, 197, 94, 0.3)',
         borderColor: 'rgba(34, 197, 94, 1)',
         borderWidth: 2,
@@ -79,13 +66,12 @@ function BarChart() {
   };
 
   const options = {
+    indexAxis: 'y', // Cambiamos para que las barras sean horizontales
     scales: {
-      y: {
-        beginAtZero: true, // Inicia la escala desde 0
-        min: 0, // Valor mínimo
-        max: 100, // Valor máximo
+      x: {
+        beginAtZero: true,
         ticks: {
-          stepSize: 10, // Incremento de los ticks (puedes ajustarlo según lo necesites)
+          stepSize: 1, // Incremento en la escala
         },
       },
     },
@@ -96,48 +82,43 @@ function BarChart() {
     label: projectId,
   }));
 
-  const usernameOptions = usernamesOptions.map(username => ({
-    value: username,
-    label: username,
-  }));
-
   const customStyles = {
     control: (provided) => ({
       ...provided,
-      backgroundColor: 'black', // Fondo negro
-      color: 'white', // Color del texto en el control
-      border: '1px solid white', // Borde blanco
-      boxShadow: 'none', // Eliminar sombra
+      backgroundColor: 'black',
+      color: 'white',
+      border: '1px solid white',
+      boxShadow: 'none',
       '&:hover': {
-        border: '1px solid white', // Borde blanco al pasar el mouse
+        border: '1px solid white',
       },
     }),
     option: (provided, state) => ({
       ...provided,
-      backgroundColor: state.isSelected ? 'white' : 'black', // Fondo negro para opciones
-      color: 'white', // Color del texto en las opciones
+      backgroundColor: state.isSelected ? 'white' : 'black',
+      color: state.isSelected ? 'black' : 'white',
       '&:hover': {
-        backgroundColor: 'gray', // Fondo al pasar el mouse
+        backgroundColor: 'gray',
       },
     }),
     singleValue: (provided) => ({
       ...provided,
-      color: 'white', // Color del texto seleccionado
+      color: 'white',
     }),
     multiValue: (provided) => ({
       ...provided,
-      backgroundColor: 'rgba(255, 255, 255, 0.1)', // Fondo para valores seleccionados
+      backgroundColor: 'rgba(255, 255, 255, 0.1)',
     }),
     multiValueLabel: (provided) => ({
       ...provided,
-      color: 'white', // Color del texto en valores seleccionados
+      color: 'white',
     }),
     multiValueRemove: (provided) => ({
       ...provided,
-      color: 'white', // Color del icono de eliminar
+      color: 'white',
       '&:hover': {
-        backgroundColor: 'rgba(255, 255, 255, 0.2)', // Fondo al pasar el mouse
-        color: 'white', // Asegúrate que el texto siga blanco al pasar el mouse
+        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+        color: 'white',
       },
     }),
   };
@@ -151,32 +132,19 @@ function BarChart() {
 
   return (
     <div>
-  <h2 className="text-center font-bold mb-4">Total Average Progress: {averageProgress}%</h2>
-  <Select
-    isMulti
-    options={projectOptions}
-    value={selectedProjects.map((project) => ({ value: project, label: project }))}
-    onChange={(selected) => setSelectedProjects(selected.map((option) => option.value))}
-    className="mb-4 text-xs print:hidden"
-    classNamePrefix="custom-select"
-    placeholder="Select Projects..."
-    styles={customStyles} // Asegúrate de aplicar los estilos personalizados aquí
-  />
-  {user?.email === 'panamerican.pi@gmail.com' && (
-    <Select
-      isMulti
-      options={usernameOptions}
-      value={selectedUsernames.map((username) => ({ value: username, label: username }))}
-      onChange={(selected) => setSelectedUsernames(selected.map((option) => option.value))}
-      className="mb-4 text-xs print:hidden"
-      classNamePrefix="custom-select"
-      placeholder="Select Usernames..."
-      styles={customStyles} // Asegúrate de aplicar los estilos personalizados aquí
-    />
-  )}
-  <Bar data={data} options={options}/>
-</div>
-
+      <h2 className="text-center font-bold mb-4">Task Count by Username</h2>
+      <Select
+        isMulti
+        options={projectOptions}
+        value={selectedProjects.map((project) => ({ value: project, label: project }))}
+        onChange={(selected) => setSelectedProjects(selected.map((option) => option.value))}
+        className="mb-4 text-xs print:hidden"
+        classNamePrefix="custom-select"
+        placeholder="Select Projects..."
+        styles={customStyles}
+      />
+      <Bar data={data} options={options} />
+    </div>
   );
 }
 
