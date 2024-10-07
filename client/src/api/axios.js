@@ -76,7 +76,8 @@ export const initializeAxios = async () => {
     }
   } catch {
     instance.defaults.baseURL = PRODUCTION_URL;
-    console.log('Local server NOT available, switched to production URL');
+    let response = await axios.get(`${PRODUCTION_URL}/ping`);
+    console.log('Local server NOT available, switched to production URL', response.data);
 
   }
 };
