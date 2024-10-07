@@ -1,4 +1,4 @@
-import { useEffect} from "react";
+import { useEffect } from "react";
 import { EnvelopeIcon } from "@heroicons/react/24/solid"
 import { wakeUpServer } from '../api/axios'; // Importa la función wakeUpServer
 
