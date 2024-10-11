@@ -33,11 +33,11 @@ function ProfilePage() {
     <div className="flex sm:flex flex-wrap pt-16 h-screen">
 
       {/* Ícono de hamburguesa visible solo en pantallas pequeñas */}
-      <div className="ml-3 z-40 fixed bg-black rounded-sm border border-green-500">
+      <div className="ml-3 z-40 fixed bg-black rounded-sm border border-green-500 print:hidden">
         <button onClick={toggleMenu} className="p-1 text-white" id="hamburger-button">
           {/* Ícono de hamburguesa */}
     
-<BarsArrowDownIcon className="h-6 w-6 "/>
+<BarsArrowDownIcon className="h-6 w-6 print:hidden"/>
         </button>
       </div>
       {/* Menú lateral para pantallas pequeñas (controlado por el estado isOpen) */}
