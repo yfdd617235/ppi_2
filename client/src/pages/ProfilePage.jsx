@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { BarsArrowDownIcon, ListBulletIcon, ChartBarIcon, UserCircleIcon, FolderIcon } from '@heroicons/react/24/outline'; // Importa los iconos de Heroicons
+import { BarsArrowDownIcon, ListBulletIcon, ChartBarIcon, UserCircleIcon, FolderIcon, ChartPieIcon } from '@heroicons/react/24/outline'; // Importa los iconos de Heroicons
 import TaskTable from '../components/TaskTable';
 import Chart from '../components/Chart';
 import Projects from '../components/Projects';
-import UsersChart from '../components/UsersChart'
+import UsersChart from '../components/UsersChart';
+import PolarChart from '../components/PolarChart';
 
 function ProfilePage() {
   const [isOpen, setIsOpen] = useState(false); // Estado para manejar el menú hamburguesa
@@ -36,8 +37,8 @@ function ProfilePage() {
       <div className="ml-3 z-40 fixed bg-black rounded-sm border border-green-500 print:hidden">
         <button onClick={toggleMenu} className="p-1 text-white" id="hamburger-button">
           {/* Ícono de hamburguesa */}
-    
-<BarsArrowDownIcon className="h-6 w-6 print:hidden"/>
+
+          <BarsArrowDownIcon className="h-6 w-6 print:hidden" />
         </button>
       </div>
       {/* Menú lateral para pantallas pequeñas (controlado por el estado isOpen) */}
@@ -58,8 +59,12 @@ function ProfilePage() {
           <ChartBarIcon className="h-5 w-5 text-green-500" /> <span className="sr-only">Progress</span>
         </p>
         <p className="bg-black p-2 border text-white border-zinc-500 flex items-center gap-2 rounded-sm cursor-pointer"
-        onClick={() => setActiveComponent('UsersChart')}>
+          onClick={() => setActiveComponent('UsersChart')}>
           <UserCircleIcon className="h-5 w-5 text-blue-600" /> <span className="sr-only">Users</span>
+        </p>
+        <p className="bg-black p-2 border text-white border-zinc-500 flex items-center gap-2 rounded-sm cursor-pointer"
+          onClick={() => setActiveComponent('PolarChart')}>
+          <ChartPieIcon className="h-5 w-5 text-green-500" /> <span className="sr-only">Users</span>
         </p>
         <p className=" bg-black p-2 border text-white border-zinc-500 flex items-center gap-2 rounded- cursor-pointer"
           onClick={() => setActiveComponent('Projects')}>
@@ -79,7 +84,7 @@ function ProfilePage() {
           )}
 
           {activeComponent === 'list' && (
-            <div className="flex w-full max-w-screen overflow-x-auto justify-center lg:px-28">
+            <div className="flex w-full max-w-screen overflow-x-auto justify-center">
               <TaskTable />
             </div>
           )}
@@ -93,6 +98,12 @@ function ProfilePage() {
           {activeComponent === 'UsersChart' && (
             <div className="lg:w-2/3 max-w-screen max-h-screen overflow-y-auto">
               <UsersChart />
+            </div>
+          )}
+
+          {activeComponent === 'PolarChart' && (
+            <div className="lg:w-5/12 w-screen h-screen">
+              <PolarChart />
             </div>
           )}
         </div>
