@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { BarsArrowDownIcon, ListBulletIcon, ChartBarIcon, UserCircleIcon, FolderIcon, ChartPieIcon } from '@heroicons/react/24/outline'; // Importa los iconos de Heroicons
+import { BarsArrowDownIcon, ListBulletIcon, ChartBarIcon, UserCircleIcon, FolderIcon, ChartPieIcon, ClipboardDocumentListIcon } from '@heroicons/react/24/outline'; // Importa los iconos de Heroicons
 import TaskTable from '../components/TaskTable';
 import Chart from '../components/Chart';
 import Projects from '../components/Projects';
 import UsersChart from '../components/UsersChart';
 import PolarChart from '../components/PolarChart';
+import ProjectReport from '../components/ProjectReport';
 
 function ProfilePage() {
   const [isOpen, setIsOpen] = useState(false); // Estado para manejar el menú hamburguesa
-  const [activeComponent, setActiveComponent] = useState('list'); // Estado para manejar el componente activo
+  const [activeComponent, setActiveComponent] = useState('ProjectReport'); // Estado para manejar el componente activo
 
   const toggleMenu = () => {
     setIsOpen(!isOpen); // Cambiar el estado al hacer clic
@@ -44,18 +45,17 @@ function ProfilePage() {
       {/* Menú lateral para pantallas pequeñas (controlado por el estado isOpen) */}
       <div
         id="hamburger-menu"
-        className={`flex flex-col mt-10 h-screen p-5 -ml-6 gap-5 fixed left-0 z-50 transition-transform duration-300 ease-in-out ${isOpen ? 'block' : 'hidden'}`}
-      >
-        <p
-          className="bg-black p-2 border text-white border-zinc-500  flex items-center gap-2 rounded-sm cursor-pointer"
-          onClick={() => setActiveComponent('list')}
-        >
+        className={`flex flex-col mt-10 h-screen p-5 -ml-6 gap-5 fixed left-0 z-50 transition-transform duration-300 ease-in-out ${isOpen ? 'block' : 'hidden'}`}>
+        <p className="bg-black p-2 border text-white border-zinc-500  flex items-center gap-2 rounded-sm cursor-pointer"
+          onClick={() => setActiveComponent('ProjectReport')}>
+          <ClipboardDocumentListIcon className="h-5 w-5 text-white" /><span className="sr-only">Project Report</span>
+        </p>
+        <p className="bg-black p-2 border text-white border-zinc-500  flex items-center gap-2 rounded-sm cursor-pointer"
+          onClick={() => setActiveComponent('list')}>
           <ListBulletIcon className="h-5 w-5 text-white" /><span className="sr-only">List</span>
         </p>
-        <p
-          className="bg-black p-2 border text-white border-zinc-500 flex items-center gap-2 rounded-sm cursor-pointer"
-          onClick={() => setActiveComponent('chart')}
-        >
+        <p className="bg-black p-2 border text-white border-zinc-500 flex items-center gap-2 rounded-sm cursor-pointer"
+          onClick={() => setActiveComponent('chart')}>
           <ChartBarIcon className="h-5 w-5 text-green-500" /> <span className="sr-only">Progress</span>
         </p>
         <p className="bg-black p-2 border text-white border-zinc-500 flex items-center gap-2 rounded-sm cursor-pointer"
@@ -77,6 +77,13 @@ function ProfilePage() {
       <div className="">
         {/* Contenido dinámico del lado derecho */}
         <div className="flex justify-center items-center w-screen px-1">
+
+        {activeComponent === 'ProjectReport' && (
+            <div className="flex w-full max-w-screen overflow-x-auto justify-center">
+              <ProjectReport />
+            </div>
+          )}
+          
           {activeComponent === 'chart' && (
             <div className="lg:w-2/3 max-w-screen max-h-screen overflow-x-auto">
               <Chart />

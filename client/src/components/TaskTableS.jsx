@@ -1,50 +1,8 @@
-import { useEffect, useState } from "react";
-import { useTasks } from "../context/TasksContext";
-import { useAuth } from "../context/AuthContext";
-import dayjs from 'dayjs';
-import utc from 'dayjs/plugin/utc';
-import timezone from 'dayjs/plugin/timezone';
-import { ArrowPathIcon } from '@heroicons/react/24/outline'; // Importar el ícono de carga
+import React from 'react';
 
-dayjs.extend(utc);
-dayjs.extend(timezone);
-
-function TaskTable() {
-    const { tasks, getTasks, deleteTask } = useTasks();
-    const { user } = useAuth();
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        async function fetchTasks() {
-            await getTasks();
-            setLoading(false);
-            console.log(tasks)
-        }
-        fetchTasks();
-    }, []);
-
-    const filteredTasks = loading
-        ? []
-        : user?.email === 'panamerican.pi@gmail.com'
-            ? tasks
-            : tasks.filter(task => task.user.email === user.email);
-
-    const handleDelete = (taskId) => {
-        const confirmed = window.confirm("Are you sure you want to delete this item?");
-        if (confirmed) {
-            deleteTask(taskId);
-        }
-    };
-
-    if (loading) return (
-        <div className="flex items-center justify-center h-screen">
-            <ArrowPathIcon className="animate-spin h-5 w-5" />
-            <span className="ml-2">Loading tasks...</span>
-        </div>
-    );
-
-    return (
-        <div className="overflow-x-auto max-w-full"> {/* Asegúrate de que el contenedor sea del 100% */}
+function TaskTableS({ tasks }) {
+  return (
+    <div className="overflow-x-auto max-w-full"> {/* Asegúrate de que el contenedor sea del 100% */}
             <table className="min-w-full text-left border-collapse">
                 <thead>
                     <tr className="border-b">
@@ -58,7 +16,7 @@ function TaskTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    {filteredTasks.map((task, index) => (
+                    {tasks.map((task, index) => (
                         <tr key={task._id} className="border-b border-zinc-600">
                             <td className="text-zinc-400 px-2 py-2 text-sm sm:text-xs">{index + 1}</td>
                             <td className="text-zinc-400 px-2 py-1 text-sm sm:text-xs">{task.username}</td>
@@ -76,7 +34,7 @@ function TaskTable() {
                 </tbody>
             </table>
         </div>
-    );
+  );
 }
 
-export default TaskTable;
+export default TaskTableS;
