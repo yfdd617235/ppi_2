@@ -1,3 +1,4 @@
+// 
 import React, { useState, useEffect, useCallback } from 'react';
 import TaskTableS from '../components/TaskTableS';
 import BarChartS from '../components/BarChartS';
@@ -18,15 +19,16 @@ function ProjectReport() {
 
   const fetchTasks = useCallback(async () => {
     await getTasks();
+    console.log(tasks);
   }, [getTasks]);
 
   useEffect(() => {
     fetchTasks();
-  }, [fetchTasks]);
+  }, []);
 
   useEffect(() => {
     if (user?.email === 'panamerican.pi@gmail.com') {
-      const usernames = [...new Set(tasks.map(task => task.username))];
+      const usernames = [...new Set(tasks.map((task) => task.username))];
       setUsernamesOptions(usernames);
     }
   }, [tasks, user]);
@@ -35,36 +37,36 @@ function ProjectReport() {
     let filtered = [];
 
     if (user?.email === 'panamerican.pi@gmail.com') {
-      filtered = tasks.filter(task =>
-        (selectedUsernames.length === 0 || selectedUsernames.includes(task.username)) &&
-        (selectedProjects.length === 0 || selectedProjects.includes(task.projectId))
+      filtered = tasks.filter(
+        (task) =>
+          (selectedUsernames.length === 0 || selectedUsernames.includes(task.username)) &&
+          (selectedProjects.length === 0 || selectedProjects.includes(task.projectId))
       );
     } else {
-      filtered = tasks.filter(task =>
-        task.user.email === user.email &&
-        (selectedProjects.length === 0 || selectedProjects.includes(task.projectId))
+      filtered = tasks.filter(
+        (task) => task.user.email === user.email && (selectedProjects.length === 0 || selectedProjects.includes(task.projectId))
       );
     }
 
     setFilteredTasks(filtered);
   }, [tasks, user, selectedUsernames, selectedProjects]);
 
-  const projectOptions = projectList.map(projectId => ({
+  const projectOptions = projectList.map((projectId) => ({
     value: projectId,
     label: projectId,
   }));
 
-  const usernameOptions = usernamesOptions.map(username => ({
+  const usernameOptions = usernamesOptions.map((username) => ({
     value: username,
     label: username,
   }));
 
   const calculateProgress = () => {
-    const totalAcceptedTasks = (user?.email !== 'panamerican.pi@gmail.com' || selectedUsernames.length > 0) ? 5 : 89;
+    const totalAcceptedTasks = user?.email !== 'panamerican.pi@gmail.com' || selectedUsernames.length > 0 ? 5 : 89;
 
     return selectedProjects.map((projectId) => {
-      const projectTasks = filteredTasks.filter(task => task.projectId === projectId);
-      const acceptedTasks = projectTasks.filter(task => task.status === 'Accepted');
+      const projectTasks = filteredTasks.filter((task) => task.projectId === projectId);
+      const acceptedTasks = projectTasks.filter((task) => task.status === 'Accepted');
 
       const progress = (acceptedTasks.length / totalAcceptedTasks) * 100;
       return Math.min(progress, 100); // Asegurar que el progreso no exceda 100
@@ -72,9 +74,7 @@ function ProjectReport() {
   };
 
   const progressData = calculateProgress();
-  const averageProgress = progressData.length > 0
-    ? (progressData.reduce((total, progress) => total + progress, 0) / progressData.length).toFixed(2)
-    : 0;
+  const averageProgress = progressData.length > 0 ? (progressData.reduce((total, progress) => total + progress, 0) / progressData.length).toFixed(2) : 0;
 
   const barChartData = {
     labels: selectedProjects,
@@ -131,44 +131,54 @@ function ProjectReport() {
   };
 
   return (
-    <div className="w-full h-full min-h-screen flex flex-col justify-center items-center py-5 gap-y-14 lg:px-10 print:justify-start print:items-start">
+    <div className="w-full h-full min-h-screen flex flex-col justify-center items-center py- gap-y-5 lg:px-10 print:justify-start print:items-start">
       <div className="mb-4 lg:w-1/2">
         <Select
           isMulti
           options={projectOptions}
-          value={selectedProjects.map(project => ({ value: project, label: project }))}
-          onChange={selected => setSelectedProjects(selected.map(option => option.value))}
+          value={selectedProjects.map((project) => ({ value: project, label: project }))}
+          onChange={(selected) => setSelectedProjects(selected.map((option) => option.value))}
           placeholder="Select Projects..."
           styles={customStyles}
         />
         {user?.email === 'panamerican.pi@gmail.com' && (
           <Select
-          className='print:hidden'
+            className="print:hidden"
             isMulti
             options={usernameOptions}
-            value={selectedUsernames.map(username => ({ value: username, label: username }))}
-            onChange={selected => setSelectedUsernames(selected.map(option => option.value))}
+            value={selectedUsernames.map((username) => ({ value: username, label: username }))}
+            onChange={(selected) => setSelectedUsernames(selected.map((option) => option.value))}
             placeholder="Select Usernames..."
             styles={customStyles}
           />
         )}
+        <button
+          onClick={() => window.print()}
+          className="mb-4 px-2 py-1 text-sm bg-zinc-900 text-white border rounded-md print:hidden">
+          Print Report
+        </button>
       </div>
 
+
+
       {selectedProjects.length > 0 && (
-        <div className='w-full flex flex-wrap justify-between items-center bg-zinc-950 border border-zinc-700 rounded-md gap-20 p-3'>
-          <div className='chart flex-1 min-w-[250px] lg:w-1/4'>
+
+        <div className="w-full flex flex-wrap justify-between items-center bg-zinc-950 border border-zinc-700 rounded-md gap-20 p-3">
+
+          <div className="chart flex-1 min-w-[250px] lg:w-1/4">
             <BarChartS data={barChartData} averageProgress={averageProgress} />
           </div>
-          <div className='chart flex-1 min-w-[250px] lg:w-1/4'>
+          <div className="chart flex-1 min-w-[250px] lg:w-1/4">
             <PolarChartS tasks={filteredTasks} />
           </div>
-          <div className='chart flex-1 min-w-[250px] lg:w-1/4'>
+          <div className="chart flex-1 min-w-[250px] lg:w-1/4">
             <UploadHistoryChart tasks={filteredTasks} />
           </div>
         </div>
+
       )}
       {selectedProjects.length > 0 && (
-        <div className='w-full bg-zinc-950 border border-zinc-700 rounded-md ' >
+        <div className="w-full bg-zinc-950 border border-zinc-700 rounded-md my-5">
           <TaskTableS tasks={filteredTasks} />
         </div>
       )}

@@ -32,7 +32,7 @@ function ProfilePage() {
   }, []);
 
   return (
-    <div className="flex sm:flex flex-wrap pt-16 h-screen">
+    <div className="flex sm:flex flex-wrap pt-16 h-screen print:pt-0">
 
       {/* Ícono de hamburguesa visible solo en pantallas pequeñas */}
       <div className="ml-3 z-40 fixed bg-black rounded-sm border border-green-500 print:hidden">
@@ -76,7 +76,7 @@ function ProfilePage() {
       {/* Sección derecha con scroll interno */}
       <div className="">
         {/* Footer con tu nombre y developer */}
-        <footer className="w-full p-4 mt-8 print:block hidden">
+        <footer className="w-full py-4 px-1 print:block hidden">
 
           <div className='flex gap-4'>
             <div className="h-14 w-14 overflow-hidden">
@@ -87,7 +87,7 @@ function ProfilePage() {
               />
             </div>
             <div>
-              <p className="text-black font-bold">PANAMERICAN PRIVATE INVESTMENTS</p>
+              <p className="text-green-950 font-bold">PANAMERICAN PRIVATE INVESTMENTS</p>
               <p>Progress Report</p>
             </div>
 
@@ -135,7 +135,7 @@ function ProfilePage() {
         </div>
 
         {/* Footer con tu nombre y developer */}
-        <footer className="w-full p-4 mt-8 print:block hidden">
+        <footer className="w-full py-4 px-1 mt-4 print:block hidden">
 
           <div className='flex gap-4'>
             <div className="h-14 w-14 overflow-hidden">
@@ -146,7 +146,7 @@ function ProfilePage() {
               />
             </div>
             <div>
-              <p className="text-black font-bold">Yosef David Giraldo Salazar</p>
+              <p className="text-green-950 font-bold">Yosef David Giraldo Salazar</p>
               <p>Developer</p>
             </div>
 

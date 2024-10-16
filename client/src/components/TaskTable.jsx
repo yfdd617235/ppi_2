@@ -59,7 +59,7 @@ function TaskTable() {
                 </thead>
                 <tbody>
                     {filteredTasks.map((task, index) => (
-                        <tr key={task._id} className="border-b border-zinc-600">
+                        <tr key={task._id} className="border-b border-zinc-700">
                             <td className="text-zinc-400 px-2 py-2 text-sm sm:text-xs">{index + 1}</td>
                             <td className="text-zinc-400 px-2 py-1 text-sm sm:text-xs">{task.username}</td>
                             <td className="text-zinc-400 px-2 py-1 text-sm sm:text-xs">{task.email}</td>
