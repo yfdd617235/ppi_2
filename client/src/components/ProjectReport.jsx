@@ -131,8 +131,8 @@ function ProjectReport() {
   };
 
   return (
-    <div className="w-full h-full min-h-screen flex flex-col justify-center items-center py-10 gap-y-14 lg:px-32">
-      <div className="mb-4 w-1/2">
+    <div className="w-full h-full min-h-screen flex flex-col justify-center items-center py-5 gap-y-14 lg:px-10">
+      <div className="mb-4 lg:w-1/2">
         <Select
           isMulti
           options={projectOptions}
@@ -154,14 +154,14 @@ function ProjectReport() {
       </div>
 
       {selectedProjects.length > 0 && (
-        <div className=' w-full flex flex-wrap justify-evenly items-center lg:justify-between bg-zinc-950 border border-zinc-700 rounded-md'>
-          <div className=' w-full md:w-1/2 lg:w-1/4'>
+        <div className=' w-full flex flex-wrap justify-evenly items-center lg:justify-between bg-zinc-950 border border-zinc-700 rounded-md gap-y-12 p-3'>
+          <div className=' w-full md:w-1/2 lg:w-3/12'>
             <BarChartS data={barChartData} averageProgress={averageProgress} />
           </div>
-          <div className=' w-full md:w-1/2 lg:w-1/3'>
-            <PolarChartS tasks={filteredTasks} />
+          <div className=' w-full md:w-1/2 lg:w-4/12'>
+            <PolarChartS tasks={filteredTasks}/>
           </div>
-          <div className=' w-full md:w-1/2 lg:w-1/4'>
+          <div className=' w-full md:w-1/2 lg:w-3/12'>
             <UploadHistoryChart tasks={filteredTasks} />
           </div>
         </div>
@@ -169,7 +169,7 @@ function ProjectReport() {
 
       )}
       {selectedProjects.length > 0 && (
-        <div className='w-full' >
+        <div className='w-full bg-zinc-950 border border-zinc-700 rounded-md' >
           <TaskTableS tasks={filteredTasks} />
         </div>
       )}

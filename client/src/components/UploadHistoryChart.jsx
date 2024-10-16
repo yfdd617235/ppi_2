@@ -55,20 +55,21 @@ const UploadHistoryChart = ({ tasks }) => {
         {
           label: 'Created Tasks',
           data: createdData,
-          borderColor: 'rgba(75, 192, 192, 1)',
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          borderColor: 'rgba(0, 255, 0, 1)',  // Verde neón brillante
+          backgroundColor: 'rgba(0, 255, 0, 0.2)',  // Verde neón con transparencia
           fill: true,
           tension: 0.4,
         },
         {
           label: 'Updated Tasks',
           data: updatedData,
-          borderColor: 'rgba(255, 159, 64, 1)',
-          backgroundColor: 'rgba(255, 159, 64, 0.2)',
+          borderColor: 'rgba(85, 107, 47, 1)',  // Azul brillante
+          backgroundColor: 'rgba(85, 107, 47, 0.2)',  // Azul brillante con transparencia
           fill: true,
           tension: 0.4,
         },
       ],
+      
     };
 
     setChartData(data);
@@ -104,7 +105,7 @@ const UploadHistoryChart = ({ tasks }) => {
   return (
     <div className="w-full">
       {chartData && chartData.labels && chartData.labels.length > 0 ? (
-        <Line data={chartData} options={chartOptions} />
+        <Line data={chartData} options={chartOptions} height={400}/>
       ) : (
         <p>No task data available for the selected range.</p>
       )}

@@ -14,6 +14,11 @@ function PolarChart({ tasks }) {
             'rgba(255, 205, 86, 0.5)',   // Amarillo
             'rgba(75, 192, 192, 0.5)',   // Verde
             'rgba(54, 162, 235, 0.5)',   // Azul
+            // 'rgba(0, 255, 0, 0.5)',     // Verde neón brillante
+            // 'rgba(34, 139, 34, 0.5)',   // Verde oscuro (Forest Green)
+            // 'rgba(144, 238, 144, 0.5)', // Verde claro (Light Green)
+            // 'rgba(0, 128, 0, 0.5)',     // Verde medio (Green)
+            // 'rgba(85, 107, 47, 0.5)'
         ];
         return Array.from({ length: count }, (_, i) => chartColors[i % chartColors.length]);
     };
@@ -32,7 +37,7 @@ function PolarChart({ tasks }) {
             {
                 data: Object.values(usernameTaskCounts),
                 backgroundColor: generateChartColors(Object.keys(usernameTaskCounts).length),
-                borderColor: "none",
+                borderColor: "rgba(0, 255, 0, 1)",
                 borderWidth: 0,
             },
         ],
