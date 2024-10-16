@@ -59,6 +59,7 @@ const UploadHistoryChart = ({ tasks }) => {
           backgroundColor: 'rgba(0, 255, 0, 0.2)',  // Verde neón con transparencia
           fill: true,
           tension: 0.4,
+          borderWidth: 1,
         },
         {
           label: 'Updated Tasks',
@@ -67,6 +68,7 @@ const UploadHistoryChart = ({ tasks }) => {
           backgroundColor: 'rgba(85, 107, 47, 0.2)',  // Azul brillante con transparencia
           fill: true,
           tension: 0.4,
+          borderWidth: 1,
         },
       ],
       
@@ -103,9 +105,11 @@ const UploadHistoryChart = ({ tasks }) => {
   };
 
   return (
-    <div className="w-full">
+    <div className="flex flex-col justify-center items-center w-full h-96">
+<h1 className='font-bold'> Uploads History </h1>
       {chartData && chartData.labels && chartData.labels.length > 0 ? (
-        <Line data={chartData} options={chartOptions} height={400}/>
+        
+        <Line data={chartData} options={chartOptions}/>
       ) : (
         <p>No task data available for the selected range.</p>
       )}
