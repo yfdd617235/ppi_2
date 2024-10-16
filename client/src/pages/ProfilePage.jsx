@@ -75,15 +75,34 @@ function ProfilePage() {
 
       {/* Sección derecha con scroll interno */}
       <div className="">
+        {/* Footer con tu nombre y developer */}
+        <footer className="w-full p-4 mt-8 print:block hidden">
+
+          <div className='flex gap-4'>
+            <div className="h-14 w-14 overflow-hidden">
+              <img
+                src={`${import.meta.env.BASE_URL}logo.svg`}
+                alt="PPI"
+                className="h-full w-full object-cover object-center scale-125 "
+              />
+            </div>
+            <div>
+              <p className="text-black font-bold">PANAMERICAN PRIVATE INVESTMENTS</p>
+              <p>Progress Report</p>
+            </div>
+
+          </div>
+
+        </footer>
         {/* Contenido dinámico del lado derecho */}
         <div className="flex justify-center items-center w-screen px-1">
 
-        {activeComponent === 'ProjectReport' && (
+          {activeComponent === 'ProjectReport' && (
             <div className="flex w-full max-w-screen overflow-x-auto justify-center">
               <ProjectReport />
             </div>
           )}
-          
+
           {activeComponent === 'chart' && (
             <div className="lg:w-2/3 max-w-screen max-h-screen overflow-x-auto">
               <Chart />

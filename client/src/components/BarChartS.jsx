@@ -31,16 +31,16 @@ function BarChartS({ data, averageProgress }) {
         beginAtZero: true,
         max: 100,
         grid: {
-          color: "rgba(255, 255, 255, 0.2)",
+          color: "#4f4f4f",
         },
       },
     },
   };
 
   return (
-    <div className='flex flex-col justify-center items-center'>
+    <div className='flex flex-col justify-center items-center h-80'>
       <h1 className='font-bold'>Average Progress: {averageProgress}%</h1> {/* Mostrar el progreso promedio */}
-      <Bar data={chartData} options={options} height={250} />
+      <Bar data={chartData} options={options} />
     </div>
   );
 }

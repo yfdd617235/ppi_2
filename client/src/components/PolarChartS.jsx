@@ -54,12 +54,12 @@ function PolarChart({ tasks }) {
             r: {
                 min: 0,
                 grid: {
-                    color: "rgba(255, 255, 255, 0.2)",
+                    color: "#4f4f4f", 
                 },
                 pointLabels: {
                     display: true,
                     centerPointLabels: true,
-                    color: "white",
+                    color: "gray",
                     font: {
                         size: 9,
                     },
@@ -67,7 +67,6 @@ function PolarChart({ tasks }) {
                 ticks: {
                     stepSize: 1,
                     display: true,
-                    color: "white",
                     font: {
                         size: 14,
                     },
@@ -80,19 +79,13 @@ function PolarChart({ tasks }) {
                 position: 'bottom',
                 display: false,
             },
-            title: {
-                display: true,
-                text: 'Tasks published by Provider',
-                color: "white",
-                font: {
-                    size: 16,
-                },
-            },
+
         },
     };
 
     return (
         <div className='flex flex-col justify-center items-center'>
+            <h1 className='font-bold'>Tasks published by Provider</h1>
             <PolarArea data={data} options={options} />
         </div>
     );

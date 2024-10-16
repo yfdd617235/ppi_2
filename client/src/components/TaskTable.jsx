@@ -47,7 +47,7 @@ function TaskTable() {
         <div className="overflow-x-auto max-w-full"> {/* Asegúrate de que el contenedor sea del 100% */}
             <table className="min-w-full text-left border-collapse">
                 <thead>
-                    <tr className="border-b">
+                    <tr className="border-b text-black">
                         <th className="text-white px-2 py-2 text-sm sm:text-xs">#</th>
                         <th className="text-white px-2 py-1 text-sm sm:text-xs">Username</th>
                         <th className="text-white px-2 py-1 text-sm sm:text-xs">Email</th>

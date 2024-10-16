@@ -90,6 +90,9 @@ const UploadHistoryChart = ({ tasks }) => {
           display: true,
           text: 'Week of the Year',
         },
+        grid: {
+          color: "#4f4f4f",
+        },
       },
       y: {
         title: {
@@ -98,14 +101,14 @@ const UploadHistoryChart = ({ tasks }) => {
         },
         beginAtZero: true,
         grid: {
-          color: "rgba(255, 255, 255, 0.2)",
+          color: "#4f4f4f",
       },
       },
     },
   };
 
   return (
-    <div className="flex flex-col justify-center items-center w-full h-96">
+    <div className="flex flex-col justify-center items-center w-full h-72">
 <h1 className='font-bold'> Uploads History </h1>
       {chartData && chartData.labels && chartData.labels.length > 0 ? (
         

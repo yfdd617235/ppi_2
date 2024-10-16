@@ -131,7 +131,7 @@ function ProjectReport() {
   };
 
   return (
-    <div className="w-full h-full min-h-screen flex flex-col justify-center items-center py-5 gap-y-14 lg:px-10">
+    <div className="w-full h-full min-h-screen flex flex-col justify-center items-center py-5 gap-y-14 lg:px-10 print:justify-start print:items-start">
       <div className="mb-4 lg:w-1/2">
         <Select
           isMulti
@@ -143,6 +143,7 @@ function ProjectReport() {
         />
         {user?.email === 'panamerican.pi@gmail.com' && (
           <Select
+          className='print:hidden'
             isMulti
             options={usernameOptions}
             value={selectedUsernames.map(username => ({ value: username, label: username }))}
@@ -154,22 +155,20 @@ function ProjectReport() {
       </div>
 
       {selectedProjects.length > 0 && (
-        <div className=' w-full flex flex-wrap justify-evenly items-center lg:justify-between bg-zinc-950 border border-zinc-700 rounded-md gap-y-12 p-3'>
-          <div className=' w-full md:w-1/2 lg:w-3/12'>
+        <div className='w-full flex flex-wrap justify-between items-center bg-zinc-950 border border-zinc-700 rounded-md gap-20 p-3'>
+          <div className='chart flex-1 min-w-[250px] lg:w-1/4'>
             <BarChartS data={barChartData} averageProgress={averageProgress} />
           </div>
-          <div className=' w-full md:w-1/2 lg:w-4/12'>
-            <PolarChartS tasks={filteredTasks}/>
+          <div className='chart flex-1 min-w-[250px] lg:w-1/4'>
+            <PolarChartS tasks={filteredTasks} />
           </div>
-          <div className=' w-full md:w-1/2 lg:w-3/12'>
+          <div className='chart flex-1 min-w-[250px] lg:w-1/4'>
             <UploadHistoryChart tasks={filteredTasks} />
           </div>
         </div>
-
-
       )}
       {selectedProjects.length > 0 && (
-        <div className='w-full bg-zinc-950 border border-zinc-700 rounded-md' >
+        <div className='w-full bg-zinc-950 border border-zinc-700 rounded-md ' >
           <TaskTableS tasks={filteredTasks} />
         </div>
       )}
