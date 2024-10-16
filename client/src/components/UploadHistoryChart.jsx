@@ -69,6 +69,7 @@ const UploadHistoryChart = ({ tasks }) => {
           fill: true,
           tension: 0.4,
           borderWidth: 1,
+          
         },
       ],
       
