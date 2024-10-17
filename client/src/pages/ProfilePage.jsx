@@ -88,7 +88,7 @@ function ProfilePage() {
             </div>
             <div>
               <p className="text-green-950 font-bold">PANAMERICAN PRIVATE INVESTMENTS</p>
-              <p>Progress Report</p>
+              <p className="text-black">Progress Report</p>
             </div>
 
           </div>
@@ -147,7 +147,7 @@ function ProfilePage() {
             </div>
             <div>
               <p className="text-green-950 font-bold">Yosef David Giraldo Salazar</p>
-              <p>Developer</p>
+              <p className="text-black">Developer</p>
             </div>
 
           </div>
