@@ -1,12 +1,9 @@
-
 import User from '../models/user.model.js'
 import bcrypt from 'bcryptjs'
 import { createAccessToken } from '../libs/jwt.js';
 import jwt from 'jsonwebtoken'
 import { TOKEN_SECRET } from '../config.js';
 
-//   const SITE = 'lax'
-//  const SITE = "None"
 
 export const register = async (req, res) => {
     const { email, password, username } = req.body;
@@ -26,27 +23,13 @@ export const register = async (req, res) => {
         const userSaved = await newUser.save(); //Save the new user created
         const token = await createAccessToken({ id: userSaved._id })
 
-        // res.cookie('token', token);
-        // res.cookie('token', token, {
-        //     httpOnly: true,
-        //     secure: process.env.NODE_ENV === 'production', // true en producción
-        //     sameSite: 'None', // Necesario para permitir cookies cross-origin
-        // });
-
-        // const isProduction = process.env.NODE_ENV === 'production';
-        // res.cookie('token', token, {
-        //     httpOnly: true,
-        //     secure: isProduction,
-        //     sameSite: isProduction ? 'None' : 'Lax',
-        // });
+        const isProduction = process.env.NODE_ENV === 'production';
         res.cookie('token', token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production', // Usa 'true' en producción
-            sameSite: 'None' // Necesario para cookies cross-origin
+            secure: isProduction,
+            sameSite: isProduction ? 'None' : 'Lax',
         });
-        
-        
-
+     
         res.json({
             id: userSaved._id,
             username: userSaved.username,
@@ -76,18 +59,12 @@ export const login = async (req, res) => {
 
         const token = await createAccessToken({ id: userFound._id })
 
-        // // res.cookie('token', token)
-        // res.cookie('token', token, {
-        //     httpOnly: true,
-        //     secure: process.env.NODE_ENV === 'production', // true en producción
-        //     sameSite: 'None', // Necesario para permitir cookies cross-origin
-        // });
+        const isProduction = process.env.NODE_ENV === 'production';
         res.cookie('token', token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production', // Usa 'true' en producción
-            sameSite: 'None' // Necesario para cookies cross-origin
+            secure: isProduction,
+            sameSite: isProduction ? 'None' : 'Lax',
         });
-        
 
         res.json({
             id: userFound._id,
@@ -105,19 +82,14 @@ export const login = async (req, res) => {
 
 };
 
-// export const logout = (req, res) => {
-//     res.cookie('token', "", {
-//         expires: new Date(0)
-//     })
-//     return res.sendStatus(200);
-// };
 export const logout = (req, res) => {
-    res.cookie('token', "", {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production', // true en producción
-        sameSite: 'None', // Necesario para permitir cookies cross-origin
-        expires: new Date(0), // Expira inmediatamente para eliminar la cookie
-    });
+    const isProduction = process.env.NODE_ENV === 'production';
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: isProduction,
+            sameSite: isProduction ? 'None' : 'Lax',
+            expires: new Date(0), // Expira inmediatamente para eliminar la cookie
+        });
     return res.sendStatus(200);
 };
 
