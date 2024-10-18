@@ -5,8 +5,8 @@ import { createAccessToken } from '../libs/jwt.js';
 import jwt from 'jsonwebtoken'
 import { TOKEN_SECRET } from '../config.js';
 
-  const SITE = 'lax'
-// const SITE = "None"
+//   const SITE = 'lax'
+//  const SITE = "None"
 
 export const register = async (req, res) => {
     const { email, password, username } = req.body;
@@ -42,7 +42,7 @@ export const register = async (req, res) => {
         res.cookie('token', token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production', // Usa 'true' en producción
-            sameSite: SITE // Necesario para cookies cross-origin
+            sameSite: 'None' // Necesario para cookies cross-origin
         });
         
         
@@ -85,7 +85,7 @@ export const login = async (req, res) => {
         res.cookie('token', token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production', // Usa 'true' en producción
-            sameSite: SITE // Necesario para cookies cross-origin
+            sameSite: 'None' // Necesario para cookies cross-origin
         });
         
 
@@ -115,7 +115,7 @@ export const logout = (req, res) => {
     res.cookie('token', "", {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production', // true en producción
-        sameSite: SITE, // Necesario para permitir cookies cross-origin
+        sameSite: 'None', // Necesario para permitir cookies cross-origin
         expires: new Date(0), // Expira inmediatamente para eliminar la cookie
     });
     return res.sendStatus(200);
