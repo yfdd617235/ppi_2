@@ -82,7 +82,7 @@ const HomaPage = () => {
             />
             <div className="p-4 md:p-6">
               <h5 className="text-base md:text-xl font-semibold">
-                SUSTAINABLE DEVELOPMENT GOALS PROJECTS (SDG)
+                PROJECTS
               </h5>
               <br />
               <div className="flex flex-col space-y-3 text-left">

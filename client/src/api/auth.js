@@ -1,9 +1,9 @@
 import axios from './axios';
 
-import Cookies from 'js-cookie'; // Asegúrate de instalar 'js-cookie' si usas cookies
+import Cookies from 'js-cookie';
 
 export const getToken = () => {
-    return Cookies.get('token'); // O usa localStorage.getItem('token') si prefieres
+    return Cookies.get('token');
 };
 
 export const registerRequest = user => axios.post(`/register`, user);
