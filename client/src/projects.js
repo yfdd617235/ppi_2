@@ -5,3 +5,5 @@ export const projectList = [
     "PPI-004-2024",
     "PPI-005-2024"
   ];
+
+  export const ADMIN = "director@panamericanprivateinvestments.com"

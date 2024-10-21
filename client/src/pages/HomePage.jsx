@@ -131,13 +131,13 @@ const HomaPage = () => {
                   CE Milla de Oro, Medellín Colombia
                 </p>
                 <a
-                  href="mailto:panamerican.pi@gmail.com"
+                  href="mailto:director@panamericanprivateinvestments.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center space-x-2 text-xs md:text-sm"
                 >
                   <EnvelopeIcon className="w-4 h-4 text-white" /> {/* Ícono de Heroicons v2 */}
-                  <span>panamerican.pi@gmail.com</span>
+                  <span>director@panamericanprivateinvestments.com</span>
                 </a>
               </div>
             </div>

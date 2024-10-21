@@ -8,6 +8,7 @@ import { useTasks } from '../context/TasksContext';
 import { useAuth } from '../context/AuthContext';
 import { projectList } from '../projects';
 import Select from 'react-select';
+import {ADMIN} from '../projects';
 
 function ProjectReport() {
   const { tasks, getTasks } = useTasks();
@@ -16,6 +17,7 @@ function ProjectReport() {
   const [selectedUsernames, setSelectedUsernames] = useState([]);
   const [filteredTasks, setFilteredTasks] = useState([]);
   const [usernamesOptions, setUsernamesOptions] = useState([]);
+  
 
   const fetchTasks = useCallback(async () => {
     await getTasks();
@@ -27,7 +29,7 @@ function ProjectReport() {
   }, []);
 
   useEffect(() => {
-    if (user?.email === 'panamerican.pi@gmail.com') {
+    if (user?.email === ADMIN) {
       const usernames = [...new Set(tasks.map((task) => task.username))];
       setUsernamesOptions(usernames);
     }
@@ -36,7 +38,7 @@ function ProjectReport() {
   useEffect(() => {
     let filtered = [];
 
-    if (user?.email === 'panamerican.pi@gmail.com') {
+    if (user?.email === ADMIN) {
       filtered = tasks.filter(
         (task) =>
           (selectedUsernames.length === 0 || selectedUsernames.includes(task.username)) &&
@@ -62,7 +64,7 @@ function ProjectReport() {
   }));
 
   const calculateProgress = () => {
-    const totalAcceptedTasks = user?.email !== 'panamerican.pi@gmail.com' || selectedUsernames.length > 0 ? 5 : 89;
+    const totalAcceptedTasks = user?.email !== ADMIN || selectedUsernames.length > 0 ? 5 : 89;
 
     return selectedProjects.map((projectId) => {
       const projectTasks = filteredTasks.filter((task) => task.projectId === projectId);
@@ -141,7 +143,7 @@ function ProjectReport() {
           placeholder="Select Projects..."
           styles={customStyles}
         />
-        {user?.email === 'panamerican.pi@gmail.com' && (
+        {user?.email === ADMIN && (
           <Select
             className="print:hidden"
             isMulti

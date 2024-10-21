@@ -5,6 +5,7 @@ import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
 import { ArrowPathIcon } from '@heroicons/react/24/outline'; // Importar el ícono de carga
+import {ADMIN} from '../projects';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -25,7 +26,7 @@ function TaskTable() {
 
     const filteredTasks = loading
         ? []
-        : user?.email === 'panamerican.pi@gmail.com'
+        : user?.email === ADMIN
             ? tasks
             : tasks.filter(task => task.user.email === user.email);
 

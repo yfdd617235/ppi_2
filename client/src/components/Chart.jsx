@@ -6,6 +6,7 @@ import { projectList } from '../projects';
 import Select from 'react-select';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Tooltip, Legend } from 'chart.js';
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
+import {ADMIN} from '../projects'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
@@ -31,13 +32,13 @@ function BarChart() {
 
   useEffect(() => {
     // Set usernames options only if the user is an admin and tasks are loaded
-    if (user?.email === 'panamerican.pi@gmail.com' && !loading) {
+    if (user?.email === ADMIN && !loading) {
       const usernames = [...new Set(tasks.map(task => task.username))];
       setUsernamesOptions(usernames);
     }
   }, [tasks, user, loading]);
 
-  const filteredTasks = user?.email === 'panamerican.pi@gmail.com'
+  const filteredTasks = user?.email === ADMIN
     ? tasks.filter(task => selectedUsernames.length === 0 || selectedUsernames.includes(task.username))
     : tasks.filter(task => task.user.email === user.email);
 
@@ -46,7 +47,7 @@ function BarChart() {
       const projectTasks = filteredTasks.filter(task => task.projectId === projectId);
       const acceptedTasks = projectTasks.filter(task => task.status === 'Accepted');
 
-      const totalAcceptedTasks = (user?.email !== 'panamerican.pi@gmail.com' || selectedUsernames.length > 0) ? 5 : 89;
+      const totalAcceptedTasks = (user?.email !== ADMIN || selectedUsernames.length > 0) ? 5 : 89;
 
       const progress = (acceptedTasks.length / totalAcceptedTasks) * 100;
       return Math.min(progress, 100); // Ensure progress doesn't exceed 100
@@ -163,7 +164,7 @@ function BarChart() {
     placeholder="Select Projects..."
     styles={customStyles} // Asegúrate de aplicar los estilos personalizados aquí
   />
-  {user?.email === 'panamerican.pi@gmail.com' && (
+  {user?.email === ADMIN && (
     <Select
       isMulti
       options={usernameOptions}
