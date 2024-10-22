@@ -139,6 +139,16 @@ const HomaPage = () => {
                   <EnvelopeIcon className="w-4 h-4 text-white" /> {/* Ícono de Heroicons v2 */}
                   <span>director@panamericanprivateinvestments.com</span>
                 </a>
+                <a 
+                href="https://www.linkedin.com/company/panamerican-private-investments/?viewAsMember=true"
+                target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2 text-xs md:text-sm">
+                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                  <path d="M22.23 0H1.77C.792 0 0 .774 0 1.728v20.543C0 23.225.792 24 1.77 24h20.46c.978 0 1.77-.774 1.77-1.729V1.728C24 .774 23.208 0 22.23 0zM7.12 20.452H3.56V9h3.56v11.452zm-1.78-13.01a2.07 2.07 0 11-.001-4.138 2.07 2.07 0 010 4.138zm15.18 13.01h-3.56v-5.941c0-1.417-.028-3.245-1.975-3.245-1.976 0-2.278 1.543-2.278 3.14v6.045h-3.56V9h3.42v1.563h.049c.476-.9 1.636-1.846 3.368-1.846 3.602 0 4.267 2.369 4.267 5.452v6.283z" />
+                </svg>
+                <span>LinkedIn</span>
+                </a>
               </div>
             </div>
           </div>
