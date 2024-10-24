@@ -34,7 +34,7 @@ const HomaPage = () => {
       </div>
 
       {/* Cards Section */}
-      <div className="container mx-auto my-8 px-4 md:px-10">
+      <div className="container mx-auto py-32 px-4 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {/* Card 1 */}
           <div className="h-full shadow-md border border-zinc-600 rounded-lg">
@@ -75,6 +75,7 @@ const HomaPage = () => {
 
           {/* Card 3 */}
           <div className="h-full shadow-md border border-zinc-600 rounded-lg">
+          {/* <div className="h-full rounded-lg shadow-shadow-[0_0px_20px_rgba(0,100,0,0.3)]"> */}
             <img
               src={`${import.meta.env.BASE_URL}project.jpg`}
               alt="Project 3"
@@ -94,6 +95,29 @@ const HomaPage = () => {
           </div>
         </div>
       </div>
+
+      {/*About us*/}
+      <div className="border-y border-zinc-900 my-28">
+      <div className="container flex flex-col md:flex-row justify-center items-center mx-auto py-20 px-4 md:px-10">
+        <div className="flex-shrink-0 md:w-1/4 flex justify-center items-center">
+          <h2 className="text-lg md:text-xl font-bold text-center">About Us</h2>
+        </div>
+        <div className="md:w-3/4">
+          <p className="text-xs md:text-sm my-2">
+            We are a dedicated team of professionals committed to driving growth and innovation in business. Our mission is to provide comprehensive solutions in business consulting, software development, and project management.
+          </p>
+          <p className="text-xs md:text-sm my-2">
+            We focus on building strong relationships with our clients, understanding their unique needs, and crafting personalized strategies that deliver sustainable results. With expertise in project evaluation and international trade, we ensure our clients receive the support they need to thrive in a competitive environment.
+          </p>
+          <p className="text-xs md:text-sm my-2">
+            We believe in collaboration and transparency, working closely with our partners to achieve common goals while maximizing opportunities at every step.
+          </p>
+        </div>
+      </div>
+      </div>
+      
+
+
 
       {/* Prefooter Section */}
       <div
@@ -139,15 +163,15 @@ const HomaPage = () => {
                   <EnvelopeIcon className="w-4 h-4 text-white" /> {/* Ícono de Heroicons v2 */}
                   <span>director@panamericanprivateinvestments.com</span>
                 </a>
-                <a 
-                href="https://www.linkedin.com/company/panamerican-private-investments/?viewAsMember=true"
-                target="_blank"
+                <a
+                  href="https://www.linkedin.com/company/panamerican-private-investments/?viewAsMember=true"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center space-x-2 text-xs md:text-sm">
-                <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
-                  <path d="M22.23 0H1.77C.792 0 0 .774 0 1.728v20.543C0 23.225.792 24 1.77 24h20.46c.978 0 1.77-.774 1.77-1.729V1.728C24 .774 23.208 0 22.23 0zM7.12 20.452H3.56V9h3.56v11.452zm-1.78-13.01a2.07 2.07 0 11-.001-4.138 2.07 2.07 0 010 4.138zm15.18 13.01h-3.56v-5.941c0-1.417-.028-3.245-1.975-3.245-1.976 0-2.278 1.543-2.278 3.14v6.045h-3.56V9h3.42v1.563h.049c.476-.9 1.636-1.846 3.368-1.846 3.602 0 4.267 2.369 4.267 5.452v6.283z" />
-                </svg>
-                <span>LinkedIn</span>
+                  <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                    <path d="M22.23 0H1.77C.792 0 0 .774 0 1.728v20.543C0 23.225.792 24 1.77 24h20.46c.978 0 1.77-.774 1.77-1.729V1.728C24 .774 23.208 0 22.23 0zM7.12 20.452H3.56V9h3.56v11.452zm-1.78-13.01a2.07 2.07 0 11-.001-4.138 2.07 2.07 0 010 4.138zm15.18 13.01h-3.56v-5.941c0-1.417-.028-3.245-1.975-3.245-1.976 0-2.278 1.543-2.278 3.14v6.045h-3.56V9h3.42v1.563h.049c.476-.9 1.636-1.846 3.368-1.846 3.602 0 4.267 2.369 4.267 5.452v6.283z" />
+                  </svg>
+                  <span>LinkedIn</span>
                 </a>
               </div>
             </div>
