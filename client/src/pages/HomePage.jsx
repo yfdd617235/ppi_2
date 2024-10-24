@@ -97,7 +97,7 @@ const HomaPage = () => {
       </div>
 
       {/*About us*/}
-      <div className="border-y border-zinc-900 my-28">
+      <div className="border-y border-zinc-600 my-24">
       <div className="container flex flex-col md:flex-row justify-center items-center mx-auto py-20 px-4 md:px-10">
         <div className="flex-shrink-0 md:w-1/4 flex justify-center items-center">
           <h2 className="text-lg md:text-xl font-bold text-center">About Us</h2>
