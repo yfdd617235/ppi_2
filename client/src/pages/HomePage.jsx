@@ -35,23 +35,28 @@ const HomaPage = () => {
 
       <div className="relative h-screen w-full flex justify-center items-center overflow-hidden">
         <video
-          className="absolute top-0 left-0 w-full h-full object-cover -z-20"
+          className="absolute top-0 left-0 w-full h-full object-cover -z-20 hidden md:block"
           src={`${import.meta.env.BASE_URL}tech.mp4`}
           muted
           autoPlay
           loop
-          preload="metadata"
+          playsInline
         />
 
         {/* Fondo negro con opacidad */}
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-70 -z-10" />
 
+        {/* Logo */}
         <img
           className="relative z-10 max-w-full max-h-full lg:p-32"
           src={`${import.meta.env.BASE_URL}logoT.png`}
           alt="Logo"
         />
+
+        {/* Imagen de fondo para móviles */}
+        {/* <div className="absolute top-0 left-0 w-full h-full bg-cover bg-center md:hidden -z-20" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}banner.webp')` }}></div> */}
       </div>
+
 
       {/* Cards Section */}
       <div className="container mx-auto py-32 px-4 md:px-10">
