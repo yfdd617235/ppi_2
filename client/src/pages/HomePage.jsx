@@ -13,7 +13,7 @@ const HomaPage = () => {
   return (
     <div className="flex flex-col pt-10">
       {/* Jumbotron Section */}
-      <div
+      {/* <div
         className="h-screen w-full bg-center flex justify-center items-center"
         style={{
           backgroundImage: `
@@ -28,6 +28,26 @@ const HomaPage = () => {
       >
         <img
           className="max-w-full max-h-full lg:p-32"
+          src={`${import.meta.env.BASE_URL}logoT.png`}
+          alt="Logo"
+        />
+      </div> */}
+
+      <div className="relative h-screen w-full flex justify-center items-center overflow-hidden">
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover -z-20"
+          src={`${import.meta.env.BASE_URL}tech.mp4`}
+          muted
+          autoPlay
+          loop
+          preload="metadata"
+        />
+
+        {/* Fondo negro con opacidad */}
+        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-70 -z-10" />
+
+        <img
+          className="relative z-10 max-w-full max-h-full lg:p-32"
           src={`${import.meta.env.BASE_URL}logoT.png`}
           alt="Logo"
         />
@@ -75,7 +95,7 @@ const HomaPage = () => {
 
           {/* Card 3 */}
           <div className="h-full shadow-md border border-zinc-600 rounded-lg">
-          {/* <div className="h-full rounded-lg shadow-shadow-[0_0px_20px_rgba(0,100,0,0.3)]"> */}
+            {/* <div className="h-full rounded-lg shadow-shadow-[0_0px_20px_rgba(0,100,0,0.3)]"> */}
             <img
               src={`${import.meta.env.BASE_URL}project.jpg`}
               alt="Project 3"
@@ -98,24 +118,24 @@ const HomaPage = () => {
 
       {/*About us*/}
       <div className="border-y border-zinc-600 my-24">
-      <div className="container flex flex-col md:flex-row justify-center items-center mx-auto py-20 px-4 md:px-10">
-        <div className="flex-shrink-0 md:w-1/4 flex justify-center items-center">
-          <h2 className="text-lg md:text-2xl font-bold text-center">About Us</h2>
-        </div>
-        <div className="md:w-3/4">
-          <p className="text-justify text-xs md:text-lg my-4">
-            We are a dedicated team of professionals committed to driving growth and innovation in business. Our mission is to provide comprehensive solutions in business consulting, software development, and project management.
-          </p>
-          <p className="text-justify text-xs md:text-lg my-4">
-            We focus on building strong relationships with our clients, understanding their unique needs, and crafting personalized strategies that deliver sustainable results. With expertise in project evaluation and international trade, we ensure our clients receive the support they need to thrive in a competitive environment.
-          </p>
-          <p className="text-justify text-xs md:text-lg my-4">
-            We believe in collaboration and transparency, working closely with our partners to achieve common goals while maximizing opportunities at every step.
-          </p>
+        <div className="container flex flex-col md:flex-row justify-center items-center mx-auto py-20 px-4 md:px-10">
+          <div className="flex-shrink-0 md:w-1/4 flex justify-center items-center">
+            <h2 className="text-lg md:text-2xl font-bold text-center">About Us</h2>
+          </div>
+          <div className="md:w-3/4">
+            <p className="text-justify text-xs md:text-lg my-4">
+              We are a dedicated team of professionals committed to driving growth and innovation in business. Our mission is to provide comprehensive solutions in business consulting, software development, and project management.
+            </p>
+            <p className="text-justify text-xs md:text-lg my-4">
+              We focus on building strong relationships with our clients, understanding their unique needs, and crafting personalized strategies that deliver sustainable results. With expertise in project evaluation and international trade, we ensure our clients receive the support they need to thrive in a competitive environment.
+            </p>
+            <p className="text-justify text-xs md:text-lg my-4">
+              We believe in collaboration and transparency, working closely with our partners to achieve common goals while maximizing opportunities at every step.
+            </p>
+          </div>
         </div>
       </div>
-      </div>
-      
+
 
 
 
