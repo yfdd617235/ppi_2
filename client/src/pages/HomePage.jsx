@@ -37,10 +37,26 @@ const HomaPage = () => {
         <video
           className="absolute top-0 left-0 w-full h-full object-cover -z-20"
           src={`${import.meta.env.BASE_URL}tech.mp4`}
+          poster={`${import.meta.env.BASE_URL}tech.png`}
           muted
           autoPlay
           loop
           playsInline
+          onError={(e) => (e.target.style.display = 'none')}
+        />
+
+        {/* Poster Image as Fallback */}
+        <img
+          src={`${import.meta.env.BASE_URL}tech.png`}
+          alt="Video Poster"
+          className="absolute w-full h-full object-cover bg-black opacity-30"
+          style={{ display: 'none' }}
+          onLoad={(e) => {
+            const video = document.querySelector('video');
+            if (video && video.style.display === 'none') {
+              e.target.style.display = 'block';
+            }
+          }}
         />
 
         {/* Fondo negro con opacidad */}
