@@ -108,8 +108,9 @@ const HomaPage = () => {
               <div className="flex flex-col space-y-3 text-left">
                 <p className="text-xs md:text-lg">- Leverage for Environmental Investments</p>
                 <p className="text-xs md:text-lg">- Financial Arbitrage with licensed entities</p>
-                <p className="text-xs md:text-lg">- International Commerce (Food and other commodities)</p>
+                {/* <p className="text-xs md:text-lg">- International Commerce (Food and other commodities)</p> */}
                 <p className="text-xs md:text-lg">- Algorithmic trading and market analysis Software</p>
+                <p className="text-xs md:text-lg">- BPO Development: Custom software solutions for business process outsourcing</p>
               </div>
             </div>
           </div>
