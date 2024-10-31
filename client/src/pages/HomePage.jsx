@@ -36,7 +36,7 @@ const HomaPage = () => {
       <div className="relative h-screen w-full flex justify-center items-center overflow-hidden">
         <video
           className="absolute top-0 left-0 w-full h-full object-cover -z-20"
-          src={`${import.meta.env.BASE_URL}tech.mp4`}
+          src={`${import.meta.env.BASE_URL}tech_.mp4`}
           poster={`${import.meta.env.BASE_URL}tech.png`}
           muted
           autoPlay
