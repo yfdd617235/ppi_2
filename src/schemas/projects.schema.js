@@ -5,10 +5,10 @@ export const createProjectSchema = z.object({
         .string({
             required_error: "Project ID is required",
         }),
-    client: z
-        .string({
-            required_error: "Client is required",
-        }),
+    // client: z
+    //     .string({
+    //         required_error: "Client is required",
+    //     }),
     description: z
         .string({
             required_error: "Description is required",

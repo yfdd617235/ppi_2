@@ -27,7 +27,7 @@ function ProjectFormPage() {
       if (params.id) {
         const project = await getProject(params.id);
         console.log(project);
-        setValue('title', project.title);
+        setValue('projectId', project.projectId);
         setValue('description', project.description);
         setValue('startDate', dayjs(project.startDate).format('YYYY-MM-DD')); // Asegúrate de formatear correctamente la fecha
         setValue('endDate', dayjs(project.endDate).format('YYYY-MM-DD'));
@@ -41,7 +41,7 @@ function ProjectFormPage() {
     setLoading(true);
 
     const formData = new FormData();
-    formData.append('title', data.title);
+    formData.append('projectId', data.projectId);
     formData.append('description', data.description);
     formData.append('startDate', dayjs.utc(data.startDate).format());
     formData.append('endDate', dayjs.utc(data.endDate).format());
@@ -77,8 +77,8 @@ function ProjectFormPage() {
         <form onSubmit={onSubmit} encType="multipart/form-data">
           <input
             type="text"
-            placeholder='Title'
-            {...register('title', { required: true })}
+            placeholder='projectId'
+            {...register('projectId', { required: true })}
             className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
             autoFocus
           />
