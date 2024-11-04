@@ -8,6 +8,7 @@ import cors from 'cors'
 import authRoutes from "./routes/auth.routes.js";
 import taskRoutes from "./routes/tasks.routes.js";
 import homeRoutes from "./routes/home.routes.js";
+import projectRoutes from "./routes/projects.routes.js";
 import Task from './models/task.model.js';
 
 import path from 'path';
@@ -29,6 +30,7 @@ app.use(cookieParser());
 app.use('/api', authRoutes); //Las rutas empesarían con api
 app.use('/api', taskRoutes); //Las rutas empesarían con api
 app.use('/api', homeRoutes); //Las rutas empesarían con api
+app.use('/api', projectRoutes); //Las rutas empesarían con api
 
 
 console.log(__dirname)

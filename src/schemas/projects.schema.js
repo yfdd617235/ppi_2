@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const createTaskSchema = z.object({
+export const createProjectSchema = z.object({
     projectId: z
         .string({
             required_error: "Project ID is required",
@@ -9,9 +9,9 @@ export const createTaskSchema = z.object({
         .string({
             required_error: "Client is required",
         }),
-    object: z
+    description: z
         .string({
-            required_error: "Object is required",
+            required_error: "Description is required",
         }),
     date: z.string().datetime().optional(),
 });
