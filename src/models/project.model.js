@@ -30,6 +30,10 @@ const projectSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    script: {
+        type: Number,
+        required: true,
+    },
     // Campos para cada archivo individualmente
     file1: {  
         type: String,  // URL del primer archivo en Cloudinary

@@ -22,7 +22,7 @@ export const getProjects = async (req, res) => {
 // Crear un nuevo proyecto
 export const createProject = async (req, res) => {
     try {
-        const { projectId, description, startDate, endDate, status, email, username } = req.body;
+        const { projectId, description, startDate, endDate, script, status, email, username } = req.body;
         const files = req.files; // Obtener todos los archivos
 
         let fileUrls = [null, null, null];
@@ -46,6 +46,7 @@ export const createProject = async (req, res) => {
             user: req.user.id,
             username,
             email,
+            script,
             file1: fileUrls[0],
             file1PublicId: filePublicIds[0],
             file2: fileUrls[1],
@@ -109,10 +110,10 @@ export const updateProject = async (req, res) => {
         const existingProject = await Project.findById(req.params.id);
         if (!existingProject) return res.status(404).json({ message: 'Project not found' });
 
-        const { projectId, description, startDate, endDate, status } = req.body;
+        const { projectId, description, startDate, endDate, script, status } = req.body;
         const files = req.files; // Obtener los archivos
 
-        const updateData = { projectId, description, startDate, endDate, status };
+        const updateData = { projectId, description, startDate, endDate, script, status };
 
         // Actualiza los archivos
         for (let i = 0; i < 3; i++) {

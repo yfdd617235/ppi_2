@@ -48,7 +48,9 @@ function ProjectFormPage() {
     formData.append('status', status);
     formData.append('username', user.username); 
     formData.append('email', user.email);
-
+    const scriptValue = data.script ? Number(data.script) : 0; // Asigna 0 si no hay valor
+    formData.append('script', scriptValue);
+    
     // Añadir archivos si existen
     for (let i = 1; i <= 3; i++) {
       if (data[`file${i}`]) {
@@ -71,7 +73,7 @@ function ProjectFormPage() {
   });
 
   return (
-    <div className='m-3 flex h-[calc(100vh-100px)] items-center justify-center'>
+    <div className='m-3 mt-16 flex h-[calc(100vh-100px)] items-center justify-center'>
       <div className='max-w-md p-10 rounded-md border border-zinc-500'>
         <h1 className='text-xl'>{params.id ? 'Edit Project' : 'Add Project'}</h1>
         <form onSubmit={onSubmit} encType="multipart/form-data">
@@ -97,6 +99,12 @@ function ProjectFormPage() {
           <input
             type="date"
             {...register('endDate', { required: true })}
+            className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
+          />
+          <input
+            type="number"
+            placeholder='Scripts'
+            {...register('script', { required: true })}
             className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
           />
           
