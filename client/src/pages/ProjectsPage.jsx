@@ -54,7 +54,6 @@ function ProjectTable() {
                         <th className="text-white px-2 py-1 text-sm sm:text-xs">Username</th>
                         <th className="text-white px-2 py-1 text-sm sm:text-xs">Email</th>
                         <th className="text-white px-2 py-1 text-sm sm:text-xs">Project ID</th>
-                        <th className="text-white px-2 py-1 text-sm sm:text-xs">Title</th>
                         <th className="text-white px-2 py-1 text-sm sm:text-xs">Description</th>
                         <th className="text-white px-2 py-1 text-sm sm:text-xs">Status</th>
                         <th className="text-white px-2 py-1 text-sm sm:text-xs">Actions</th> {/* Nueva columna para acciones */}
@@ -67,7 +66,6 @@ function ProjectTable() {
                             <td className="text-zinc-400 px-2 py-1 text-sm sm:text-xs">{project.username}</td>
                             <td className="text-zinc-400 px-2 py-1 text-sm sm:text-xs">{project.email}</td>
                             <td className="text-zinc-400 px-2 py-1 text-sm sm:text-xs">{project.projectId}</td>
-                            <td className="text-zinc-400 px-2 py-1 text-sm sm:text-xs">{project.title}</td>
                             <td className="text-zinc-400 px-2 py-1 text-sm sm:text-xs">{project.description}</td>
                             <td className={`px-2 py-1 text-sm sm:text-xs ${project.status === "Open" ? "text-blue-500" : ""} 
                                 ${project.status === "In Progress" ? "text-yellow-500" : ""} 

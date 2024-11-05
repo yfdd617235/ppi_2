@@ -66,7 +66,7 @@ function ProjectFormPage() {
       console.error('Error:', error);
     } finally {
       setLoading(false);
-      navigate('/projects'); // Redirige a la lista de proyectos después de guardar
+      navigate('/'); // Redirige a la lista de proyectos después de guardar
     }
   });
 
@@ -77,7 +77,7 @@ function ProjectFormPage() {
         <form onSubmit={onSubmit} encType="multipart/form-data">
           <input
             type="text"
-            placeholder='projectId'
+            placeholder='Project ID'
             {...register('projectId', { required: true })}
             className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
             autoFocus
