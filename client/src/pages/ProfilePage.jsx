@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BarsArrowDownIcon, ListBulletIcon, ChartBarIcon, UserCircleIcon, FolderIcon, ChartPieIcon, ClipboardDocumentListIcon } from '@heroicons/react/24/outline'; // Importa los iconos de Heroicons
 import TaskTable from '../components/TaskTable';
 import Chart from '../components/Chart';
-import Projects from '../components/Projects';
+import ProjectsPage from '../pages/ProjectsPage';
 import UsersChart from '../components/UsersChart';
 import PolarChart from '../components/PolarChart';
 import ProjectReport from '../components/ProjectReport';
@@ -50,7 +50,7 @@ function ProfilePage() {
           onClick={() => setActiveComponent('ProjectReport')}>
           <ClipboardDocumentListIcon className="h-5 w-5 text-white" /><span className="sr-only">Project Report</span>
         </p>
-        <p className="bg-black p-2 border text-white border-zinc-500  flex items-center gap-2 rounded-sm cursor-pointer"
+        {/* <p className="bg-black p-2 border text-white border-zinc-500  flex items-center gap-2 rounded-sm cursor-pointer"
           onClick={() => setActiveComponent('list')}>
           <ListBulletIcon className="h-5 w-5 text-white" /><span className="sr-only">List</span>
         </p>
@@ -65,7 +65,7 @@ function ProfilePage() {
         <p className="bg-black p-2 border text-white border-zinc-500 flex items-center gap-2 rounded-sm cursor-pointer"
           onClick={() => setActiveComponent('PolarChart')}>
           <ChartPieIcon className="h-5 w-5 text-green-500" /> <span className="sr-only">Users</span>
-        </p>
+        </p> */}
         <p className=" bg-black p-2 border text-white border-zinc-500 flex items-center gap-2 rounded- cursor-pointer"
           onClick={() => setActiveComponent('Projects')}>
           <FolderIcon className="h-5 w-5 text-yellow-500" /><span className="sr-only">Projects</span>
@@ -117,7 +117,7 @@ function ProfilePage() {
 
           {activeComponent === 'Projects' && (
             <div className="flex w-full max-w-screen overflow-x-auto justify-center lg:px-28">
-              <Projects />
+              <ProjectsPage />
             </div>
           )}
 

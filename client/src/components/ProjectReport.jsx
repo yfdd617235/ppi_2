@@ -133,7 +133,7 @@ function ProjectReport() {
   };
 
   return (
-    <div className="w-full h-full min-h-screen flex flex-col  items-center py- gap-y-5 lg:px-10 print:justify-start print:items-start">
+    <div className="w-full h-full min-h-screen flex flex-col  items-center gap-y-5 lg:px-10 print:justify-start print:items-start">
       <div className="mb-4 lg:w-1/2">
         <Select
           isMulti

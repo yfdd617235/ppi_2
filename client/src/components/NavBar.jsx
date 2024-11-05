@@ -7,9 +7,10 @@ import {
   ClipboardDocumentCheckIcon,
   ArrowLeftOnRectangleIcon,
   UserPlusIcon,
-  Bars3Icon
+  Bars3Icon,
+  FolderIcon
 } from "@heroicons/react/24/outline";
-import {ADMIN} from '../projects';
+import { ADMIN } from '../projects';
 
 function NavBar() {
   const [isVisible, setIsVisible] = useState(false);
@@ -92,10 +93,21 @@ function NavBar() {
                 {user.email === ADMIN && (
                   <li>
                     <Link
+                      to="/projects"
+                      className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm border border-zinc-500"
+                    >
+                      <FolderIcon className="h-5 w-5 text-yellow-500" />
+                      <span className="sr-only">Projects</span>
+                    </Link>
+                  </li>
+                )}
+                {user.email === ADMIN && (
+                  <li>
+                    <Link
                       to="/register"
                       className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm border border-zinc-500"
                     >
-                      <UserPlusIcon className="h-5 w-5 text-zinc-500" />
+                      <UserPlusIcon className="h-5 w-5 text-blue-500" />
                       <span className="sr-only">Register</span>
                     </Link>
                   </li>
@@ -155,11 +167,23 @@ function NavBar() {
                   {user.email === ADMIN && (
                     <li>
                       <Link
+                        to="/projects"
+                        className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
+                        onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
+                      >
+                        <FolderIcon className="h-5 w-5 text-yellow-500" />
+                        <span className="sr-only">Projects</span>
+                      </Link>
+                    </li>
+                  )}
+                  {user.email === ADMIN && (
+                    <li>
+                      <Link
                         to="/register"
                         className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
                         onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
                       >
-                        <UserPlusIcon className="h-5 w-5 text-gray-500" />
+                        <UserPlusIcon className="h-5 w-5 text-blue-500" />
                         <span className="sr-only">Register</span>
                       </Link>
                     </li>

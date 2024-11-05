@@ -32,10 +32,10 @@ function TaskCard({ task }) {
                 <p className="text-zinc-600 break-words">#: {task.projectId}</p>
                 <div className="flex gap-x-2 items-center">
                     <Link className="text-zinc-400" to={`/tasks/${task._id}`} onClick={(e) => e.stopPropagation()}>
-                        <PencilIcon className="h-3 w-5" />
+                        <PencilIcon className="h-5 w-5" />
                     </Link>
                     <button className="text-zinc-400" onClick={handleDelete}>
-                        <TrashIcon className="h-4 w-5" />
+                        <TrashIcon className="h-5 w-5" />
                     </button>
                 </div>
             </header>

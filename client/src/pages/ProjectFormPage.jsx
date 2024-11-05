@@ -66,7 +66,7 @@ function ProjectFormPage() {
       console.error('Error:', error);
     } finally {
       setLoading(false);
-      navigate('/'); // Redirige a la lista de proyectos después de guardar
+      navigate('/projects'); // Redirige a la lista de proyectos después de guardar
     }
   });
 

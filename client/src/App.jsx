@@ -35,7 +35,7 @@ function App() {
 
                   <Route path="/projects" element={<ProjectsPage />} />
                   <Route path="/add-project" element={<ProjectFormPage />} />
-                  <Route path="/projects/:id" element={<TaskFormPage />} />
+                  <Route path="/projects/:id" element={<ProjectFormPage />} />
 
 
                   <Route path="/profile" element={<ProfilePage />} />
