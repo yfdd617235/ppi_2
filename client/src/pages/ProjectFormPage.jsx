@@ -29,6 +29,7 @@ function ProjectFormPage() {
         console.log(project);
         setValue('projectId', project.projectId);
         setValue('description', project.description);
+        setValue('script', project.script);
         setValue('startDate', dayjs(project.startDate).format('YYYY-MM-DD')); // Asegúrate de formatear correctamente la fecha
         setValue('endDate', dayjs(project.endDate).format('YYYY-MM-DD'));
         setStatus(project.status || 'Open'); // Cargar el status actual del proyecto

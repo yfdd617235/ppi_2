@@ -7,7 +7,7 @@ export const createProjectSchema = z.object({
         }),
     script: z
         .string({
-            required_error: "Number of scrpts is required",
+            required_error: "Number of scripts is required",
         }),
     description: z
         .string({

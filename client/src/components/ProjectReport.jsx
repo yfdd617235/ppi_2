@@ -6,6 +6,7 @@ import PolarChartS from '../components/PolarChartS';
 import UploadHistoryChart from '../components/UploadHistoryChart';
 import { useTasks } from '../context/TasksContext';
 import { useAuth } from '../context/AuthContext';
+import { useProjects } from '../context/ProjectsContext';
 import { projectList } from '../projects';
 import Select from 'react-select';
 import {ADMIN} from '../projects';
