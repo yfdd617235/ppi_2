@@ -31,13 +31,9 @@ function App() {
                   <Route path="/tasks" element={<TasksPage />} />
                   <Route path="/add-task" element={<TaskFormPage />} />
                   <Route path="/tasks/:id" element={<TaskFormPage />} />
-
-
                   <Route path="/projects" element={<ProjectsPage />} />
                   <Route path="/add-project" element={<ProjectFormPage />} />
                   <Route path="/projects/:id" element={<ProjectFormPage />} />
-
-
                   <Route path="/profile" element={<ProfilePage />} />
                 </Route>
                 <Route path="*" element={<h1>404 - Page Not Found</h1>} />
