@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { useTasks } from "../context/TasksContext";
 import TaskCard from "../components/TaskCard";
-import { projectList } from "../projects"; // Importa la lista de proyectos
 import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
+import { useProjects } from "../context/ProjectsContext";
 import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import {ADMIN} from '../projects';
 
 function TasksPage() {
   const { getTasks, tasks } = useTasks();
+  const { projects, getProjects} = useProjects();
   const { user } = useAuth(); // Obtener user de useAuth
   const [loading, setLoading] = useState(true); // Estado de loading
   const [selectedProject, setSelectedProject] = useState(''); // Estado para el proyecto seleccionado
@@ -17,8 +18,10 @@ function TasksPage() {
   useEffect(() => {
     async function fetchTasks() {
       await getTasks();
+      await getProjects();
       setLoading(false); // Detener el loading cuando las tareas están listas
-    console.log(tasks)
+    console.log("tasks", tasks)
+    console.log("projects", projects);
     }
     fetchTasks(); // Obtener las tareas
   }, []);
@@ -48,9 +51,9 @@ function TasksPage() {
           className="bg-black text-white text-sm py-1 rounded-md border"
         >
           <option value="">All Projects</option>
-          {projectList.map((projectId, index) => (
-            <option key={index} value={projectId}>
-              {projectId}
+          {projects.map((project) => (
+            <option  value={project.projectId}>
+              {project.projectId}
             </option>
           ))}
         </select> <br />
@@ -75,9 +78,9 @@ function TasksPage() {
           className="bg-black text-white text-sm py-1 rounded-md border"
         >
           <option value="">All Projects</option>
-          {projectList.map((projectId, index) => (
-            <option key={index} value={projectId}>
-              {projectId}
+          {projects.map((project, index) => (
+            <option key={index} value={project.projectId}>
+              {project.projectId}
             </option>
           ))}
         </select>

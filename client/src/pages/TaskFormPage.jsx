@@ -1,5 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useTasks } from '../context/TasksContext';
+import { useProjects } from "../context/ProjectsContext";
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
@@ -15,6 +16,7 @@ import { projectList } from '../projects';
 function TaskFormPage() {
   const { register, handleSubmit, setValue } = useForm();
   const { createTask, getTask, updateTask } = useTasks();
+  const { projects, getProjects} = useProjects();
   const { user } = useAuth(); // Obtén la información del usuario autenticado
   const navigate = useNavigate();
   const params = useParams();
@@ -105,9 +107,9 @@ function TaskFormPage() {
             className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
           >
             <option value="">Select Project</option>
-            {projectList.map((projectId, index) => (
-              <option key={index} value={projectId}>
-                {projectId}
+            {projects.map((project) => (
+              <option value={project.projectId}>
+                {project.projectId}
               </option>
             ))}
           </select>
