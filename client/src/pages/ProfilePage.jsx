@@ -57,19 +57,19 @@ function ProfilePage() {
         <p className="bg-black p-2 border text-white border-zinc-500 flex items-center gap-2 rounded-sm cursor-pointer"
           onClick={() => setActiveComponent('chart')}>
           <ChartBarIcon className="h-5 w-5 text-green-500" /> <span className="sr-only">Progress</span>
-        </p>
+        </p> */}
         <p className="bg-black p-2 border text-white border-zinc-500 flex items-center gap-2 rounded-sm cursor-pointer"
           onClick={() => setActiveComponent('UsersChart')}>
           <UserCircleIcon className="h-5 w-5 text-blue-600" /> <span className="sr-only">Users</span>
         </p>
-        <p className="bg-black p-2 border text-white border-zinc-500 flex items-center gap-2 rounded-sm cursor-pointer"
+        {/* <p className="bg-black p-2 border text-white border-zinc-500 flex items-center gap-2 rounded-sm cursor-pointer"
           onClick={() => setActiveComponent('PolarChart')}>
           <ChartPieIcon className="h-5 w-5 text-green-500" /> <span className="sr-only">Users</span>
         </p> */}
-        <p className=" bg-black p-2 border text-white border-zinc-500 flex items-center gap-2 rounded- cursor-pointer"
+        {/* <p className=" bg-black p-2 border text-white border-zinc-500 flex items-center gap-2 rounded- cursor-pointer"
           onClick={() => setActiveComponent('Projects')}>
           <FolderIcon className="h-5 w-5 text-yellow-500" /><span className="sr-only">Projects</span>
-        </p>
+        </p> */}
       </div>
 
 

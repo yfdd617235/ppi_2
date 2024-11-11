@@ -18,12 +18,21 @@ function ProjectReport() {
   const [selectedUsernames, setSelectedUsernames] = useState([]);
   const [filteredTasks, setFilteredTasks] = useState([]);
   const [usernamesOptions, setUsernamesOptions] = useState([]);
+  const { projects, getProjects} = useProjects();
   
+  useEffect(() => {
+    async function fetchProjects() {
+        await getProjects();
+        // setLoading(false);
+        console.log("projects", projects);
+    }
+    fetchProjects();
+}, []);
 
   const fetchTasks = useCallback(async () => {
     await getTasks();
-    console.log(tasks);
-  }, [getTasks]);
+    console.log("tasks",tasks);
+  }, []);
 
   useEffect(() => {
     fetchTasks();
@@ -54,9 +63,9 @@ function ProjectReport() {
     setFilteredTasks(filtered);
   }, [tasks, user, selectedUsernames, selectedProjects]);
 
-  const projectOptions = projectList.map((projectId) => ({
-    value: projectId,
-    label: projectId,
+  const projectOptions = projects.map((project) => ({
+    value: project.projectId,
+    label: project.projectId,
   }));
 
   const usernameOptions = usernamesOptions.map((username) => ({

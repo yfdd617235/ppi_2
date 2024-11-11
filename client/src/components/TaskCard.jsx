@@ -20,12 +20,15 @@ function TaskCard({ task }) {
         }
     };
 
+    const handleOpenFile = (e) => {
+        e.stopPropagation();
+        window.open(task.file, "_blank", "noopener,noreferrer");
+    };
+
     return (
-        <a 
-            href={task.file || '#'} 
-            className="relative max-w-md w-full p-4 rounded-md flex flex-col justify-between border border-zinc-700 transition-colors duration-300 hover:bg-zinc-800" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+        <div 
+             onClick={task.file ? handleOpenFile : undefined}
+            className="relative max-w-md w-full p-4 rounded-md flex flex-col justify-between border border-zinc-700 transition-colors duration-300 hover:bg-zinc-800 cursor-pointer"
             // download
         >
             <header className="flex justify-between relative z-20">
@@ -55,7 +58,7 @@ function TaskCard({ task }) {
                     {task.status}
                 </p>
             </div>
-        </a>
+        </div>
     );
 }
 
