@@ -9,7 +9,7 @@ import { useAuth } from '../context/AuthContext';
 import { useProjects } from '../context/ProjectsContext';
 import { projectList } from '../projects';
 import Select from 'react-select';
-import {ADMIN} from '../projects';
+import { ADMIN } from '../projects';
 
 function ProjectReport() {
   const { tasks, getTasks } = useTasks();
@@ -18,24 +18,16 @@ function ProjectReport() {
   const [selectedUsernames, setSelectedUsernames] = useState([]);
   const [filteredTasks, setFilteredTasks] = useState([]);
   const [usernamesOptions, setUsernamesOptions] = useState([]);
-  const { projects, getProjects} = useProjects();
-  
+  const { projects, getProjects } = useProjects();
+
   useEffect(() => {
     async function fetchProjects() {
-        await getProjects();
-        // setLoading(false);
-        console.log("projects", projects);
+      await getProjects();
+      await getTasks();
+      console.log("tasks", tasks);
+      console.log("projects", projects);
     }
     fetchProjects();
-}, []);
-
-  const fetchTasks = useCallback(async () => {
-    await getTasks();
-    console.log("tasks",tasks);
-  }, []);
-
-  useEffect(() => {
-    fetchTasks();
   }, []);
 
   useEffect(() => {
@@ -73,14 +65,29 @@ function ProjectReport() {
     label: username,
   }));
 
-  const calculateProgress = () => {
-    const totalAcceptedTasks = user?.email !== ADMIN || selectedUsernames.length > 0 ? 5 : 89;
+  // const calculateProgress = () => {
+  //   const totalAcceptedTasks = user?.email !== ADMIN || selectedUsernames.length > 0 ? 5 : 89;
 
+  //   return selectedProjects.map((projectId) => {
+  //     const projectTasks = filteredTasks.filter((task) => task.projectId === projectId);
+  //     const acceptedTasks = projectTasks.filter((task) => task.status === 'Accepted');
+
+  //     const progress = (acceptedTasks.length / totalAcceptedTasks) * 100;
+  //     return Math.min(progress, 100); // Asegurar que el progreso no exceda 100
+  //   });
+  // };
+
+  const calculateProgress = () => {
     return selectedProjects.map((projectId) => {
+      // Encuentra el proyecto seleccionado y obtiene el valor de script como totalAcceptedTasks
+      const project = projects.find((proj) => proj.projectId === projectId);
+      const totalAcceptedTasks = project ? project.script : 0;
+
+      // Calcula el progreso basado en las tareas filtradas
       const projectTasks = filteredTasks.filter((task) => task.projectId === projectId);
       const acceptedTasks = projectTasks.filter((task) => task.status === 'Accepted');
 
-      const progress = (acceptedTasks.length / totalAcceptedTasks) * 100;
+      const progress = totalAcceptedTasks > 0 ? (acceptedTasks.length / totalAcceptedTasks) * 100 : 0;
       return Math.min(progress, 100); // Asegurar que el progreso no exceda 100
     });
   };
