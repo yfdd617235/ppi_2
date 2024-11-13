@@ -28,6 +28,7 @@ function ProjectFormPage() {
         const project = await getProject(params.id);
         console.log(project);
         setValue('projectId', project.projectId);
+        setValue('customerEmail', project.customerEmail);
         setValue('description', project.description);
         setValue('script', project.script);
         setValue('startDate', dayjs(project.startDate).format('YYYY-MM-DD')); // Asegúrate de formatear correctamente la fecha
@@ -43,6 +44,7 @@ function ProjectFormPage() {
 
     const formData = new FormData();
     formData.append('projectId', data.projectId);
+    formData.append('customerEmail', data.customerEmail);
     formData.append('description', data.description);
     formData.append('startDate', dayjs.utc(data.startDate).format());
     formData.append('endDate', dayjs.utc(data.endDate).format());
@@ -84,6 +86,12 @@ function ProjectFormPage() {
             {...register('projectId', { required: true })}
             className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
             autoFocus
+          />
+          <input
+            type="text"
+            placeholder='Customer Email'
+            {...register('customerEmail', { required: true })}
+            className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
           />
           <textarea
             rows="3"

@@ -5,6 +5,10 @@ export const createProjectSchema = z.object({
         .string({
             required_error: "Project ID is required",
         }),
+    customerEmail: z
+        .string({
+            required_error: "Customer Email is required",
+        }),
     script: z
         .string({
             required_error: "Number of scripts is required",

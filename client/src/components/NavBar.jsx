@@ -10,7 +10,7 @@ import {
   Bars3Icon,
   FolderIcon
 } from "@heroicons/react/24/outline";
-import { ADMIN } from '../projects';
+import { ADMIN, CUSTOMERS } from '../projects';
 
 function NavBar() {
   const [isVisible, setIsVisible] = useState(false);
@@ -71,61 +71,90 @@ function NavBar() {
           {/* Menú de navegación para pantallas grandes */}
           <ul className={`hidden md:flex flex-wrap gap-x-3 items-center ${!isAuthenticated ? 'justify-end' : ''}`}>
             {isAuthenticated ? (
-              <>
-                <li>
-                  <Link
-                    to="/tasks"
-                    className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-500"
-                  >
-                    <ClipboardDocumentCheckIcon className="h-5 w-5 text-white" />
-                    <span className="sr-only">Tasks</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/profile"
-                    className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-500"
-                  >
-                    <AdjustmentsHorizontalIcon className="h-5 w-5 text-green-500" />
-                    <span className="sr-only">Profile</span>
-                  </Link>
-                </li>
-                {user.email === ADMIN && (
+              CUSTOMERS.includes(user.email) ? (
+                // Menú específico para usuarios en el arreglo CUSTOMERS
+                <>
                   <li>
                     <Link
-                      to="/projects"
-                      className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm border border-zinc-500"
+                      to="/projectsView"
+                      className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-500"
                     >
                       <FolderIcon className="h-5 w-5 text-yellow-500" />
-                      <span className="sr-only">Projects</span>
+                      <span className="sr-only">Projects View</span>
                     </Link>
                   </li>
-                )}
-                {user.email === ADMIN && (
                   <li>
                     <Link
-                      to="/register"
-                      className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm border border-zinc-500"
+                      to="/"
+                      onClick={() => {
+                        logout();
+                        closeMenu(); // Cerrar el menú al hacer clic en Logout
+                      }}
+                      className="flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-500"
                     >
-                      <UserPlusIcon className="h-5 w-5 text-blue-500" />
-                      <span className="sr-only">Register</span>
+                      <ArrowRightOnRectangleIcon className="h-5 w-5 text-red-500" />
+                      <span className="sr-only">Logout</span>
                     </Link>
                   </li>
-                )}
-                <li>
-                  <Link
-                    to="/"
-                    onClick={() => {
-                      logout();
-                      closeMenu(); // Cerrar el menú al hacer clic en Logout
-                    }}
-                    className="flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-500"
-                  >
-                    <ArrowRightOnRectangleIcon className="h-5 w-5 text-red-500" />
-                    <span className="sr-only">Logout</span>
-                  </Link>
-                </li>
-              </>
+                </>
+              ) : (
+                // Menú para otros usuarios autenticados que no están en CUSTOMERS
+                <>
+                  <li>
+                    <Link
+                      to="/tasks"
+                      className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-500"
+                    >
+                      <ClipboardDocumentCheckIcon className="h-5 w-5 text-white" />
+                      <span className="sr-only">Tasks</span>
+                    </Link>
+                  </li>
+                  {user.email === ADMIN && (
+                    <>
+                      <li>
+                        <Link
+                          to="/profile"
+                          className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm sm:text-base border border-zinc-500"
+                        >
+                          <AdjustmentsHorizontalIcon className="h-5 w-5 text-green-500" />
+                          <span className="sr-only">Profile</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/projects"
+                          className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm border border-zinc-500"
+                        >
+                          <FolderIcon className="h-5 w-5 text-yellow-500" />
+                          <span className="sr-only">Projects</span>
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/register"
+                          className="flex items-center gap-2 px-2 py-1 sm:px-2 sm:py-1 rounded-sm text-sm border border-zinc-500"
+                        >
+                          <UserPlusIcon className="h-5 w-5 text-blue-500" />
+                          <span className="sr-only">Register</span>
+                        </Link>
+                      </li>
+                    </>
+                  )}
+                  <li>
+                    <Link
+                      to="/"
+                      onClick={() => {
+                        logout();
+                        closeMenu(); // Cerrar el menú al hacer clic en Logout
+                      }}
+                      className="flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-500"
+                    >
+                      <ArrowRightOnRectangleIcon className="h-5 w-5 text-red-500" />
+                      <span className="sr-only">Logout</span>
+                    </Link>
+                  </li>
+                </>
+              )
             ) : (
               <li>
                 <Link
@@ -139,69 +168,100 @@ function NavBar() {
             )}
           </ul>
 
+
           {/* Menú hamburguesa desplegable para pantallas pequeñas */}
           {isMenuOpen && (
             <ul className="absolute right-0 top-12 text-white rounded-md flex flex-col gap-3 md:hidden">
               {isAuthenticated ? (
-                <>
-                  <li>
-                    <Link
-                      to="/tasks"
-                      className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
-                      onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
-                    >
-                      <ClipboardDocumentCheckIcon className="h-5 w-5 text-white" />
-                      <span className="sr-only">Tasks</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      to="/profile"
-                      className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
-                      onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
-                    >
-                      <AdjustmentsHorizontalIcon className="h-5 w-5 text-green-600" />
-                      <span className="sr-only">Profile</span>
-                    </Link>
-                  </li>
-                  {user.email === ADMIN && (
+                CUSTOMERS.includes(user.email) ? (
+                  // Menú específico para usuarios en el arreglo CUSTOMERS
+                  <>
                     <li>
                       <Link
-                        to="/projects"
+                        to="/projectsView"
                         className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
                         onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
                       >
                         <FolderIcon className="h-5 w-5 text-yellow-500" />
-                        <span className="sr-only">Projects</span>
+                        <span className="sr-only">Projects View</span>
                       </Link>
                     </li>
-                  )}
-                  {user.email === ADMIN && (
                     <li>
                       <Link
-                        to="/register"
+                        to="/"
+                        onClick={() => {
+                          logout();
+                          closeMenu(); // Cerrar el menú al hacer clic en Logout
+                        }}
+                        className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
+                      >
+                        <ArrowRightOnRectangleIcon className="h-5 w-5 text-red-500" />
+                        <span className="sr-only">Logout</span>
+                      </Link>
+                    </li>
+                  </>
+                ) : (
+                  // Menú para otros usuarios autenticados que no están en CUSTOMERS
+                  <>
+                    <li>
+                      <Link
+                        to="/tasks"
                         className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
                         onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
                       >
-                        <UserPlusIcon className="h-5 w-5 text-blue-500" />
-                        <span className="sr-only">Register</span>
+                        <ClipboardDocumentCheckIcon className="h-5 w-5 text-white" />
+                        <span className="sr-only">Tasks</span>
                       </Link>
                     </li>
-                  )}
-                  <li>
-                    <Link
-                      to="/"
-                      onClick={() => {
-                        logout();
-                        closeMenu(); // Cerrar el menú al hacer clic en Logout
-                      }}
-                      className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
-                    >
-                      <ArrowRightOnRectangleIcon className="h-5 w-5 text-red-500" />
-                      <span className="sr-only">Logout</span>
-                    </Link>
-                  </li>
-                </>
+                    {user.email === ADMIN && (
+                      <>
+                        <li>
+                          <Link
+                            to="/profile"
+                            className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
+                            onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
+                          >
+                            <AdjustmentsHorizontalIcon className="h-5 w-5 text-green-600" />
+                            <span className="sr-only">Profile</span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/projects"
+                            className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
+                            onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
+                          >
+                            <FolderIcon className="h-5 w-5 text-yellow-500" />
+                            <span className="sr-only">Projects</span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/register"
+                            className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
+                            onClick={closeMenu} // Cerrar el menú al hacer clic en un enlace
+                          >
+                            <UserPlusIcon className="h-5 w-5 text-blue-500" />
+                            <span className="sr-only">Register</span>
+                          </Link>
+                        </li>
+                      </>
+                    )}
+                    <li>
+                      <Link
+                        to="/"
+                        onClick={() => {
+                          logout();
+                          closeMenu(); // Cerrar el menú al hacer clic en Logout
+                        }}
+                        className="bg-black flex items-center gap-2 px-2 py-1 rounded-sm text-sm border border-zinc-700"
+                      >
+                        <ArrowRightOnRectangleIcon className="h-5 w-5 text-red-500" />
+                        <span className="sr-only">Logout</span>
+                      </Link>
+                    </li>
+                  </>
+                )
               ) : (
                 <li>
                   <Link
@@ -216,6 +276,7 @@ function NavBar() {
               )}
             </ul>
           )}
+
         </div>
       </div>
     </nav>

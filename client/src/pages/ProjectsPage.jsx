@@ -53,6 +53,7 @@ function ProjectTable() {
                         <tr className="border-b text-black">
                             <th className="text-white px-2 py-2 text-sm sm:text-xs">#</th>
                             <th className="text-white px-2 py-1 text-sm sm:text-xs">Project ID</th>
+                            <th className="text-white px-2 py-1 text-sm sm:text-xs">Customer</th>
                             <th className="text-white px-2 py-1 text-sm sm:text-xs">Description</th>
                             <th className="text-white px-2 py-1 text-sm sm:text-xs">Start Date</th>
                             <th className="text-white px-2 py-1 text-sm sm:text-xs">End Date</th>
@@ -67,6 +68,7 @@ function ProjectTable() {
                             <tr key={project._id} className="border-b border-zinc-700">
                                 <td className="text-zinc-300 px-2 py-2 text-sm sm:text-xs">{index + 1}</td>
                                 <td className="text-zinc-300 px-2 py-1 text-sm sm:text-xs">{project.projectId}</td>
+                                <td className="text-zinc-300 px-2 py-1 text-sm sm:text-xs">{project.customerEmail}</td>
                                 <td className="text-zinc-300 px-2 py-1 text-sm sm:text-xs">{project.description}</td>
                                 <td className="text-zinc-300 px-2 py-1 text-sm sm:text-xs">
                                     {dayjs(project.startDate).format("DD-MMM-YYYY")}
