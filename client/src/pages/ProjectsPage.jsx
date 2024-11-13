@@ -85,7 +85,7 @@ function ProjectTable() {
                                             rel="noopener noreferrer"
                                             className="text-blue-200 hover:text-blue-500 hover:underline w-6 h-6"
                                         >
-                                            <svg                                     
+                                            <svg
                                                 viewBox="0 0 1024 1024"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 fill="currentColor" // Hace que el icono herede el color del contenedor
@@ -134,30 +134,57 @@ function ProjectTable() {
                                     )}
                                     {project.file3 && (
                                         <a
-                                        href={project.file3}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-yellow-100 hover:text-yellow-500 hover:underline w-6 h-6"
-                                    >
-                                        <svg
-                                            viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="#000000"
+                                            href={project.file3}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-yellow-100 hover:text-yellow-500 hover:underline w-6 h-6"
                                         >
-                                            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                                            <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
-                                            <g id="SVGRepo_iconCarrier">
-                                                <g id="layer1">
-                                                    <path
-                                                        d="M 0 2 L 0 18 L 20 18 L 20 17 L 1 17 L 1 2 L 0 2 z M 2 5 L 2 6 L 16 6 L 16 7 L 2 7 L 2 8 L 17 8 L 17 5 L 2 5 z M 2 9 L 2 10 L 8 10 L 8 11 L 2 11 L 2 12 L 9 12 L 9 9 L 2 9 z M 2 13 L 2 14 L 12 14 L 12 15 L 2 15 L 2 16 L 13 16 L 13 13 L 2 13 z"
-                                                        style={{ fill: "currentColor", fillOpacity: 1, stroke: "none", strokeWidth: 0 }} // Estilo en formato de objeto
-                                                    />
+                                            <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <title>report-barchart</title>
+                                                    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <g id="add" fill="currentColor" transform="translate(42.666667, 85.333333)">
+                                                            <path
+                                                                d="M341.333333,1.42108547e-14 L426.666667,85.3333333 L426.666667,341.333333 L3.55271368e-14,341.333333 L3.55271368e-14,1.42108547e-14 L341.333333,1.42108547e-14 Z 
+            M330.666667,42.6666667 L42.6666667,42.6666667 L42.6666667,298.666667 L384,298.666667 L384,96 L330.666667,42.6666667 Z 
+            M106.666667,85.3333333 L106.666,234.666 L341.333333,234.666667 L341.333333,256 L85.3333333,256 L85.3333333,85.3333333 L106.666667,85.3333333 Z 
+            M170.666667,149.333333 L170.666667,213.333333 L128,213.333333 L128,149.333333 L170.666667,149.333333 Z 
+            M234.666667,106.666667 L234.666667,213.333333 L192,213.333333 L192,106.666667 L234.666667,106.666667 Z 
+            M298.666667,170.666667 L298.666667,213.333333 L256,213.333333 L256,170.666667 L298.666667,170.666667 Z"
+                                                                fill="currentColor"
+                                                            ></path>
+                                                        </g>
+                                                    </g>
                                                 </g>
-                                            </g>
-                                        </svg>
-                                    </a>                              
-                                    
-                                    
+                                            </svg>
+
+                                        </a>
+
+
+                                    )}
+                                    {project.file4 && (
+                                        <a
+                                            href={project.file4}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-zinc-300 hover:text-white hover:underline w-6 h-6"
+                                        >
+                                            <svg viewBox="4 2 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <path
+                                                        fill-rule="evenodd"
+                                                        clip-rule="evenodd"
+                                                        d="M4.5 6L5.25 5.25H18.75L19.5 6V18L18.75 18.75H5.25L4.5 18V6ZM6 6.75V17.25H18V6.75H6ZM10.1894 12L7.71973 9.5303L8.78039 8.46964L12.3107 12L8.78039 15.5303L7.71973 14.4696L10.1894 12ZM12 15.75H15.75V14.25H12V15.75Z"
+                                                        fill="currentColor"
+                                                    ></path>
+                                                </g>
+                                            </svg>
+
+                                        </a>
                                     )}
                                 </td>
                                 <td className={` 

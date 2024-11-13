@@ -28,8 +28,8 @@ export const createProject = async (req, res) => {
         let fileUrls = [null, null, null];
         let filePublicIds = [null, null, null];
 
-        // Manejar la carga de los tres archivos
-        for (let i = 0; i < 3; i++) {
+        // Manejar la carga de los cuatro archivos
+        for (let i = 0; i < 4; i++) {
             const file = files[`file${i + 1}`]?.[0]; // Obtén el archivo del campo correspondiente
             if (file) {
                 const uploadResult = await uploadFileToCloudinary(file);
@@ -54,6 +54,8 @@ export const createProject = async (req, res) => {
             file2PublicId: filePublicIds[1],
             file3: fileUrls[2],
             file3PublicId: filePublicIds[2],
+            file4: fileUrls[3],
+            file4PublicId: filePublicIds[3],
             status
         });
 
@@ -117,7 +119,7 @@ export const updateProject = async (req, res) => {
         const updateData = { projectId, customerEmail, description, startDate, endDate, script, status };
 
         // Actualiza los archivos
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 4; i++) {
             const file = files[`file${i + 1}`]?.[0]; // Obtener el archivo correspondiente
             if (file) {
                 // Si hay un archivo existente, lo eliminamos de Cloudinary

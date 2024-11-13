@@ -11,7 +11,8 @@ const router = Router();
 const uploadFields = upload.fields([
     { name: 'file1', maxCount: 1 },
     { name: 'file2', maxCount: 1 },
-    { name: 'file3', maxCount: 1 }
+    { name: 'file3', maxCount: 1 },
+    { name: 'file4', maxCount: 1 }
 ]);
 
 // Definición de las rutas del proyecto

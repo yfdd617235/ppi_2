@@ -59,6 +59,14 @@ const projectSchema = new mongoose.Schema({
         type: String,  // public_id del tercer archivo en Cloudinary
         required: false,
     },
+    file4: {  
+        type: String,  // URL del cuarto archivo en Cloudinary
+        required: false,
+    },
+    file4PublicId: {  
+        type: String,  // public_id del cuarto archivo en Cloudinary
+        required: false,
+    },
     status: {
         type: String,
         default: "Open",

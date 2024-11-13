@@ -55,7 +55,7 @@ function ProjectFormPage() {
     formData.append('script', scriptValue);
     
     // Añadir archivos si existen
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 4; i++) {
       if (data[`file${i}`]) {
         formData.append(`file${i}`, data[`file${i}`][0]);
       }
@@ -118,7 +118,7 @@ function ProjectFormPage() {
           />
           
           {/* Inputs para los archivos */}
-          {[...Array(3)].map((_, index) => (
+          {[...Array(4)].map((_, index) => (
             <input
               key={index}
               type="file"
