@@ -78,7 +78,7 @@ function ProjectView() {
                                             rel="noopener noreferrer"
                                             className="text-blue-200 hover:text-blue-500 hover:underline w-6 h-6"
                                         >
-                                            <svg                                     
+                                            <svg
                                                 viewBox="0 0 1024 1024"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 fill="currentColor" // Hace que el icono herede el color del contenedor
@@ -131,21 +131,21 @@ function ProjectView() {
                                             className="text-yellow-100 hover:text-yellow-500 hover:underline w-6 h-6"
                                         >
                                             <svg
-                                            viewBox="0 0 20 20"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="#000000"
-                                        >
-                                            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                                            <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
-                                            <g id="SVGRepo_iconCarrier">
-                                                <g id="layer1">
-                                                    <path
-                                                        d="M 0 2 L 0 18 L 20 18 L 20 17 L 1 17 L 1 2 L 0 2 z M 2 5 L 2 6 L 16 6 L 16 7 L 2 7 L 2 8 L 17 8 L 17 5 L 2 5 z M 2 9 L 2 10 L 8 10 L 8 11 L 2 11 L 2 12 L 9 12 L 9 9 L 2 9 z M 2 13 L 2 14 L 12 14 L 12 15 L 2 15 L 2 16 L 13 16 L 13 13 L 2 13 z"
-                                                        style={{ fill: "currentColor", fillOpacity: 1, stroke: "none", strokeWidth: 0 }} // Estilo en formato de objeto
-                                                    />
+                                                viewBox="0 0 20 20"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="#000000"
+                                            >
+                                                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g id="layer1">
+                                                        <path
+                                                            d="M 0 2 L 0 18 L 20 18 L 20 17 L 1 17 L 1 2 L 0 2 z M 2 5 L 2 6 L 16 6 L 16 7 L 2 7 L 2 8 L 17 8 L 17 5 L 2 5 z M 2 9 L 2 10 L 8 10 L 8 11 L 2 11 L 2 12 L 9 12 L 9 9 L 2 9 z M 2 13 L 2 14 L 12 14 L 12 15 L 2 15 L 2 16 L 13 16 L 13 13 L 2 13 z"
+                                                            style={{ fill: "currentColor", fillOpacity: 1, stroke: "none", strokeWidth: 0 }} // Estilo en formato de objeto
+                                                        />
+                                                    </g>
                                                 </g>
-                                            </g>
-                                        </svg>
+                                            </svg>
                                         </a>
                                     )}
                                     {project.file4 && (
@@ -171,7 +171,12 @@ function ProjectView() {
                                         </a>
                                     )}
                                 </td>
-                                <td className="text-zinc-300 px-2 py-1 text-sm sm:text-xs">{project.status}</td>
+                                <td className={` 
+                    ${project.status === "Open" ? "text-zinc-400" : ""} 
+                    ${project.status === "In Progress" ? "text-blue-500" : ""} 
+                    ${project.status === "Completed" ? "text-green-600" : ""} px-2 py-1 text-sm sm:text-xs`}
+                                >
+                                    {project.status}</td>
                             </tr>
                         ))}
                     </tbody>
