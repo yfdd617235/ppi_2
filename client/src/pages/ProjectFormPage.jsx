@@ -4,8 +4,8 @@ import { useNavigate, useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
-import { useAuth } from '../context/AuthContext'; 
-import { ArrowPathIcon } from '@heroicons/react/24/outline'; 
+import { useAuth } from '../context/AuthContext';
+import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import { ADMIN } from '../projects';
 
 dayjs.extend(utc);
@@ -49,11 +49,11 @@ function ProjectFormPage() {
     formData.append('startDate', dayjs.utc(data.startDate).format());
     formData.append('endDate', dayjs.utc(data.endDate).format());
     formData.append('status', status);
-    formData.append('username', user.username); 
+    formData.append('username', user.username);
     formData.append('email', user.email);
     const scriptValue = data.script ? Number(data.script) : 0; // Asigna 0 si no hay valor
     formData.append('script', scriptValue);
-    
+
     // Añadir archivos si existen
     for (let i = 1; i <= 4; i++) {
       if (data[`file${i}`]) {
@@ -76,72 +76,81 @@ function ProjectFormPage() {
   });
 
   return (
-    <div className='m-3 mt-16 flex h-[calc(100vh-100px)] items-center justify-center'>
-      <div className='max-w-md p-10 rounded-md border border-zinc-500'>
+    <div className='m-3 mt-20 md:mx-44 flex h-[calc(100vh-100px)] items-center justify-center'>
+      <div className='p-10 rounded-md border border-zinc-500'>
         <h1 className='text-xl'>{params.id ? 'Edit Project' : 'Add Project'}</h1>
         <form onSubmit={onSubmit} encType="multipart/form-data">
-          <input
-            type="text"
-            placeholder='Project ID'
-            {...register('projectId', { required: true })}
-            className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
-            autoFocus
-          />
-          <input
-            type="text"
-            placeholder='Customer Email'
-            {...register('customerEmail', { required: true })}
-            className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
-          />
-          <textarea
-            rows="3"
-            placeholder='Description'
-            {...register('description', { required: true })}
-            className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
-          ></textarea>
-          
-          <input
-            type="date"
-            {...register('startDate', { required: true })}
-            className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
-          />
-          <input
-            type="date"
-            {...register('endDate', { required: true })}
-            className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
-          />
-          <input
-            type="number"
-            placeholder='Scripts'
-            {...register('script', { required: true })}
-            className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
-          />
-          
-          {/* Inputs para los archivos */}
-          {[...Array(4)].map((_, index) => (
-            <input
-              key={index}
-              type="file"
-              {...register(`file${index + 1}`)}
-              className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
-            />
-          ))}
+          <div className='flex flex-col gap-3 md:flex-row'>
+            <div>
+              <input
+                type="text"
+                placeholder='Project ID'
+                {...register('projectId', { required: true })}
+                className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
+                autoFocus
+              />
+              <input
+                type="text"
+                placeholder='Customer Email'
+                {...register('customerEmail', { required: true })}
+                className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
+              />
+              <textarea
+                rows="3"
+                placeholder='Description'
+                {...register('description', { required: true })}
+                className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
+              ></textarea>
 
-          {/* Mostrar el campo de status solo si el usuario es "ADMIN" */}
-          {user.email === ADMIN && (
-            <select
-              value={status}
-              onChange={(e) => setStatus(e.target.value)}
-              className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
-            >
-              <option value="Open">Open</option>
-              <option value="In Progress">In Progress</option>
-              <option value="Completed">Completed</option>
-            </select>
-          )}
+              <input
+                type="date"
+                {...register('startDate', { required: true })}
+                className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
+              />
+              <input
+                type="date"
+                {...register('endDate', { required: true })}
+                className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
+              />
+            </div>
+
+            <div>
+              <input
+                type="number"
+                placeholder='Scripts'
+                {...register('script', { required: true })}
+                className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
+              />
+
+              {/* Inputs para los archivos */}
+              {[...Array(4)].map((_, index) => (
+                <input
+                  key={index}
+                  type="file"
+                  {...register(`file${index + 1}`)}
+                  className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
+                />
+              ))}
+
+              {/* Mostrar el campo de status solo si el usuario es "ADMIN" */}
+              {user.email === ADMIN && (
+                <select
+                  value={status}
+                  onChange={(e) => setStatus(e.target.value)}
+                  className='w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2'
+                >
+                  <option value="Open">Open</option>
+                  <option value="In Progress">In Progress</option>
+                  <option value="Completed">Completed</option>
+                </select>
+              )}
+            </div>
+          </div>
+
+
 
           <div className='flex justify-between'>
-            <button 
+            <button
               type='submit'
               className='flex items-center justify-center text-green-600 px-3 py-1 rounded-sm border border-zinc-800'
             >
@@ -151,7 +160,7 @@ function ProjectFormPage() {
                 "Save"
               )}
             </button>
-            <Link 
+            <Link
               to="/projects"
               className=' px-3 py-1 rounded-sm border border-zinc-800'
             >

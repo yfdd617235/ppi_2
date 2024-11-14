@@ -136,7 +136,8 @@ function ProjectTable() {
                                         <a
                                             href={project.file3}
                                             target="_blank"
-                                            rel="noopener noreferrer"
+                                            download="archivo descargado"
+                                            // rel="noopener noreferrer"
                                             className="text-yellow-100 hover:text-yellow-500 hover:underline w-6 h-6"
                                         >
                                             <svg viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none">

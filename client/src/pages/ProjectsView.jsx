@@ -19,7 +19,7 @@ function ProjectView() {
         async function fetchProjects() {
             await getProjects();
             setLoading(false);
-            console.log(projects);
+            // console.log(projects);
         }
         fetchProjects();
     }, []);
