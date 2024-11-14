@@ -7,4 +7,4 @@ export const projectList = [
   ];
 
   export const ADMIN = "director@panamericanprivateinvestments.com"
-  export const CUSTOMERS = ["test@gmail.com", "test2@gmail.com"]
+  export const CUSTOMERS = ["tnoel@enigma-securities.io"]
