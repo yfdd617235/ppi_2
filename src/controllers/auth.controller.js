@@ -28,6 +28,7 @@ export const register = async (req, res) => {
             httpOnly: true,
             secure: isProduction,
             sameSite: isProduction ? 'None' : 'Lax',
+            domain: isProduction ? '.panamericanprivateinvestments.com' : undefined, // Configura el dominio principal
         });
      
         res.json({
@@ -64,6 +65,7 @@ export const login = async (req, res) => {
             httpOnly: true,
             secure: isProduction,
             sameSite: isProduction ? 'None' : 'Lax',
+            domain: isProduction ? '.panamericanprivateinvestments.com' : undefined, // Configura el dominio principal
         });
 
         res.json({
@@ -88,6 +90,7 @@ export const logout = (req, res) => {
             httpOnly: true,
             secure: isProduction,
             sameSite: isProduction ? 'None' : 'Lax',
+            domain: isProduction ? '.panamericanprivateinvestments.com' : undefined, // Configura el dominio principal
             expires: new Date(0), // Expira inmediatamente para eliminar la cookie
         });
     return res.sendStatus(200);
