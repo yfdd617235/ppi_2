@@ -28,9 +28,10 @@ export const register = async (req, res) => {
             httpOnly: true,
             secure: isProduction,
             sameSite: isProduction ? 'None' : 'Lax',
-            
+            domain: 'panamericanprivateinvestments.com', // Dominio del frontend
+            path: '/',             // Aplica a todas las rutas
         });
-     
+
         res.json({
             id: userSaved._id,
             username: userSaved.username,
@@ -65,7 +66,9 @@ export const login = async (req, res) => {
             httpOnly: true,
             secure: isProduction,
             sameSite: isProduction ? 'None' : 'Lax',
-            
+            domain: 'panamericanprivateinvestments.com', // Dominio del frontend
+            path: '/',             // Aplica a todas las rutas
+
         });
 
         res.json({
@@ -86,13 +89,15 @@ export const login = async (req, res) => {
 
 export const logout = (req, res) => {
     const isProduction = process.env.NODE_ENV === 'production';
-        res.cookie('token', token, {
-            httpOnly: true,
-            secure: isProduction,
-            sameSite: isProduction ? 'None' : 'Lax',
-            
-            expires: new Date(0), // Expira inmediatamente para eliminar la cookie
-        });
+    res.cookie('token', token, {
+        httpOnly: true,
+        secure: isProduction,
+        sameSite: isProduction ? 'None' : 'Lax',
+        domain: 'panamericanprivateinvestments.com', // Dominio del frontend
+        path: '/',             // Aplica a todas las rutas
+
+        expires: new Date(0), // Expira inmediatamente para eliminar la cookie
+    });
     return res.sendStatus(200);
 };
 
