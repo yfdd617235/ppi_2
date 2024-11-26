@@ -64,6 +64,7 @@ import { ProjectProvider } from './context/ProjectsContext';
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import TradingPage from "./pages/TradingPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
@@ -71,6 +72,7 @@ function App() {
       <TaskProvider>
         <ProjectProvider>
           <Router>
+            <ScrollToTop/>
             <main className=" mx-auto">
               <NavBar />
               <Routes>
