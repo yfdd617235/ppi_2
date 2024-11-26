@@ -63,6 +63,7 @@ import { TaskProvider } from "./context/TasksContext";
 import { ProjectProvider } from './context/ProjectsContext';
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import TradingPage from "./pages/TradingPage";
 
 function App() {
   return (
@@ -75,6 +76,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<h1><LoginPage /></h1>} />
+                <Route path="/trading" element={<h1><TradingPage /></h1>} />
                 
                 {/* Rutas protegidas generales, accesibles solo para usuarios autenticados que no sean CUSTOMERS */}
                 <Route element={<ProtectedRoute generalOnly={true} />}>

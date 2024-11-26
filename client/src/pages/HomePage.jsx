@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { EnvelopeIcon } from "@heroicons/react/24/solid"
 import { wakeUpServer } from '../api/axios'; // Importa la función wakeUpServer
 
@@ -97,22 +98,25 @@ const HomaPage = () => {
 
           {/* Card 2 */}
           <div className="h-full shadow-md border border-zinc-600 rounded-lg">
-            <img
-              src={`${import.meta.env.BASE_URL}lightbulb.jpg`}
-              alt="Project 2"
-              className="w-full h-64 object-cover rounded-t-lg"
-            />
-            <div className="p-4 md:p-6">
-              <h5 className="text-base md:text-xl font-semibold">SOFTWARE DEVELOPMENT</h5>
-              <br />
-              <div className="flex flex-col space-y-3 text-left">
-                <p className="text-xs md:text-lg">- Leverage for Environmental Investments</p>
-                <p className="text-xs md:text-lg">- Financial Arbitrage with licensed entities</p>
-                {/* <p className="text-xs md:text-lg">- International Commerce (Food and other commodities)</p> */}
-                <p className="text-xs md:text-lg">- Algorithmic trading and market analysis Software</p>
-                <p className="text-xs md:text-lg">- BPO Development: Custom software solutions for your business</p>
+            <Link to="/trading">
+              <img
+                src={`${import.meta.env.BASE_URL}lightbulb.jpg`}
+                alt="Project 2"
+                className="w-full h-64 object-cover rounded-t-lg"
+              />
+              <div className="p-4 md:p-6">
+                <h5 className="text-base md:text-xl font-semibold">SOFTWARE DEVELOPMENT</h5>
+                <br />
+                <div className="flex flex-col space-y-3 text-left">
+                  <p className="text-xs md:text-lg">- Leverage for Environmental Investments</p>
+                  <p className="text-xs md:text-lg">- Financial Arbitrage with licensed entities</p>
+                  {/* <p className="text-xs md:text-lg">- International Commerce (Food and other commodities)</p> */}
+                  <p className="text-xs md:text-lg">- Algorithmic trading and market analysis Software</p>
+                  <p className="text-xs md:text-lg">- BPO Development: Custom software solutions for your business</p>
+                </div>
               </div>
-            </div>
+            </Link>
+
           </div>
 
           {/* Card 3 */}
