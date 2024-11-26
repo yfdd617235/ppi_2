@@ -1,9 +1,11 @@
 import React from 'react'
+import ScrollToTop from '../components/ScrollToTop'
+
 
 function TradingPage() {
     return (
         <div>
-
+            <ScrollToTop/>
             <div className='container mx-auto pt-20 px-4 md:px-10 text-zinc-400'>
                 <h1 className='font-bold'>Disclaimer:</h1>
                 <p className="text-justify text-xs md:text-lg my-4">

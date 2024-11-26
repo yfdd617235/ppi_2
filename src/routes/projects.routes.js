@@ -5,6 +5,7 @@ import { validateSchema } from "../middlewares/validator.middleware.js";
 import { createProjectSchema } from "../schemas/projects.schema.js";
 import { upload } from "../middlewares/multermiddleware.js";
 
+
 const router = Router();
 
 // Configuración de multer para aceptar múltiples archivos en campos específicos
