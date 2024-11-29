@@ -108,8 +108,7 @@ const HomaPage = () => {
                 <h5 className="text-base md:text-xl font-semibold">SOFTWARE DEVELOPMENT</h5>
                 <br />
                 <div className="flex flex-col space-y-3 text-left">
-                  <p className="text-xs md:text-lg">- Leverage for Environmental Investments</p>
-                  <p className="text-xs md:text-lg">- Financial Arbitrage with licensed entities</p>
+                  
                   {/* <p className="text-xs md:text-lg">- International Commerce (Food and other commodities)</p> */}
                   <p className="text-xs md:text-lg">- Algorithmic trading and market analysis Software</p>
                   <p className="text-xs md:text-lg">- BPO Development: Custom software solutions for your business</p>
@@ -134,6 +133,8 @@ const HomaPage = () => {
               <br />
               <div className="flex flex-col space-y-3 text-left">
                 <p className="text-xs md:text-lg">- Structuring</p>
+                <p className="text-xs md:text-lg">- Leverage for Environmental Investments</p>
+                <p className="text-xs md:text-lg">- Financial Arbitrage with licensed entities</p>
                 <p className="text-xs md:text-lg">- Implementation, support and management</p>
                 <p className="text-xs md:text-lg">- Promotion and marketing for fundraising</p>
               </div>
