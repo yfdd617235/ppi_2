@@ -97,7 +97,7 @@ const HomaPage = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="h-full shadow-md border border-zinc-600 rounded-lg">
+          <div className="h-full shadow-md border border-zinc-600 rounded-lg hover:bg-zinc-900">
             <Link to="/trading">
               <img
                 src={`${import.meta.env.BASE_URL}lightbulb.jpg`}
@@ -112,6 +112,9 @@ const HomaPage = () => {
                   {/* <p className="text-xs md:text-lg">- International Commerce (Food and other commodities)</p> */}
                   <p className="text-xs md:text-lg">- Algorithmic trading and market analysis Software</p>
                   <p className="text-xs md:text-lg">- BPO Development: Custom software solutions for your business</p>
+                </div> <br /><br />
+                <div className="text-right text-green-800">
+                  <p>See more...</p>
                 </div>
               </div>
             </Link>
