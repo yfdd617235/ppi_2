@@ -76,7 +76,7 @@ const HomaPage = () => {
 
 
       {/* Cards Section */}
-      <div className="container mx-auto py-32 px-4 md:px-10">
+      <div className=" mx-auto py-32 px-4 lg:px-20 2xl:px-60">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {/* Card 1 */}
           <div className="h-full shadow-md border border-zinc-600 rounded-lg">
@@ -89,9 +89,9 @@ const HomaPage = () => {
               <h5 className="text-base md:text-xl font-semibold">CONSULTING</h5>
               <br />
               <div className="flex flex-col space-y-3 text-left">
-                <p className="text-xs md:text-lg">- Projects Structuring</p>
-                <p className="text-xs md:text-lg">- Evaluation and Valuation of companies and projects</p>
-                <p className="text-xs md:text-lg">- Networking, Startups and angel investors</p>
+                <p className="text-xs md:text-base">- Projects Structuring</p>
+                <p className="text-xs md:text-base">- Evaluation and Valuation of companies and projects</p>
+                <p className="text-xs md:text-base">- Networking, Startups and angel investors</p>
               </div>
             </div>
           </div>
@@ -110,8 +110,8 @@ const HomaPage = () => {
                 <div className="flex flex-col space-y-3 text-left">
                   
                   {/* <p className="text-xs md:text-lg">- International Commerce (Food and other commodities)</p> */}
-                  <p className="text-xs md:text-lg">- Algorithmic trading and market analysis Software</p>
-                  <p className="text-xs md:text-lg">- BPO Development: Custom software solutions for your business</p>
+                  <p className="text-xs md:text-base">- Algorithmic trading and market analysis Software</p>
+                  <p className="text-xs md:text-base">- BPO Development: Custom software solutions for your business</p>
                 </div> <br /><br />
                 <div className="text-right text-green-800">
                   <p>See more...</p>
@@ -135,11 +135,11 @@ const HomaPage = () => {
               </h5>
               <br />
               <div className="flex flex-col space-y-3 text-left">
-                <p className="text-xs md:text-lg">- Structuring</p>
-                <p className="text-xs md:text-lg">- Leverage for Environmental Investments</p>
-                <p className="text-xs md:text-lg">- Financial Arbitrage with licensed entities</p>
-                <p className="text-xs md:text-lg">- Implementation, support and management</p>
-                <p className="text-xs md:text-lg">- Promotion and marketing for fundraising</p>
+                <p className="text-xs md:text-base">- Structuring</p>
+                <p className="text-xs md:text-base">- Leverage for Environmental Investments</p>
+                <p className="text-xs md:text-base">- Financial Arbitrage with licensed entities</p>
+                <p className="text-xs md:text-base">- Implementation, support and management</p>
+                <p className="text-xs md:text-base">- Promotion and marketing for fundraising</p>
               </div>
             </div>
           </div>
@@ -148,7 +148,7 @@ const HomaPage = () => {
 
       {/*About us*/}
       <div className="border-y border-zinc-600 my-24">
-        <div className="container flex flex-col md:flex-row justify-center items-center mx-auto py-20 px-4 md:px-10">
+        <div className="flex flex-col md:flex-row justify-center items-center mx-auto py-20 px-4 lg:px-20 2xl:px-60">
           <div className="flex-shrink-0 md:w-1/4 flex justify-center items-center">
             <h2 className="text-lg md:text-2xl font-bold text-center">About Us</h2>
           </div>

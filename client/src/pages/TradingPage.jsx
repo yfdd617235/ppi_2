@@ -6,7 +6,7 @@ function TradingPage() {
     return (
         <div>
             <ScrollToTop />
-            <div className='container mx-auto pt-20 px-4 md:px-10 text-zinc-400'>
+            <div className='mx-auto pt-20 px-4 lg:px-20 2xl:px-60 text-zinc-400'>
                 <h1 className='font-bold'>Disclaimer:</h1>
                 <p className="text-justify text-xs md:text-lg my-4">
                     The information provided on this website is purely informational and educational in nature. It is not intended as an invitation or encouragement to engage in any trading activity. We do not offer any financial advice or recommendations. Please be aware that trading is not a game, and it involves significant risks, including the potential loss of money. We urge you to carefully consider your financial situation and risk tolerance before participating in any form of trading. Always seek professional advice if needed.
@@ -14,7 +14,7 @@ function TradingPage() {
             </div>
 
             <div className="border-y border-zinc-600 mt-20">
-                <div className="container flex flex-col md:flex-row justify-center items-center mx-auto py-14 px-4 md:px-10">
+                <div className="flex flex-col md:flex-row justify-center items-center mx-auto py-14 px-4 lg:px-20 2xl:px-60">
 
                     <div className="flex-shrink-0 md:w-1/4 flex justify-center items-center">
                         <h2 className="text-lg md:text-2xl font-bold text-center">What is Trading?</h2>
@@ -83,7 +83,7 @@ function TradingPage() {
             </div>
 
             <div className="border-y border-zinc-600 mt-20">
-                <div className="container flex flex-col gap-12 md:flex-row justify-center items-center mx-auto py-14 px-4 md:px-10">
+                <div className="flex flex-col gap-12 md:flex-row justify-center items-center mx-auto py-14 px-4 lg:px-20 2xl:px-60">
 
                     <div className="md:w-3/5">
                         <h2 className="text-lg md:text-2xl font-bold text-center">Waht is Algorithmic trading?</h2>
