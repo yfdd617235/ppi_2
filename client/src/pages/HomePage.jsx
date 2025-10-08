@@ -104,6 +104,7 @@ const HomaPage = () => {
                 src={`${import.meta.env.BASE_URL}lightbulb.jpg`}
                 alt="Project 2"
                 className="w-full h-64 object-cover rounded-t-lg"
+                
               />
               <div className="p-4 md:p-6">
                 <h5 className="text-base md:text-xl font-semibold">{t('cards.title2')}</h5>
