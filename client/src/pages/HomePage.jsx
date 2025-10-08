@@ -84,7 +84,7 @@ const HomaPage = () => {
           {/* Card 1 */}
           <div className="h-full shadow-md border border-green-800 rounded-lg">
             <img
-              src={`${import.meta.env.BASE_URL}global.jpg`}
+              src={`${import.meta.env.BASE_URL}trading.jpg`}
               alt="Project 1"
               className="w-full h-64 object-cover rounded-t-lg"
             />
@@ -104,7 +104,7 @@ const HomaPage = () => {
                 src={`${import.meta.env.BASE_URL}lightbulb.jpg`}
                 alt="Project 2"
                 className="w-full h-64 object-cover rounded-t-lg"
-                
+
               />
               <div className="p-4 md:p-6">
                 <h5 className="text-base md:text-xl font-semibold">{t('cards.title2')}</h5>
@@ -138,7 +138,7 @@ const HomaPage = () => {
           <div className="h-full shadow-md border border-zinc-600 rounded-lg">
             {/* <div className="h-full rounded-lg shadow-shadow-[0_0px_20px_rgba(0,100,0,0.3)]"> */}
             <img
-              src={`${import.meta.env.BASE_URL}project.jpg`}
+              src={`${import.meta.env.BASE_URL}global.jpg`}
               alt="Project 3"
               className="w-full h-64 object-cover rounded-t-lg"
             />
