@@ -11,6 +11,7 @@ import {
   FolderIcon
 } from "@heroicons/react/24/outline";
 import { ADMIN, CUSTOMERS } from '../projects';
+import { useTranslation } from 'react-i18next';
 
 function NavBar() {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,6 +34,12 @@ function NavBar() {
     setIsMenuOpen(false);
   };
 
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <nav
       className={`bg-black fixed top-0 left-1/2 transform -translate-x-1/2 w-full py-0 z-50 print:hidden`}
@@ -40,7 +47,7 @@ function NavBar() {
       <div className="mr-2 flex items-center justify-between">
         <div className="flex items-center">
           <Link to="/">
-            <div className="h-14 w-14 overflow-hidden">
+            <div className="h-16 w-16 overflow-hidden">
               <img
                 src={`${import.meta.env.BASE_URL}logoT.png`}
                 alt="PPI"
@@ -48,6 +55,16 @@ function NavBar() {
               />
             </div>
           </Link>
+        </div>
+
+        {/*Flags for lenguage*/}
+        <div className="flex items-center space-x-5 ml-auto mr-4">
+          <button onClick={() => changeLanguage('en')} className="w-6 h-6">
+            <img src={`${import.meta.env.BASE_URL}enFlag.png`} alt="English" />
+          </button>
+          <button onClick={() => changeLanguage('es')} className="w-6 h-6">
+            <img src={`${import.meta.env.BASE_URL}esFlag.png`} alt="Español" />
+          </button>
         </div>
 
         <div className="flex items-center">

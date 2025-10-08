@@ -4,9 +4,9 @@ import ScrollToTop from '../components/ScrollToTop'
 
 function TradingPage() {
     return (
-        <div>
+        <div className='text-black'>
             <ScrollToTop />
-            <div className='mx-auto pt-20 px-4 lg:px-20 2xl:px-60 text-zinc-400'>
+            <div className='mx-auto py-20 px-4 lg:px-20 2xl:px-60 text-white bg-black'>
                 <h1 className='font-bold'>Disclaimer:</h1>
                 <p className="text-justify text-xs md:text-lg my-4">
                     The information provided on this website is purely informational and educational in nature. It is not intended as an invitation or encouragement to engage in any trading activity. We do not offer any financial advice or recommendations. Please be aware that trading is not a game, and it involves significant risks, including the potential loss of money. We urge you to carefully consider your financial situation and risk tolerance before participating in any form of trading. Always seek professional advice if needed.

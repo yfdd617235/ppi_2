@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { EnvelopeIcon } from "@heroicons/react/24/solid"
 import { wakeUpServer } from '../api/axios'; // Importa la función wakeUpServer
+import { useTranslation } from 'react-i18next';
+
 
 const HomaPage = () => {
 
@@ -9,6 +11,7 @@ const HomaPage = () => {
     // Llamada para despertar el servidor cuando la página cargue
     wakeUpServer();
   }, []); // Solo se ejecuta una vez al montar el componente
+  const { t } = useTranslation();
 
 
   return (
@@ -76,28 +79,26 @@ const HomaPage = () => {
 
 
       {/* Cards Section */}
-      <div className=" mx-auto py-32 px-4 lg:px-20 2xl:px-60">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+      <div className=" mx-auto py-32 px-4 lg:px-20 text-black">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
           {/* Card 1 */}
-          <div className="h-full shadow-md border border-zinc-600 rounded-lg">
+          <div className="h-full shadow-md border border-green-800 rounded-lg">
             <img
               src={`${import.meta.env.BASE_URL}global.jpg`}
               alt="Project 1"
               className="w-full h-64 object-cover rounded-t-lg"
             />
             <div className="p-4 md:p-6">
-              <h5 className="text-base md:text-xl font-semibold">CONSULTING</h5>
+              <h5 className="text-base md:text-xl font-semibold">{t('cards.title1')}</h5>
               <br />
               <div className="flex flex-col space-y-3 text-left">
-                <p className="text-xs md:text-base">- Projects Structuring</p>
-                <p className="text-xs md:text-base">- Evaluation and Valuation of companies and projects</p>
-                <p className="text-xs md:text-base">- Networking, Startups and angel investors</p>
+                <p className="text-xs md:text-base">{t('cards.message1')}</p>
               </div>
             </div>
           </div>
 
           {/* Card 2 */}
-          <div className="h-full shadow-md border border-zinc-600 rounded-lg hover:bg-zinc-900">
+          <div className="h-full shadow-md border border-zinc-600 rounded-lg hover:bg-green-100">
             <Link to="/trading">
               <img
                 src={`${import.meta.env.BASE_URL}lightbulb.jpg`}
@@ -105,16 +106,10 @@ const HomaPage = () => {
                 className="w-full h-64 object-cover rounded-t-lg"
               />
               <div className="p-4 md:p-6">
-                <h5 className="text-base md:text-xl font-semibold">SOFTWARE DEVELOPMENT</h5>
+                <h5 className="text-base md:text-xl font-semibold">{t('cards.title2')}</h5>
                 <br />
                 <div className="flex flex-col space-y-3 text-left">
-                  
-                  {/* <p className="text-xs md:text-lg">- International Commerce (Food and other commodities)</p> */}
-                  <p className="text-xs md:text-base">- Algorithmic trading and market analysis Software</p>
-                  <p className="text-xs md:text-base">- BPO Development: Custom software solutions for your business</p>
-                </div> <br /><br />
-                <div className="text-right text-green-800">
-                  <p>See more...</p>
+                  <p className="text-xs md:text-base">{t('cards.message2')}</p>
                 </div>
               </div>
             </Link>
@@ -130,16 +125,27 @@ const HomaPage = () => {
               className="w-full h-64 object-cover rounded-t-lg"
             />
             <div className="p-4 md:p-6">
-              <h5 className="text-base md:text-xl font-semibold">
-                PROJECTS
-              </h5>
+              <h5 className="text-base md:text-xl font-semibold">{t('cards.title3')}</h5>
               <br />
               <div className="flex flex-col space-y-3 text-left">
-                <p className="text-xs md:text-base">- Structuring</p>
-                <p className="text-xs md:text-base">- Leverage for Environmental Investments</p>
-                <p className="text-xs md:text-base">- Financial Arbitrage with licensed entities</p>
-                <p className="text-xs md:text-base">- Implementation, support and management</p>
-                <p className="text-xs md:text-base">- Promotion and marketing for fundraising</p>
+                <p className="text-xs md:text-base">{t('cards.message3')}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4 */}
+          <div className="h-full shadow-md border border-zinc-600 rounded-lg">
+            {/* <div className="h-full rounded-lg shadow-shadow-[0_0px_20px_rgba(0,100,0,0.3)]"> */}
+            <img
+              src={`${import.meta.env.BASE_URL}project.jpg`}
+              alt="Project 3"
+              className="w-full h-64 object-cover rounded-t-lg"
+            />
+            <div className="p-4 md:p-6">
+              <h5 className="text-base md:text-xl font-semibold">{t('cards.title4')}</h5>
+              <br />
+              <div className="flex flex-col space-y-3 text-left">
+                <p className="text-xs md:text-base">{t('cards.message4')}</p>
               </div>
             </div>
           </div>
@@ -147,20 +153,22 @@ const HomaPage = () => {
       </div>
 
       {/*About us*/}
-      <div className="border-y border-zinc-600 my-24">
+      <div className="bg-green-50 text-black">
         <div className="flex flex-col md:flex-row justify-center items-center mx-auto py-20 px-4 lg:px-20 2xl:px-60">
           <div className="flex-shrink-0 md:w-1/4 flex justify-center items-center">
-            <h2 className="text-lg md:text-2xl font-bold text-center">About Us</h2>
+            <h2 className="text-lg md:text-2xl font-bold text-center">
+              {t("about.title")}
+            </h2>
           </div>
           <div className="md:w-3/4">
             <p className="text-justify text-xs md:text-lg my-4">
-              We are a dedicated team of professionals committed to driving growth and innovation in business. Our mission is to provide comprehensive solutions in business consulting, software development, and project management.
+              {t("about.text1")}
             </p>
             <p className="text-justify text-xs md:text-lg my-4">
-              We focus on building strong relationships with our clients, understanding their unique needs, and crafting personalized strategies that deliver sustainable results. With expertise in project evaluation and international trade, we ensure our clients receive the support they need to thrive in a competitive environment.
+              {t("about.text2")}
             </p>
             <p className="text-justify text-xs md:text-lg my-4">
-              We believe in collaboration and transparency, working closely with our partners to achieve common goals while maximizing opportunities at every step.
+              {t("about.text3")}
             </p>
           </div>
         </div>
