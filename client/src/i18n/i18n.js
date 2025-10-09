@@ -31,8 +31,29 @@ const resources = {
                 text1: "We are a dedicated team of professionals committed to driving growth and innovation in business. Our mission is to provide comprehensive solutions in business consulting, software development, and project management.",
                 text2: "We focus on building strong relationships with our clients, understanding their unique needs, and crafting personalized strategies that deliver sustainable results. With expertise in project evaluation and international trade, we ensure our clients receive the support they need to thrive in a competitive environment.",
                 text3: "We believe in collaboration and transparency, working closely with our partners to achieve common goals while maximizing opportunities at every step."
-            }
+            },
 
+            trading: {
+                titleDisclaimer: "Disclaimer",
+                textDisclaimer: "The information provided on this website is purely informational and educational in nature. It is not intended as an invitation or encouragement to engage in any trading activity. We do not offer any financial advice or recommendations. Please be aware that trading is not a game, and it involves significant risks, including the potential loss of money. We urge you to carefully consider your financial situation and risk tolerance before participating in any form of trading. Always seek professional advice if needed.",
+
+                titleWhatIsTrading: "What is Trading?",
+                textWhatIsTrading: "Trading refers to the act of buying and selling financial assets such as stocks, bonds, commodities, or currencies, with the goal of making a profit. Traders attempt to capitalize on price fluctuations in the market by entering and exiting positions at opportune times. It is important to understand that trading is a complex and speculative activity that requires knowledge, skill, and experience. By using this website, you acknowledge that you understand the risks involved in trading and agree to use the information provided solely for educational purposes. We are not responsible for any financial losses incurred as a result of actions taken based on the information on this site.",
+
+                titleAlgoTrading: "What is Algorithmic Trading?",
+                textAlgoTrading1: "Algorithmic trading, also known as algo trading or automated trading, refers to the use of computer programs and algorithms to execute financial market trades. These algorithms follow predefined rules based on factors such as price, volume, and timing to capitalize on market opportunities with speed and accuracy beyond human capability.",
+                textAlgoTrading2: "Algorithmic trading can involve simple strategies, like following a moving average, or complex systems that analyze large amounts of data and make decisions using artificial intelligence (AI) and machine learning.",
+                textAlgoTrading3: "Key Benefits:",
+                textAlgoTradingBenefits: "- Speed: Executes trades in milliseconds, faster than any human. - Accuracy: Reduces human error by following strict rules. - Efficiency: Monitors and reacts to multiple markets simultaneously.",
+                textAlgoTrading4: "Despite its advantages, algorithmic trading carries significant risks. It requires a deep understanding of both markets and algorithms. Poorly designed strategies or glitches can cause major losses and even increase market volatility.",
+
+                video1: "Trading 525 USD in two minutes. SP500 futures",
+                video2: "Premarket Analysis",
+                video3: "Fibonacci Retracement",
+                video4: "Expert Advisor",
+                video5: "Balance",
+            },
+            
         },
     },
     es: {
@@ -60,9 +81,28 @@ const resources = {
                 text1: "Somos un equipo de profesionales comprometidos con impulsar el crecimiento y la innovación empresarial. Nuestra misión es ofrecer soluciones integrales en consultoría de negocios, desarrollo de software y gestión de proyectos.",
                 text2: "Nos enfocamos en construir relaciones sólidas con nuestros clientes, comprendiendo sus necesidades únicas y diseñando estrategias personalizadas que generen resultados sostenibles. Con experiencia en evaluación de proyectos y comercio internacional, aseguramos que nuestros clientes reciban el apoyo necesario para destacar en un entorno competitivo.",
                 text3: "Creemos en la colaboración y la transparencia, trabajando de la mano con nuestros aliados para alcanzar objetivos comunes y maximizar las oportunidades en cada etapa."
+            },
+
+            trading: {
+                titleDisclaimer: "Aviso Legal",
+                textDisclaimer: "La información proporcionada en este sitio web es de carácter puramente informativo y educativo. No pretende ser una invitación o incentivo para realizar actividades de trading. No ofrecemos asesoramiento financiero ni recomendaciones. Tenga en cuenta que el trading no es un juego y conlleva riesgos significativos, incluido el posible riesgo de pérdida de dinero. Le recomendamos analizar cuidadosamente su situación financiera y tolerancia al riesgo antes de participar en cualquier forma de trading. Busque siempre asesoría profesional si es necesario.",
+
+                titleWhatIsTrading: "¿Qué es el Trading?",
+                textWhatIsTrading: "El trading se refiere a la compra y venta de activos financieros como acciones, bonos, materias primas o divisas, con el objetivo de obtener ganancias. Los traders buscan aprovechar las fluctuaciones del mercado entrando y saliendo de posiciones en los momentos adecuados. Es importante entender que el trading es una actividad compleja y especulativa que requiere conocimiento, habilidad y experiencia. Al usar este sitio web, usted reconoce que comprende los riesgos involucrados y acepta usar la información únicamente con fines educativos. No nos hacemos responsables por pérdidas financieras derivadas de decisiones basadas en la información aquí publicada.",
+
+                titleAlgoTrading: "¿Qué es el Trading Algorítmico?",
+                textAlgoTrading1: "El trading algorítmico, también conocido como trading automático, consiste en el uso de programas y algoritmos informáticos para ejecutar operaciones en los mercados financieros. Estos algoritmos siguen reglas predefinidas basadas en factores como precio, volumen y tiempo, buscando aprovechar oportunidades con rapidez y precisión más allá de la capacidad humana.",
+                textAlgoTrading2: "Puede incluir estrategias simples, como seguir una media móvil, o sistemas complejos que analizan grandes volúmenes de datos y toman decisiones mediante inteligencia artificial (IA) y aprendizaje automático.",
+                textAlgoTrading3: "Beneficios clave:",
+                textAlgoTradingBenefits: "- Velocidad: Ejecuta operaciones en milisegundos, más rápido que cualquier humano. - Precisión: Reduce errores humanos siguiendo reglas estrictas. - Eficiencia: Supervisa y reacciona en varios mercados simultáneamente.",
+                textAlgoTrading4: "A pesar de sus ventajas, el trading algorítmico conlleva riesgos importantes. Requiere un profundo conocimiento de los mercados y de los algoritmos. Estrategias mal diseñadas o fallos técnicos pueden causar grandes pérdidas y aumentar la volatilidad del mercado.",
+
+                video1: "Trading 525 USD en dos minutos. Futuros del SP500",
+                video2: "Análisis Premercado",
+                video3: "Retroceso de Fibonacci",
+                video4: "Asesor Experto",
+                video5: "Balance",
             }
-
-
         },
     },
 };
@@ -71,7 +111,7 @@ i18n
     .use(initReactI18next)
     .init({
         resources,
-        lng: 'en', // Idioma predeterminado
+        lng: 'es', // Idioma predeterminado
         interpolation: {
             escapeValue: false,
         },

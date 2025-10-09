@@ -77,84 +77,38 @@ const HomaPage = () => {
         {/* <div className="absolute top-0 left-0 w-full h-full bg-cover bg-center md:hidden -z-20" style={{ backgroundImage: `url('${import.meta.env.BASE_URL}banner.webp')` }}></div> */}
       </div>
 
+      {/* We Make It Possible Section */}
+      <div className="bg-white text-black py-24 px-6 flex justify-center">
+        <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20">
 
-      {/* Cards Section */}
-      <div className=" mx-auto py-32 px-4 lg:px-20 text-black">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-          {/* Card 1 */}
-          <div className="h-full shadow-md border border-green-800 rounded-lg">
+          {/* Left column - Image */}
+          <div className="md:w-1/2 flex justify-center">
             <img
-              src={`${import.meta.env.BASE_URL}trading.jpg`}
-              alt="Project 1"
-              className="w-full h-64 object-cover rounded-t-lg"
+              src={`${import.meta.env.BASE_URL}lightbulbgears2.jpeg`}
+              alt="Project Realization"
+              className="max-w-full h-auto"
             />
-            <div className="p-4 md:p-6">
-              <h5 className="text-base md:text-xl font-semibold">{t('cards.title1')}</h5>
-              <br />
-              <div className="flex flex-col space-y-3 text-left">
-                <p className="text-xs md:text-base">{t('cards.message1')}</p>
-              </div>
-            </div>
           </div>
 
-          {/* Card 2 */}
-          <div className="h-full shadow-md border border-zinc-600 rounded-lg hover:bg-green-100">
-            <Link to="/trading">
-              <img
-                src={`${import.meta.env.BASE_URL}lightbulb.jpg`}
-                alt="Project 2"
-                className="w-full h-64 object-cover rounded-t-lg"
-
-              />
-              <div className="p-4 md:p-6">
-                <h5 className="text-base md:text-xl font-semibold">{t('cards.title2')}</h5>
-                <br />
-                <div className="flex flex-col space-y-3 text-left">
-                  <p className="text-xs md:text-base">{t('cards.message2')}</p>
-                </div>
-              </div>
-            </Link>
-
-          </div>
-
-          {/* Card 3 */}
-          <div className="h-full shadow-md border border-zinc-600 rounded-lg">
-            {/* <div className="h-full rounded-lg shadow-shadow-[0_0px_20px_rgba(0,100,0,0.3)]"> */}
-            <img
-              src={`${import.meta.env.BASE_URL}project.jpg`}
-              alt="Project 3"
-              className="w-full h-64 object-cover rounded-t-lg"
-            />
-            <div className="p-4 md:p-6">
-              <h5 className="text-base md:text-xl font-semibold">{t('cards.title3')}</h5>
-              <br />
-              <div className="flex flex-col space-y-3 text-left">
-                <p className="text-xs md:text-base">{t('cards.message3')}</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 4 */}
-          <div className="h-full shadow-md border border-zinc-600 rounded-lg">
-            {/* <div className="h-full rounded-lg shadow-shadow-[0_0px_20px_rgba(0,100,0,0.3)]"> */}
-            <img
-              src={`${import.meta.env.BASE_URL}global.jpg`}
-              alt="Project 3"
-              className="w-full h-64 object-cover rounded-t-lg"
-            />
-            <div className="p-4 md:p-6">
-              <h5 className="text-base md:text-xl font-semibold">{t('cards.title4')}</h5>
-              <br />
-              <div className="flex flex-col space-y-3 text-left">
-                <p className="text-xs md:text-base">{t('cards.message4')}</p>
-              </div>
-            </div>
+          {/* Right column - Text */}
+          <div className="md:w-1/2 text-center md:text-left">
+            <h2 className="text-2xl md:text-4xl font-bold text-green-900 mb-6">
+              Lo hacemos posible
+            </h2>
+            <p className="text-base md:text-lg leading-relaxed text-justify">
+              Convertimos tus ideas en proyectos reales a través de un proceso estructurado.
+              Siguiendo las etapas clave de la gestión profesional de proyectos —<strong>
+                Evaluación, Planificación, Ejecución y Control
+              </strong>— transformamos tu visión en resultados tangibles.
+              Analizamos y evaluamos el potencial, diseñamos la estrategia,
+              implementamos soluciones y acompañamos hasta su puesta en marcha.
+            </p>
           </div>
         </div>
       </div>
 
       {/*About us*/}
-      <div className="bg-green-50 text-black">
+      <div className="bg-green-950 text-white">
         <div className="flex flex-col md:flex-row justify-center items-center mx-auto py-20 px-4 lg:px-20 2xl:px-60">
           <div className="flex-shrink-0 md:w-1/4 flex justify-center items-center">
             <h2 className="text-lg md:text-2xl font-bold text-center">
@@ -175,7 +129,85 @@ const HomaPage = () => {
         </div>
       </div>
 
+      {/* Cards Section */}
+      <div className=" mx-auto py-32 px-4 lg:px-20 xl:px-32 text-black">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
 
+          {/* Card 1 */}
+          <div className="h-full shadow-lg shadow-green-900 rounded-lg hover:bg-green-50">
+            <Link to="/trading">
+              <img
+                src={`${import.meta.env.BASE_URL}trading.jpg`}
+                alt="Project 1"
+                className="w-full h-64 object-cover rounded-t-lg"
+
+              />
+              <div className="p-4 md:p-6">
+                <h5 className="text-green-900 font-bold text-base md:text-xl">{t('cards.title1')}</h5>
+                <br />
+                <div className="flex flex-col space-y-3 text-left">
+                  <p className="text-xs md:text-base">{t('cards.message1')}</p>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+
+          {/* Card 2 */}
+          <div className="h-full shadow-lg shadow-green-900 rounded-lg hover:bg-green-50">
+            <Link to="/trading">
+              <img
+                src={`${import.meta.env.BASE_URL}lightbulb.jpg`}
+                alt="Project 2"
+                className="w-full h-64 object-cover rounded-t-lg"
+
+              />
+              <div className="p-4 md:p-6">
+                <h5 className="text-green-900 font-bold text-base md:text-xl">{t('cards.title2')}</h5>
+                <br />
+                <div className="flex flex-col space-y-3 text-left">
+                  <p className="text-xs md:text-base">{t('cards.message2')}</p>
+                </div>
+              </div>
+            </Link>
+          </div>
+
+
+          {/* Card 3 */}
+          <div className="h-full shadow-lg shadow-green-900 rounded-lg hover:bg-green-50">
+            {/* <div className="h-full rounded-lg shadow-shadow-[0_0px_20px_rgba(0,100,0,0.3)]"> */}
+            <img
+              src={`${import.meta.env.BASE_URL}project.jpg`}
+              alt="Project 3"
+              className="w-full h-64 object-cover rounded-t-lg"
+            />
+            <div className="p-4 md:p-6">
+              <h5 className="text-green-900 font-bold text-base md:text-xl">{t('cards.title3')}</h5>
+              <br />
+              <div className="flex flex-col space-y-3 text-left">
+                <p className="text-xs md:text-base">{t('cards.message3')}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4 */}
+          <div className="h-full shadow-lg shadow-green-900 rounded-lg hover:bg-green-50">
+            {/* <div className="h-full rounded-lg shadow-shadow-[0_0px_20px_rgba(0,100,0,0.3)]"> */}
+            <img
+              src={`${import.meta.env.BASE_URL}global.jpg`}
+              alt="Project 3"
+              className="w-full h-64 object-cover rounded-t-lg"
+            />
+            <div className="p-4 md:p-6">
+              <h5 className="text-green-900 font-bold text-base md:text-xl">{t('cards.title4')}</h5>
+              <br />
+              <div className="flex flex-col space-y-3 text-left">
+                <p className="text-xs md:text-base">{t('cards.message4')}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
       {/* Prefooter Section */}
