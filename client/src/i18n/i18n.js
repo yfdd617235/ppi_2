@@ -9,7 +9,11 @@ const resources = {
             navbar: {
             },
             jumbotron: {
-
+            },
+            weMake: {
+                title: "We make it possible",
+                text1:
+                    "We turn your ideas into real projects through a structured process. Following the key stages of professional project management <highlight>-Evaluation, Planning, Execution, and Control-</highlight> we transform your vision into tangible results. We analyze and assess potential, design strategies, implement solutions, and accompany you until your project is fully operational.",
             },
             cards: {
                 title1: "Software Development",
@@ -44,7 +48,7 @@ const resources = {
                 textAlgoTrading1: "Algorithmic trading, also known as algo trading or automated trading, refers to the use of computer programs and algorithms to execute financial market trades. These algorithms follow predefined rules based on factors such as price, volume, and timing to capitalize on market opportunities with speed and accuracy beyond human capability.",
                 textAlgoTrading2: "Algorithmic trading can involve simple strategies, like following a moving average, or complex systems that analyze large amounts of data and make decisions using artificial intelligence (AI) and machine learning.",
                 textAlgoTrading3: "Key Benefits:",
-                textAlgoTradingBenefits: "- Speed: Executes trades in milliseconds, faster than any human. - Accuracy: Reduces human error by following strict rules. - Efficiency: Monitors and reacts to multiple markets simultaneously.",
+                textAlgoTradingBenefits: "- Speed: Executes trades in milliseconds, faster than any human.\n- Accuracy: Reduces human error by following strict rules.\n- Efficiency: Monitors and reacts to multiple markets simultaneously.",
                 textAlgoTrading4: "Despite its advantages, algorithmic trading carries significant risks. It requires a deep understanding of both markets and algorithms. Poorly designed strategies or glitches can cause major losses and even increase market volatility.",
 
                 video1: "Trading 525 USD in two minutes. SP500 futures",
@@ -53,7 +57,7 @@ const resources = {
                 video4: "Expert Advisor",
                 video5: "Balance",
             },
-            
+
         },
     },
     es: {
@@ -61,6 +65,11 @@ const resources = {
             navbar: {
             },
             jumbotron: {
+            },
+            weMake: {
+                title: "Lo hacemos posible",
+                text1:
+                    "Convertimos tus ideas en proyectos reales a través de un proceso estructurado. Siguiendo las etapas clave de la gestión profesional de proyectos <highlight>-Evaluación, Planificación, Ejecución y Control-</highlight> transformamos tu visión en resultados tangibles. Analizamos y evaluamos el potencial, diseñamos la estrategia, implementamos soluciones y acompañamos hasta su puesta en marcha.",
             },
             cards: {
                 title1: "Desarrollo de Software",
@@ -94,7 +103,7 @@ const resources = {
                 textAlgoTrading1: "El trading algorítmico, también conocido como trading automático, consiste en el uso de programas y algoritmos informáticos para ejecutar operaciones en los mercados financieros. Estos algoritmos siguen reglas predefinidas basadas en factores como precio, volumen y tiempo, buscando aprovechar oportunidades con rapidez y precisión más allá de la capacidad humana.",
                 textAlgoTrading2: "Puede incluir estrategias simples, como seguir una media móvil, o sistemas complejos que analizan grandes volúmenes de datos y toman decisiones mediante inteligencia artificial (IA) y aprendizaje automático.",
                 textAlgoTrading3: "Beneficios clave:",
-                textAlgoTradingBenefits: "- Velocidad: Ejecuta operaciones en milisegundos, más rápido que cualquier humano. - Precisión: Reduce errores humanos siguiendo reglas estrictas. - Eficiencia: Supervisa y reacciona en varios mercados simultáneamente.",
+                textAlgoTradingBenefits: "- Velocidad: Ejecuta operaciones en milisegundos, más rápido que cualquier humano.\n- Precisión: Reduce el error humano al seguir reglas estrictas.\n- Eficiencia: Supervisa y reacciona simultáneamente en múltiples mercados.",
                 textAlgoTrading4: "A pesar de sus ventajas, el trading algorítmico conlleva riesgos importantes. Requiere un profundo conocimiento de los mercados y de los algoritmos. Estrategias mal diseñadas o fallos técnicos pueden causar grandes pérdidas y aumentar la volatilidad del mercado.",
 
                 video1: "Trading 525 USD en dos minutos. Futuros del SP500",
