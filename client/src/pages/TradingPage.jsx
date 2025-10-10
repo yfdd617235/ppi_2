@@ -84,7 +84,7 @@ function TradingPage() {
                         <p className="text-green-900 font-bold text-justify mb-4">
                             {t("trading.textAlgoTrading3")}
                         </p>
-                        <p className="text-justify text-base md:text-lg my-4 whitespace-pre-line">
+                        <p className="text-justify  md:text-lg my-4 whitespace-pre-line">
                             {t('trading.textAlgoTradingBenefits')}
                         </p>
                         <p className="text-justify">{t("trading.textAlgoTrading4")}</p>
