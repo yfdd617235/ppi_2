@@ -73,7 +73,7 @@ function TradingPage() {
 
 
             {/* Algorithmic Trading Section */}
-            <div className="mt-20">
+            <div className="my-20">
                 <div className="flex flex-col gap-12 md:flex-row justify-center items-center mx-auto py-14 px-4 lg:px-20 2xl:px-60">
                     <div className="md:w-3/5">
                         <h2 className="text-2xl md:text-3xl text-green-900 font-bold text-center mb-6">

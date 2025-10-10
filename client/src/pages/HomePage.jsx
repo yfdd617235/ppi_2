@@ -1,13 +1,22 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import { wakeUpServer } from "../api/axios";
 import { useTranslation, Trans } from "react-i18next";
+import { useState } from "react";
 
 const HomaPage = () => {
   useEffect(() => {
     wakeUpServer();
   }, []);
+
+
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("director@panamericanprivateinvestments.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const { t } = useTranslation();
 
@@ -76,7 +85,7 @@ const HomaPage = () => {
       </div>
 
       {/* About Us */}
-      <div className="bg-green-950 text-white py-20 px-6 lg:px-20 2xl:px-60">
+      <div className="text-white py-20 px-6 lg:px-20 2xl:px-60" style={{ backgroundColor: '#00261B' }}>
         <div className="flex flex-col md:flex-row justify-center items-center gap-10">
           <div className="flex-shrink-0 md:w-1/4 flex justify-center items-center">
             <h2 className="text-2xl md:text-3xl font-bold text-center">
@@ -92,8 +101,12 @@ const HomaPage = () => {
       </div>
 
       {/* Cards Section */}
-      <div className="mx-auto py-32 px-4 lg:px-20 xl:px-32 text-black">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div className="mx-auto py-32 px-4 lg:px-20  2xl:px-60 text-black">
+        <h2 className="text-center text-2xl md:text-4xl font-bold text-green-900 mb-6">
+          {t("cards.title")}
+        </h2>
+        <br />
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8">
           {[
             {
               id: 1,
@@ -140,7 +153,7 @@ const HomaPage = () => {
 
 
       {/* Prefooter */}
-      <div
+      {/* <div
         className="w-full text-left mt-16 p-4 md:p-8 bg-center min-h-[400px]"
         style={{
           backgroundImage: `
@@ -209,11 +222,8 @@ const HomaPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <footer className="bg-black text-white text-xs text-center py-2">
-        <p>&copy; 2024 Panamerican Private Investments. All rights reserved.</p>
-      </footer>
     </div>
   );
 };

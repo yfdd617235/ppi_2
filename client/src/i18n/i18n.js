@@ -16,6 +16,8 @@ const resources = {
                     "We turn your ideas into real projects through a structured process. Following the key stages of professional project management <highlight>-Evaluation, Planning, Execution, and Control-</highlight> we transform your vision into tangible results. We analyze and assess potential, design strategies, implement solutions, and accompany you until your project is fully operational.",
             },
             cards: {
+                title: "Our Services",
+
                 title1: "Software Development",
                 message1: "We create customized technology tools for automated investment and advisory, optimizing financial and operational processes.",
 
@@ -57,6 +59,13 @@ const resources = {
                 video4: "Expert Advisor",
                 video5: "Balance",
             },
+            footer: {
+                subtitle: "Innovation, precision, and integrity in every project we undertake.",
+                centralTitle: "We Make It Possible",
+                centralText: "From vision to execution — we transform ideas into tangible results through strategy, innovation, and excellence.",
+                contactTitle: "Contact Us"
+            }
+
 
         },
     },
@@ -72,6 +81,8 @@ const resources = {
                     "Convertimos tus ideas en proyectos reales a través de un proceso estructurado. Siguiendo las etapas clave de la gestión profesional de proyectos <highlight>-Evaluación, Planificación, Ejecución y Control-</highlight> transformamos tu visión en resultados tangibles. Analizamos y evaluamos el potencial, diseñamos la estrategia, implementamos soluciones y acompañamos hasta su puesta en marcha.",
             },
             cards: {
+                title: "Nuestros Servicios",
+
                 title1: "Desarrollo de Software",
                 message1: "Creamos a medida herramientas tecnológicas para aviso e inversión automatizada, optimizando procesos financieros y operativos.",
 
@@ -111,7 +122,14 @@ const resources = {
                 video3: "Retroceso de Fibonacci",
                 video4: "Asesor Experto",
                 video5: "Balance",
+            },
+            footer: {
+                subtitle: "Innovación, precisión e integridad en cada proyecto que desarrollamos.",
+                centralTitle: "Lo hacemos posible",
+                centralText: "De la visión a la ejecución: transformamos ideas en resultados tangibles mediante estrategia, innovación y excelencia.",
+                contactTitle: "Contáctanos"
             }
+
         },
     },
 };
