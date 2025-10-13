@@ -26,7 +26,7 @@ const HomaPage = () => {
       <div className="relative h-screen w-full flex justify-center items-center overflow-hidden">
         <video
           className="absolute top-0 left-0 w-full h-full object-cover -z-20"
-          src={`${import.meta.env.BASE_URL}tech_.mp4`}
+          src={`${import.meta.env.BASE_URL}landscape.mp4`}
           poster={`${import.meta.env.BASE_URL}tech_.png`}
           muted
           autoPlay
@@ -48,10 +48,12 @@ const HomaPage = () => {
           }}
         />
 
-        <div className="absolute top-0 left-0 w-full h-full bg-green-950 opacity-90 -z-10" />
+        <div className="absolute top-0 left-0 w-full h-full bg-green-950 opacity-80 -z-10"
+        // style={{ background: '#2E7D32' }}
+        />
 
         <img
-          className="relative z-10 max-w-full max-h-full lg:p-32"
+          className="relative z-10 max-w-full max-h-full lg:w-1/3"
           src={`${import.meta.env.BASE_URL}logoT.png`}
           alt="Logo"
         />
@@ -69,7 +71,7 @@ const HomaPage = () => {
           </div>
 
           <div className="md:w-1/2 text-center md:text-left">
-            <h2 className="text-2xl md:text-4xl font-bold text-green-900 mb-6">
+            <h2 className="text-2xl md:text-4xl font-bold text-green-900  mb-6">
               {t("weMake.title")}
             </h2>
             <p className="text-justify">
@@ -85,7 +87,7 @@ const HomaPage = () => {
       </div>
 
       {/* About Us */}
-      <div className="text-white py-20 px-6 lg:px-20 2xl:px-60" style={{ backgroundColor: '#0B6E4F' }}>
+      <div className="text-white py-20 px-6 lg:px-20 2xl:px-60" style={{ backgroundColor: '#4B9560' }}>
         <div className="flex flex-col md:flex-row justify-center items-center gap-10">
           <div className="flex-shrink-0 md:w-1/4 flex justify-center items-center">
             <h2 className="text-2xl md:text-3xl font-bold text-center">
@@ -150,6 +152,37 @@ const HomaPage = () => {
           ))}
         </div>
       </div>
+
+      {/* Global Presence Section */}
+<div className="bg-[#E8F2EB] text-black py-24 px-6 text-center">
+  <h2 className="text-3xl md:text-4xl font-bold text-green-900 mb-4">
+    {t("global.title")}
+  </h2>
+  <p className="max-w-3xl mx-auto mb-10">
+    {t("global.text")}
+  </p>
+
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-green-900 font-semibold">
+    <div>
+      <h3 className="text-4xl">15+</h3>
+      <p>{t("global.countries")}</p>
+    </div>
+    <div>
+      <h3 className="text-4xl">120+</h3>
+      <p>{t("global.projects")}</p>
+    </div>
+    <div>
+      <h3 className="text-4xl">10K+</h3>
+      <p>{t("global.investors")}</p>
+    </div>
+    <div>
+      <h3 className="text-4xl">20 yrs</h3>
+      <p>{t("global.experience")}</p>
+    </div>
+  </div>
+</div>
+
+
 
 
       {/* Prefooter */}

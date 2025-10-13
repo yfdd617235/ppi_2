@@ -38,6 +38,14 @@ const resources = {
                 text2: "We focus on building strong relationships with our clients, understanding their unique needs, and crafting personalized strategies that deliver sustainable results. With expertise in project evaluation and international trade, we ensure our clients receive the support they need to thrive in a competitive environment.",
                 text3: "We believe in collaboration and transparency, working closely with our partners to achieve common goals while maximizing opportunities at every step."
             },
+            global: {
+                title: "Our Global Reach",
+                text: "We work with partners and investors across multiple continents, connecting opportunities and capital through strategic alliances.",
+                countries: "Countries",
+                projects: "Projects",
+                investors: "Investors",
+                experience: "Years of Experience"
+            },
 
             trading: {
                 titleDisclaimer: "Disclaimer",
@@ -80,6 +88,12 @@ const resources = {
                 text1:
                     "Convertimos tus ideas en proyectos reales a través de un proceso estructurado. Siguiendo las etapas clave de la gestión profesional de proyectos <highlight>-Evaluación, Planificación, Ejecución y Control-</highlight> transformamos tu visión en resultados tangibles. Analizamos y evaluamos el potencial, diseñamos la estrategia, implementamos soluciones y acompañamos hasta su puesta en marcha.",
             },
+            about: {
+                title: "Sobre nosotros",
+                text1: "Somos un equipo de profesionales comprometidos con impulsar el crecimiento y la innovación empresarial. Nuestra misión es ofrecer soluciones integrales en consultoría de negocios, desarrollo de software y gestión de proyectos.",
+                text2: "Nos enfocamos en construir relaciones sólidas con nuestros clientes, comprendiendo sus necesidades únicas y diseñando estrategias personalizadas que generen resultados sostenibles. Con experiencia en evaluación de proyectos y comercio internacional, aseguramos que nuestros clientes reciban el apoyo necesario para destacar en un entorno competitivo.",
+                text3: "Creemos en la colaboración y la transparencia, trabajando de la mano con nuestros aliados para alcanzar objetivos comunes y maximizar las oportunidades en cada etapa."
+            },
             cards: {
                 title: "Nuestros Servicios",
 
@@ -95,12 +109,13 @@ const resources = {
                 title4: "Estructuración e Implementación",
                 message4: "Acompañamos todo el ciclo de inversión, desde la evaluación hasta la ejecución del proyecto."
             },
-
-            about: {
-                title: "Sobre nosotros",
-                text1: "Somos un equipo de profesionales comprometidos con impulsar el crecimiento y la innovación empresarial. Nuestra misión es ofrecer soluciones integrales en consultoría de negocios, desarrollo de software y gestión de proyectos.",
-                text2: "Nos enfocamos en construir relaciones sólidas con nuestros clientes, comprendiendo sus necesidades únicas y diseñando estrategias personalizadas que generen resultados sostenibles. Con experiencia en evaluación de proyectos y comercio internacional, aseguramos que nuestros clientes reciban el apoyo necesario para destacar en un entorno competitivo.",
-                text3: "Creemos en la colaboración y la transparencia, trabajando de la mano con nuestros aliados para alcanzar objetivos comunes y maximizar las oportunidades en cada etapa."
+            global: {
+                title: "Nuestra Presencia Global",
+                text: "Trabajamos con socios e inversionistas en varios continentes, conectando oportunidades y capital a través de alianzas estratégicas.",
+                countries: "Países",
+                projects: "Proyectos",
+                investors: "Inversionistas",
+                experience: "Años de Experiencia"
             },
 
             trading: {
