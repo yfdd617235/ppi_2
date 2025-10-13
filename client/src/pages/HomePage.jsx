@@ -87,10 +87,10 @@ const HomaPage = () => {
       </div>
 
       {/* About Us */}
-      <div className="text-white py-20 px-6 lg:px-20 2xl:px-60" style={{ backgroundColor: '#4B9560' }}>
+      <div className="text-black py-20 px-6 lg:px-20 2xl:px-60" style={{ backgroundColor: '#E8F2EB' }}>
         <div className="flex flex-col md:flex-row justify-center items-center gap-10">
           <div className="flex-shrink-0 md:w-1/4 flex justify-center items-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-green-900 text-center">
               {t("about.title")}
             </h2>
           </div>
@@ -154,33 +154,33 @@ const HomaPage = () => {
       </div>
 
       {/* Global Presence Section */}
-<div className="bg-[#E8F2EB] text-black py-24 px-6 text-center">
-  <h2 className="text-3xl md:text-4xl font-bold text-green-900 mb-4">
-    {t("global.title")}
-  </h2>
-  <p className="max-w-3xl mx-auto mb-10">
-    {t("global.text")}
-  </p>
+      <div className="bg-[#E8F2EB] text-black py-24 px-6 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-green-900 mb-4">
+          {t("global.title")}
+        </h2>
+        <p className="max-w-3xl mx-auto mb-10">
+          {t("global.text")}
+        </p>
 
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-green-900 font-semibold">
-    <div>
-      <h3 className="text-4xl">15+</h3>
-      <p>{t("global.countries")}</p>
-    </div>
-    <div>
-      <h3 className="text-4xl">120+</h3>
-      <p>{t("global.projects")}</p>
-    </div>
-    <div>
-      <h3 className="text-4xl">10K+</h3>
-      <p>{t("global.investors")}</p>
-    </div>
-    <div>
-      <h3 className="text-4xl">20 yrs</h3>
-      <p>{t("global.experience")}</p>
-    </div>
-  </div>
-</div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-green-900 font-semibold">
+          <div>
+            <h3 className="text-4xl">15+</h3>
+            <p>{t("global.countries")}</p>
+          </div>
+          <div>
+            <h3 className="text-4xl">120+</h3>
+            <p>{t("global.projects")}</p>
+          </div>
+          <div>
+            <h3 className="text-4xl">10K+</h3>
+            <p>{t("global.investors")}</p>
+          </div>
+          <div>
+            <h3 className="text-4xl">20 yrs</h3>
+            <p>{t("global.experience")}</p>
+          </div>
+        </div>
+      </div>
 
 
 
