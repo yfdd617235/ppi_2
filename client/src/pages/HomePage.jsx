@@ -48,7 +48,7 @@ const HomaPage = () => {
           }}
         />
 
-        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-70 -z-10" />
+        <div className="absolute top-0 left-0 w-full h-full bg-green-950 opacity-90 -z-10" />
 
         <img
           className="relative z-10 max-w-full max-h-full lg:p-32"
