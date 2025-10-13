@@ -47,7 +47,7 @@ function NavBar() {
       <div className="mr-2 flex items-center justify-between">
         <div className="flex items-center">
           <Link to="/">
-            <div className="h-16 w-16 overflow-hidden">
+            <div className="h-12 w-12 overflow-hidden">
               <img
                 src={`${import.meta.env.BASE_URL}logoT.png`}
                 alt="PPI"
