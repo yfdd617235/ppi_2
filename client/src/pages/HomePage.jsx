@@ -85,7 +85,7 @@ const HomaPage = () => {
       </div>
 
       {/* About Us */}
-      <div className="text-white py-20 px-6 lg:px-20 2xl:px-60" style={{ backgroundColor: '#00261B' }}>
+      <div className="text-white py-20 px-6 lg:px-20 2xl:px-60" style={{ backgroundColor: '#0B6E4F' }}>
         <div className="flex flex-col md:flex-row justify-center items-center gap-10">
           <div className="flex-shrink-0 md:w-1/4 flex justify-center items-center">
             <h2 className="text-2xl md:text-3xl font-bold text-center">
