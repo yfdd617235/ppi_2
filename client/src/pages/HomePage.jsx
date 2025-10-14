@@ -21,7 +21,7 @@ const HomaPage = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-col pt-10 text-sm md:text-base lg:text-lg leading-relaxed">
+    <div className="flex flex-col  text-sm md:text-base lg:text-lg leading-relaxed">
       {/* Hero Section */}
       <div className="relative h-screen w-full flex justify-center items-center overflow-hidden">
         <video
@@ -112,7 +112,7 @@ const HomaPage = () => {
           {[
             {
               id: 1,
-              img: "trading.jpg",
+              img: "global.jpg",
               link: "/trading",
             },
             {
@@ -127,7 +127,7 @@ const HomaPage = () => {
             },
             {
               id: 4,
-              img: "global.jpg",
+              img: "trading.jpg",
               link: "/",
             },
           ].map(({ id, img, link }) => (
@@ -154,33 +154,34 @@ const HomaPage = () => {
       </div>
 
       {/* Global Presence Section */}
-      {/* <div className="bg-[#E8F2EB] text-black py-24 px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-green-900 mb-4">
-          {t("global.title")}
-        </h2>
-        <p className="max-w-3xl mx-auto mb-10">
-          {t("global.text")}
-        </p>
+      <div className="bg-[#E8F2EB] text-black py-24 px-6 text-center">
+  <h2 className="text-3xl md:text-4xl font-bold text-green-900 mb-4">
+    {t("global.title")}
+  </h2>
+  <p className="max-w-3xl mx-auto mb-10">
+    {t("global.text")}
+  </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-green-900 font-semibold">
-          <div>
-            <h3 className="text-4xl">5+</h3>
-            <p>{t("global.countries")}</p>
-          </div>
-          <div>
-            <h3 className="text-4xl">120+</h3>
-            <p>{t("global.projects")}</p>
-          </div>
-          <div>
-            <h3 className="text-4xl">10K+</h3>
-            <p>{t("global.investors")}</p>
-          </div>
-          <div>
-            <h3 className="text-4xl">5+ yrs</h3>
-            <p>{t("global.experience")}</p>
-          </div>
-        </div>
-      </div> */}
+  <div className="grid grid-cols-2 md:grid-cols-2 gap-6 text-green-900 font-semibold">
+    <div>
+      <h3 className="text-4xl">30M+ USD</h3>
+      <p>{t("global.projects")}</p>
+    </div>
+    {/* <div>
+      <h3 className="text-4xl">10+</h3>
+      <p>{t("global.partners")}</p>
+    </div>
+    <div>
+      <h3 className="text-4xl">200+</h3>
+      <p>{t("global.goals")}</p>
+    </div> */}
+    <div>
+      <h3 className="text-4xl">5+ yrs</h3>
+      <p>{t("global.experience")}</p>
+    </div>
+  </div>
+</div>
+
 
 
 

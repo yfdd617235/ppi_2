@@ -18,17 +18,17 @@ const resources = {
             cards: {
                 title: "Our Services",
 
-                title1: "Software Development",
-                message1: "We create customized technology tools for automated investment and advisory, optimizing financial and operational processes.",
+                title4: "Software Development",
+                message4: "We create customized technology tools for automated investment and advisory, optimizing financial and operational processes.",
 
-                title2: "Project Analysis and Investment",
+                title2: "Projects Portfolio and Private Equity",
                 message2: "We evaluate high-potential projects and invest in those with the strongest prospects.",
 
-                title3: "Consulting and Training",
+                title3: "Training",
                 message3: "We provide advisory and training in strategy, financial markets, and risk management.",
 
-                title4: "Structuring and Implementation",
-                message4: "We support the full investment cycle, from evaluation to project execution."
+                title1: "Corporative Consulting",
+                message1: "We support the full investment cycle, from evaluation to project execution."
 
             },
 
@@ -39,13 +39,14 @@ const resources = {
                 text3: "We believe in collaboration and transparency, working closely with our partners to achieve common goals while maximizing opportunities at every step."
             },
             global: {
-                title: "Our Global Reach",
-                text: "We work with partners and investors across multiple continents, connecting opportunities and capital through strategic alliances.",
-                countries: "Countries",
-                projects: "Projects",
-                investors: "Investors",
-                experience: "Years of Experience"
+                title: "Making it Real",
+                text: "We focus on transforming ideas into tangible and measurable results. Through strategy, collaboration, and precision, we bring every project to life.",
+                projects: "Projects Managed",
+                partners: "Allied Partners",
+                experience: "Years of Experience",
+                goals: "Goals Achieved"
             },
+
 
             trading: {
                 titleDisclaimer: "Disclaimer",
@@ -97,26 +98,28 @@ const resources = {
             cards: {
                 title: "Nuestros Servicios",
 
-                title1: "Desarrollo de Software",
-                message1: "Creamos a medida herramientas tecnológicas para aviso e inversión automatizada, optimizando procesos financieros y operativos.",
+                title4: "Desarrollo de Software",
+                message4: "Creamos herramientas tecnológicas personalizadas para la automatización de inversiones y asesorías, optimizando los procesos financieros y operativos.",
 
-                title2: "Análisis e Inversión en Proyectos",
-                message2: "Evaluamos proyectos con potencial y participamos como inversionistas en los más prometedores.",
+                title2: "Banco de Proyectos y Capital Privado",
+                message2: "Evaluamos proyectos con alto potencial e invertimos en aquellos con las mejores perspectivas.",
 
-                title3: "Consultoría y Formación",
-                message3: "Ofrecemos asesoría y capacitación en estrategia, mercados financieros y gestión del riesgo.",
+                title3: "Educación",
+                message3: "Ofrecemos asesoría y formación en estrategia, mercados financieros y gestión de riesgos.",
 
-                title4: "Estructuración e Implementación",
-                message4: "Acompañamos todo el ciclo de inversión, desde la evaluación hasta la ejecución del proyecto."
+                title1: "Consultoría Corporativa",
+                message1: "Acompañamos todo el ciclo de inversión, desde la evaluación hasta la ejecución del proyecto."
+
             },
             global: {
-                title: "Nuestra Presencia Global",
-                text: "Trabajamos con socios e inversionistas en varios continentes, conectando oportunidades y capital a través de alianzas estratégicas.",
-                countries: "Países",
-                projects: "Proyectos",
-                investors: "Inversionistas",
-                experience: "Años de Experiencia"
+                title: "Haciendo que ocurra",
+                text: "Nos enfocamos en transformar ideas en resultados reales y medibles. A través de la estrategia, la colaboración y la precisión, damos vida a cada proyecto.",
+                projects: "Proyectos Gestionados",
+                partners: "Aliados",
+                experience: "Años de Experiencia",
+                goals: "Metas Alcanzadas"
             },
+
 
             trading: {
                 titleDisclaimer: "Aviso Legal",
