@@ -154,7 +154,7 @@ const HomaPage = () => {
       </div>
 
       {/* Global Presence Section */}
-      <div className="bg-[#E8F2EB] text-black py-24 px-6 text-center">
+      {/* <div className="bg-[#E8F2EB] text-black py-24 px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-green-900 mb-4">
           {t("global.title")}
         </h2>
@@ -164,7 +164,7 @@ const HomaPage = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-green-900 font-semibold">
           <div>
-            <h3 className="text-4xl">15+</h3>
+            <h3 className="text-4xl">5+</h3>
             <p>{t("global.countries")}</p>
           </div>
           <div>
@@ -176,11 +176,11 @@ const HomaPage = () => {
             <p>{t("global.investors")}</p>
           </div>
           <div>
-            <h3 className="text-4xl">20 yrs</h3>
+            <h3 className="text-4xl">5+ yrs</h3>
             <p>{t("global.experience")}</p>
           </div>
         </div>
-      </div>
+      </div> */}
 
 
 
