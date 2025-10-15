@@ -73,7 +73,43 @@ const resources = {
                 centralTitle: "We Make It Possible",
                 centralText: "From vision to execution — we transform ideas into tangible results through strategy, innovation, and excellence.",
                 contactTitle: "Contact Us"
+            },
+
+            consulting: {
+                hero: {
+                    title: "Corporate Consulting",
+                    subtitle: "We design financial and operational strategies that drive efficiency, sustainability, and global expansion for your company."
+                },
+                services: {
+                    treasury: {
+                        title: "Treasury Management",
+                        description: "We optimize cash flow, financial planning, and resource management to maximize liquidity and profitability."
+                    },
+                    projectAdmin: {
+                        title: "Subrogated Project Administration",
+                        description: "We take on the operational and administrative management of strategic projects, ensuring transparency, compliance, and efficiency at every stage."
+                    },
+                    processOptimization: {
+                        title: "Process Optimization",
+                        description: "We analyze and redesign key processes to reduce costs, eliminate bottlenecks, and improve overall productivity."
+                    },
+                    automation: {
+                        title: "Process Automation",
+                        description: "We implement digital solutions integrating artificial intelligence and automation to minimize repetitive tasks and improve accuracy."
+                    },
+                    offshore: {
+                        title: "Offshore Structuring Advisory",
+                        description: "We provide specialized advice for designing secure, efficient, and compliant international corporate structures."
+                    }
+                },
+                value: {
+                    title: "Long-Term Strategic Support",
+                    text: "At Panamerican Private Investments, we offer comprehensive solutions that go beyond traditional consulting. We focus on sustainability, confidentiality, and operational efficiency to build solid and profitable corporate structures.",
+                    button: "Contact Us",
+                    imageAlt: "Corporate consulting"
+                }
             }
+
 
 
         },
@@ -146,7 +182,43 @@ const resources = {
                 centralTitle: "Lo hacemos posible",
                 centralText: "De la visión a la ejecución: transformamos ideas en resultados tangibles mediante estrategia, innovación y excelencia.",
                 contactTitle: "Contáctanos"
+            },
+
+            consulting: {
+                hero: {
+                    title: "Consultoría Corporativa",
+                    subtitle: "Diseñamos estrategias financieras y operativas que impulsan la eficiencia, la sostenibilidad y la expansión global de su empresa."
+                },
+                services: {
+                    treasury: {
+                        title: "Gestión de Tesorería",
+                        description: "Optimizamos los flujos de efectivo, la planificación financiera y el manejo de recursos para maximizar la liquidez y la rentabilidad de su empresa."
+                    },
+                    projectAdmin: {
+                        title: "Administración Subrogada de Proyectos",
+                        description: "Asumimos la gestión operativa y administrativa de proyectos estratégicos, garantizando transparencia, cumplimiento y eficiencia en cada etapa."
+                    },
+                    processOptimization: {
+                        title: "Optimización de Procesos Productivos",
+                        description: "Analizamos y rediseñamos procesos clave para reducir costos, eliminar cuellos de botella y aumentar la productividad general."
+                    },
+                    automation: {
+                        title: "Automatización de Procesos",
+                        description: "Implementamos soluciones digitales que integran inteligencia artificial y automatización para minimizar tareas repetitivas y mejorar la precisión."
+                    },
+                    offshore: {
+                        title: "Asesoría en Estructuración Offshore",
+                        description: "Ofrecemos asesoría especializada para el diseño de estructuras corporativas internacionales seguras, eficientes y en cumplimiento con la normativa vigente."
+                    }
+                },
+                value: {
+                    title: "Acompañamiento estratégico a largo plazo",
+                    text: "En Panamerican Private Investments ofrecemos soluciones integrales que van más allá de la consultoría tradicional. Nos enfocamos en la sostenibilidad, la confidencialidad y la eficiencia operativa para construir estructuras corporativas sólidas y rentables.",
+                    button: "Contáctanos",
+                    imageAlt: "Consultoría corporativa"
+                }
             }
+
 
         },
     },

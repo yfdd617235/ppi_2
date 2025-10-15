@@ -123,10 +123,10 @@ const HomePage = () => {
         <br />
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8">
           {[
-            { id: 1, img: "global.jpg", link: "/trading" },
+            { id: 1, img: "global.jpg", link: "/consulting" },
             { id: 2, img: "lightbulb.jpg", link: "/" },
             { id: 3, img: "project.jpg", link: "/" },
-            { id: 4, img: "trading.jpg", link: "/" },
+            { id: 4, img: "trading.jpg", link: "/trading" },
           ].map(({ id, img, link }) => (
             <div
               key={id}

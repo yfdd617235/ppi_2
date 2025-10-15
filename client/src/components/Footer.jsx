@@ -38,7 +38,7 @@ const Footer = () => {
               {t("cards.title")}
             </h3>
 
-            <Link to="/trading" className="hover:text-green-500 transition-colors">
+            <Link to="/consulting" className="hover:text-green-500 transition-colors">
               {t("cards.title1")}
             </Link>
             <Link to="/" className="hover:text-green-500 transition-colors">
@@ -47,7 +47,7 @@ const Footer = () => {
             <Link to="/" className="hover:text-green-500 transition-colors">
               {t("cards.title3")}
             </Link>
-            <Link to="/" className="hover:text-green-500 transition-colors">
+            <Link to="/trading" className="hover:text-green-500 transition-colors">
               {t("cards.title4")}
             </Link>
           </div>

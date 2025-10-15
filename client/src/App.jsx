@@ -15,6 +15,7 @@ import { ProjectProvider } from './context/ProjectsContext';
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import TradingPage from "./pages/TradingPage";
+import ConsultingPage from "./pages/ConsultingPage";
 import { useTranslation } from 'react-i18next';
 import './i18n/i18n';
 
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<h1><LoginPage /></h1>} />
                 <Route path="/trading" element={<h1><TradingPage /></h1>} />
+                <Route path="/consulting" element={<h1><ConsultingPage /></h1>}></Route>
                 
                 {/* Rutas protegidas generales, accesibles solo para usuarios autenticados que no sean CUSTOMERS */}
                 <Route element={<ProtectedRoute generalOnly={true} />}>
