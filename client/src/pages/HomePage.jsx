@@ -33,7 +33,7 @@ const HomePage = () => {
         />
 
         <img
-          src={`${import.meta.env.BASE_URL}tech.png`}
+          src={`${import.meta.env.BASE_URL}blackscreen.png`}
           alt="Video Poster"
           className="absolute w-full h-full object-cover bg-black opacity-30"
           style={{ display: "none" }}
@@ -48,8 +48,8 @@ const HomePage = () => {
         <div className="absolute top-0 left-0 w-full h-full bg-green-950 opacity-80 -z-10" />
 
         <img
-          className="relative z-10 max-w-full max-h-full lg:w-1/3"
-          src={`${import.meta.env.BASE_URL}logoT.png`}
+          className="p-14 md:p-0 md:w-1/4 lg:w-1/6 relative z-10 max-w-full max-h-full "
+          src={`${import.meta.env.BASE_URL}logoTC.png`}
           alt="Logo"
         />
       </div>
@@ -73,22 +73,22 @@ const HomePage = () => {
                 }}
               />
             </p>
-            
+
             <br />
             <div className="flex justify-end">
               <button
-              onClick={() => {
-                navigator.clipboard.writeText("director@panamericanprivateinvestments.com");
-                alert("Email copiado al portapapeles 📋");
-              }}
-              className="flex items-center space-x-2 text-white hover:text-green-500 transition-colors bg-green-900 rounded-md p-2"
-              title="Click para copiar email"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                <path d="M1.5 4.5A2.5 2.5 0 0 1 4 2h16a2.5 2.5 0 0 1 2.5 2.5v15a2.5 2.5 0 0 1-2.5 2.5H4a2.5 2.5 0 0 1-2.5-2.5v-15Zm2.16.5 7.81 6.2a1 1 0 0 0 1.26 0l7.82-6.2H3.66ZM20 19.5a.5.5 0 0 0 .5-.5V8.56l-6.6 5.22a3 3 0 0 1-3.8 0L3.5 8.56V19a.5.5 0 0 0 .5.5h16Z" />
-              </svg>
-              <span>{t("footer.contactTitle")}</span>
-            </button>
+                onClick={() => {
+                  navigator.clipboard.writeText("director@panamericanprivateinvestments.com");
+                  alert("Email copiado al portapapeles 📋");
+                }}
+                className="flex items-center space-x-2 text-white hover:text-green-500 transition-colors bg-green-900 rounded-md p-2"
+                title="Click para copiar email"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                  <path d="M1.5 4.5A2.5 2.5 0 0 1 4 2h16a2.5 2.5 0 0 1 2.5 2.5v15a2.5 2.5 0 0 1-2.5 2.5H4a2.5 2.5 0 0 1-2.5-2.5v-15Zm2.16.5 7.81 6.2a1 1 0 0 0 1.26 0l7.82-6.2H3.66ZM20 19.5a.5.5 0 0 0 .5-.5V8.56l-6.6 5.22a3 3 0 0 1-3.8 0L3.5 8.56V19a.5.5 0 0 0 .5.5h16Z" />
+                </svg>
+                <span>{t("footer.contactTitle")}</span>
+              </button>
             </div>
           </div>
         </div>
@@ -182,7 +182,7 @@ const ScrollImage = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => setIsVisible(entry.isIntersecting),
-      { threshold: 0.9 }
+      { threshold: 0.8 }
     );
 
     if (imgRef.current) observer.observe(imgRef.current);
