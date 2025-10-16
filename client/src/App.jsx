@@ -17,8 +17,9 @@ import Footer from "./components/Footer";
 import TradingPage from "./pages/TradingPage";
 import ConsultingPage from "./pages/ConsultingPage";
 import ProjectsBankPage from "./pages/ProjectsBankPage";
-import { useTranslation } from 'react-i18next';
+import EducationPage from "./pages/EducationPage";
 import './i18n/i18n';
+
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
                 <Route path="/trading" element={<h1><TradingPage /></h1>} />
                 <Route path="/consulting" element={<h1><ConsultingPage /></h1>}/>
                 <Route path="/projectsbank" element={<h1><ProjectsBankPage /></h1>}/>
+                <Route path="/education" element={<h1><EducationPage/></h1>}/>
                 
                 {/* Rutas protegidas generales, accesibles solo para usuarios autenticados que no sean CUSTOMERS */}
                 <Route element={<ProtectedRoute generalOnly={true} />}>

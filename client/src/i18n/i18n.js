@@ -141,9 +141,37 @@ const resources = {
                     button: "Contact Us",
                     imageAlt: "Project management diagram",
                 },
+            },
+            education: {
+                hero: {
+                    title: "Education and Professional Training",
+                    subtitle: "We are building a specialized educational platform to share valuable knowledge in finance, investment, and business management."
+                },
+                features: {
+                    professionalTraining: {
+                        title: "Professional Training",
+                        description: "Programs designed to develop financial, strategic, and leadership skills."
+                    },
+                    structuredPrograms: {
+                        title: "Structured Programs",
+                        description: "Progressive modules that combine applied theory and real-world business cases."
+                    },
+                    expertInstructors: {
+                        title: "Expert Instructors",
+                        description: "Professionals with international experience and practical expertise in corporate management."
+                    },
+                    soonAvailable: {
+                        title: "Coming Soon",
+                        description: "We are working on the courses to make them available to the public very soon. Stay tuned for updates!"
+                    }
+                },
+                development: {
+                    title: "Educational Platform in Development",
+                    text: "Panamerican Private Investments aims to strengthen the financial and business training of our clients and partners, providing practical tools and high-level knowledge.",
+                    note: "Our courses will soon be available online and in-person.",
+                    imageAlt: "Corporate education"
+                }
             }
-
-
 
 
         },
@@ -283,7 +311,38 @@ const resources = {
                     button: "Contáctanos",
                     imageAlt: "Diagrama de gestión de proyectos",
                 },
+            },
+            education: {
+                hero: {
+                    title: "Educación y Formación Profesional",
+                    subtitle: "Estamos construyendo una plataforma educativa especializada para compartir conocimiento de valor en finanzas, inversión y gestión empresarial."
+                },
+                features: {
+                    professionalTraining: {
+                        title: "Capacitación Profesional",
+                        description: "Programas diseñados para desarrollar habilidades financieras, estratégicas y de liderazgo."
+                    },
+                    structuredPrograms: {
+                        title: "Programas Estructurados",
+                        description: "Módulos progresivos que combinan teoría aplicada y casos reales del sector empresarial."
+                    },
+                    expertInstructors: {
+                        title: "Instructores Expertos",
+                        description: "Profesionales con trayectoria internacional y experiencia práctica en gestión corporativa."
+                    },
+                    soonAvailable: {
+                        title: "Próximamente Disponibles",
+                        description: "Estamos trabajando en los cursos para ofrecerlos al público muy pronto. ¡Mantente atento a nuestras actualizaciones!"
+                    }
+                },
+                development: {
+                    title: "Plataforma educativa en desarrollo",
+                    text: "Panamerican Private Investments busca fortalecer la formación financiera y empresarial de nuestros clientes y aliados, brindando herramientas prácticas y conocimiento de alto nivel.",
+                    note: "Nuestros cursos estarán disponibles próximamente en línea y en modalidad presencial.",
+                    imageAlt: "Educación corporativa"
+                }
             }
+
 
 
         },

@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { wakeUpServer } from "../api/axios";
 import { useTranslation, Trans } from "react-i18next";
 import { useState } from "react";
 
@@ -44,7 +43,7 @@ const Footer = () => {
             <Link to="/projectsbank" className="hover:text-green-500 transition-colors">
               {t("cards.title2")}
             </Link>
-            <Link to="/" className="hover:text-green-500 transition-colors">
+            <Link to="/education" className="hover:text-green-500 transition-colors">
               {t("cards.title3")}
             </Link>
             <Link to="/trading" className="hover:text-green-500 transition-colors">

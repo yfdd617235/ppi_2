@@ -35,7 +35,7 @@ const ProjectsBankPage = () => {
       <ScrollToTop />
 
       {/* HERO */}
-      <section className="py-10 pt-16 md:py-20 p-6 relative bg-gradient-to-br from-[#E8F2EB] to-white  text-center">
+      <section className="py-10 pt-16 md:py-20 p-6 relative bg-gradient-to-br from-[#DDEEE0] to-white  text-center">
         <motion.h1
           className="text-4xl md:text-5xl font-bold mb-6 text-green-900"
           initial={{ opacity: 0, y: 30 }}
@@ -101,7 +101,7 @@ const ProjectsBankPage = () => {
       </section>
 
       {/* VALUE SECTION */}
-      <section className="py-10 md:py-20 px-6 md:px-16 bg-gradient-to-tl from-[#E8F2EB] to-white">
+      <section className="py-10 md:py-20 px-6 md:px-16 bg-gradient-to-tl from-[#DDEEE0] to-white">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -10 }}

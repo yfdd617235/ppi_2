@@ -18,7 +18,7 @@ function TradingPage() {
             </div>
 
             {/* What is Trading Section */}
-            <div className="py-10 md:py-20 bg-gradient-to-br from-[#E8F2EB] to-white ">
+            <div className="py-10 md:py-20 bg-gradient-to-br from-[#DDEEE0] to-white ">
                 <div className="flex flex-col md:flex-row justify-center items-center mx-auto px-4 lg:px-20 2xl:px-60 gap-10">
                     <div className="flex-shrink-0 md:w-1/4 flex justify-center items-center">
                         <h2 className="text-2xl md:text-3xl text-green-900 font-bold text-center">
@@ -53,7 +53,7 @@ function TradingPage() {
                     ].map((video) => (
                         <div
                             key={video.id}
-                            className="h-full shadow-lg shadow-green-900 rounded-lg hover:bg-green-50"
+                            className="h-full shadow-lg shadow-[#DDEEE0] rounded-lg hover:bg-green-50"
                         >
                             <iframe
                                 src={video.src}
@@ -73,7 +73,7 @@ function TradingPage() {
 
 
             {/* Algorithmic Trading Section */}
-            <div className=" py-10 md:py-20 bg-gradient-to-tl from-[#E8F2EB] to-white">
+            <div className=" py-10 md:py-20 bg-gradient-to-tl from-[#DDEEE0] to-white">
                 <div className="flex flex-col gap-12 md:flex-row justify-center items-center mx-auto px-4 lg:px-20 2xl:px-60">
 
 
