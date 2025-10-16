@@ -67,11 +67,11 @@ const ProjectsBankPage = () => {
           </motion.h2>
 
           {/* Diagrama en flujo */}
-          <div className="relative flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8">
+          <div className="grid gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
-                className="flex flex-col items-center text-center max-w-xs p-6 border rounded-2xl shadow-md bg-[#F9FBFA] hover:shadow-lg transition-transform hover:-translate-y-2"
+                className="flex flex-col items-center text-center p-6 border rounded-2xl shadow-md bg-[#F9FBFA] hover:shadow-lg transition-transform hover:-translate-y-2"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
@@ -84,6 +84,7 @@ const ProjectsBankPage = () => {
                 </p>
               </motion.div>
             ))}
+
 
             {/* Conectores entre los pasos */}
             {/* <div className="hidden md:block absolute w-full top-1/2 transform -translate-y-1/2">
