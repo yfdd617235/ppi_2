@@ -57,7 +57,7 @@ const HomePage = () => {
       </div>
 
       {/* We Make It Possible Section */}
-      <div className="bg-white text-black py-24 px-6 flex justify-center">
+      <div className="py-10 md:py-20 bg-white text-black px-6 flex justify-center">
         <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20">
           <div className="md:w-1/2 flex justify-center">
             <ScrollImage />
@@ -98,9 +98,7 @@ const HomePage = () => {
 
       {/* About Us */}
       <div
-        className="text-black py-20 px-6 lg:px-20 2xl:px-60"
-        style={{ backgroundColor: "#E8F2EB" }}
-      >
+        className="py-10 md:py-20 bg-gradient-to-br from-[#E8F2EB] to-white text-black px-6 lg:px-20 2xl:px-60"      >
         <div className="flex flex-col md:flex-row justify-center items-center gap-10">
           <div className="flex-shrink-0 md:w-1/4 flex justify-center items-center">
             <img
@@ -118,7 +116,7 @@ const HomePage = () => {
       </div>
 
       {/* Cards Section */}
-      <div className="mx-auto py-32 px-4 lg:px-20 2xl:px-60 text-black">
+      <div className="py-10 md:py-20 mx-auto px-4 lg:px-20 2xl:px-60 text-black">
         <h2 className="text-center text-2xl md:text-4xl font-bold text-green-900 mb-6">
           {t("cards.title")}
         </h2>
@@ -155,7 +153,7 @@ const HomePage = () => {
       </div>
 
       {/* Global Presence Section */}
-      <div className="flex flex-col items-center bg-[#E8F2EB] text-black py-24 px-6 text-center">
+      <div className="py-10 md:py-20 bg-gradient-to-tl from-[#E8F2EB] to-white flex flex-col items-center text-black px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-green-900 mb-4">
           {t("global.title")}
         </h2>

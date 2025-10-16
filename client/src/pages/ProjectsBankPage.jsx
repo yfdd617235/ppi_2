@@ -35,7 +35,7 @@ const ProjectsBankPage = () => {
       <ScrollToTop />
 
       {/* HERO */}
-      <section className="p-6 relative bg-gradient-to-br from-[#E8F2EB] to-white py-24 text-center">
+      <section className="py-10 md:py-20 p-6 relative bg-gradient-to-br from-[#E8F2EB] to-white  text-center">
         <motion.h1
           className="text-4xl md:text-5xl font-bold mb-6 text-green-900"
           initial={{ opacity: 0, y: 30 }}
@@ -55,7 +55,7 @@ const ProjectsBankPage = () => {
       </section>
 
       {/* DIAGRAM SECTION */}
-      <section className="py-16 px-6 md:px-16 bg-white">
+      <section className="py-10 md:py-16 px-6 md:px-16 bg-white">
         <div className="max-w-6xl mx-auto">
           <motion.h2
             className="text-3xl font-bold text-green-900 text-center mb-12"
@@ -78,7 +78,7 @@ const ProjectsBankPage = () => {
                 viewport={{ once: true }}
               >
                 {step.icon}
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">{step.title}</h3>
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">{index+1}- {step.title}</h3>
                 <p className="text-gray-700 text-sm leading-relaxed">
                   {step.description}
                 </p>
@@ -101,7 +101,7 @@ const ProjectsBankPage = () => {
       </section>
 
       {/* VALUE SECTION */}
-      <section className="py-20 px-6 md:px-16 bg-[#E8F2EB]">
+      <section className="py-10 md:py-20 px-6 md:px-16 bg-gradient-to-tl from-[#E8F2EB] to-white">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -10 }}

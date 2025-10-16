@@ -40,7 +40,7 @@ const ConsultingPage = () => {
       <ScrollToTop />
 
       {/* HERO SECTION */}
-      <section className="px-6 relative bg-gradient-to-b from-[#E8F2EB] to-white py-24 text-center">
+      <section className="py-10 md:py-20 px-6 relative bg-gradient-to-br from-[#E8F2EB] to-white  text-center">
         <motion.h1
           className="text-4xl md:text-5xl font-bold mb-6 text-green-900"
           initial={{ opacity: 0, y: 30 }}
@@ -60,7 +60,7 @@ const ConsultingPage = () => {
       </section>
 
       {/* SERVICES SECTION */}
-      <section className="py-16 px-6 md:px-16 bg-white">
+      <section className="py-10 md:py-16 px-6 md:px-16 bg-white">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <motion.div
@@ -80,7 +80,7 @@ const ConsultingPage = () => {
       </section>
 
       {/* VALUE SECTION */}
-      <section className="py-20 px-6 md:px-16 bg-gradient-to-b from-white to-[#E8F2EB] ">
+      <section className="py-10 md:py-20 px-6 md:px-16 bg-gradient-to-tl from-[#E8F2EB] to-white  ">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -10 }}
