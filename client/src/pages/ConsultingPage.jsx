@@ -83,7 +83,7 @@ const ConsultingPage = () => {
       <section className="py-20 px-6 md:px-16 bg-gradient-to-b from-white to-[#E8F2EB] ">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -5 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
@@ -94,7 +94,7 @@ const ConsultingPage = () => {
             />
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 5 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
