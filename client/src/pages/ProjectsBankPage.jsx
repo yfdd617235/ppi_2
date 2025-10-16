@@ -125,12 +125,21 @@ const ProjectsBankPage = () => {
             <p className="text-gray-700 leading-relaxed mb-6">
               {t("projects.value.text")}
             </p>
-            <a
-              href="/contact"
-              className="inline-block bg-green-900 text-white px-6 py-3 rounded-full font-medium hover:bg-blue-800 transition"
-            >
-              {t("projects.value.button")}
-            </a>
+           <div className="flex justify-left">
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText("director@panamericanprivateinvestments.com");
+                  alert("Email copiado al portapapeles 📋");
+                }}
+                className="flex items-center space-x-2 text-white hover:text-green-500 transition-colors bg-green-900 rounded-full px-6 py-3.5"
+                title="Click para copiar email"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                  <path d="M1.5 4.5A2.5 2.5 0 0 1 4 2h16a2.5 2.5 0 0 1 2.5 2.5v15a2.5 2.5 0 0 1-2.5 2.5H4a2.5 2.5 0 0 1-2.5-2.5v-15Zm2.16.5 7.81 6.2a1 1 0 0 0 1.26 0l7.82-6.2H3.66ZM20 19.5a.5.5 0 0 0 .5-.5V8.56l-6.6 5.22a3 3 0 0 1-3.8 0L3.5 8.56V19a.5.5 0 0 0 .5.5h16Z" />
+                </svg>
+                <span>{t("footer.contactTitle")}</span>
+              </button>
+            </div>
           </motion.div>
         </div>
       </section>

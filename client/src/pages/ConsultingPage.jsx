@@ -104,13 +104,13 @@ const ConsultingPage = () => {
             <p className="text-gray-700 leading-relaxed mb-6">
               {t("consulting.value.text")}
             </p>
-            <div className="flex justify-end">
+            <div className="flex justify-left">
               <button
                 onClick={() => {
                   navigator.clipboard.writeText("director@panamericanprivateinvestments.com");
                   alert("Email copiado al portapapeles 📋");
                 }}
-                className="flex items-center space-x-2 text-white hover:text-green-500 transition-colors bg-green-900 rounded-md p-2"
+                className="flex items-center space-x-2 text-white hover:text-green-500 transition-colors bg-green-900 rounded-full px-6 py-3.5"
                 title="Click para copiar email"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
