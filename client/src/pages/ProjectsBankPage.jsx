@@ -35,7 +35,7 @@ const ProjectsBankPage = () => {
       <ScrollToTop />
 
       {/* HERO */}
-      <section className="relative bg-gradient-to-br from-[#E8F2EB] to-white py-24 text-center">
+      <section className="p-6 relative bg-gradient-to-br from-[#E8F2EB] to-white py-24 text-center">
         <motion.h1
           className="text-4xl md:text-5xl font-bold mb-6 text-green-900"
           initial={{ opacity: 0, y: 30 }}
@@ -91,7 +91,7 @@ const ProjectsBankPage = () => {
                 {[...Array(3)].map((_, i) => (
                   <div
                     key={i}
-                    className="h-1 bg-green-700 flex-1 mx-4 rounded-full opacity-50"
+                    className="h-1 bg-green-700 flex-1 mx-4 rounded-full opacity-10"
                   ></div>
                 ))}
               </div>
@@ -104,7 +104,7 @@ const ProjectsBankPage = () => {
       <section className="py-20 px-6 md:px-16 bg-[#E8F2EB]">
         <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
@@ -115,7 +115,7 @@ const ProjectsBankPage = () => {
             />
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 10 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
