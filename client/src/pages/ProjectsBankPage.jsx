@@ -35,7 +35,7 @@ const ProjectsBankPage = () => {
       <ScrollToTop />
 
       {/* HERO */}
-      <section className="py-10 md:py-20 p-6 relative bg-gradient-to-br from-[#E8F2EB] to-white  text-center">
+      <section className="py-10 pt-16 md:py-20 p-6 relative bg-gradient-to-br from-[#E8F2EB] to-white  text-center">
         <motion.h1
           className="text-4xl md:text-5xl font-bold mb-6 text-green-900"
           initial={{ opacity: 0, y: 30 }}
@@ -67,7 +67,7 @@ const ProjectsBankPage = () => {
           </motion.h2>
 
           {/* Diagrama en flujo */}
-          <div className="relative flex flex-col md:flex-row items-center justify-center gap-12">
+          <div className="relative flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
