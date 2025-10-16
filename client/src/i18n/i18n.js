@@ -108,7 +108,41 @@ const resources = {
                     button: "Contact Us",
                     imageAlt: "Corporate consulting"
                 }
+            },
+            projects: {
+                hero: {
+                    title: "Projects Bank and Private Equity",
+                    subtitle: "We turn your ideas into real projects through a structured process. Following the key stages of professional project management —Evaluation, Planning, Execution, and Control— we transform your vision into tangible results.",
+                },
+                diagram: {
+                    title: "Our Structured Process",
+                },
+                steps: {
+                    evaluation: {
+                        title: "Evaluation",
+                        description: "We analyze the feasibility and potential of each idea, considering technical, financial, and market factors.",
+                    },
+                    planning: {
+                        title: "Planning",
+                        description: "We design strategies, establish schedules, budgets, and resources needed to ensure project success.",
+                    },
+                    execution: {
+                        title: "Execution",
+                        description: "We implement designed solutions, overseeing every stage to ensure quality, compliance, and efficiency.",
+                    },
+                    control: {
+                        title: "Control",
+                        description: "We monitor project progress, assess results, and apply continuous improvements to maximize impact.",
+                    },
+                },
+                value: {
+                    title: "From Concept to Reality",
+                    text: "At Panamerican Private Investments, we drive projects from conception to completion. Through a rigorous, structured approach, we ensure every initiative achieves its full potential.",
+                    button: "Contact Us",
+                    imageAlt: "Project management diagram",
+                },
             }
+
 
 
 
@@ -217,6 +251,38 @@ const resources = {
                     button: "Contáctanos",
                     imageAlt: "Consultoría corporativa"
                 }
+            }, projects: {
+                hero: {
+                    title: "Banco de Proyectos y Capital Privado",
+                    subtitle: "Convertimos tus ideas en proyectos reales a través de un proceso estructurado. Siguiendo las etapas clave de la gestión profesional de proyectos -Evaluación, Planificación, Ejecución y Control-, transformamos tu visión en resultados tangibles.",
+                },
+                diagram: {
+                    title: "Nuestro proceso estructurado",
+                },
+                steps: {
+                    evaluation: {
+                        title: "Evaluación",
+                        description: "Analizamos la viabilidad y el potencial de cada idea, considerando factores técnicos, financieros y de mercado.",
+                    },
+                    planning: {
+                        title: "Planificación",
+                        description: "Diseñamos estrategias, establecemos cronogramas, presupuestos y recursos necesarios para garantizar el éxito del proyecto.",
+                    },
+                    execution: {
+                        title: "Ejecución",
+                        description: "Implementamos las soluciones diseñadas, supervisando cada etapa para asegurar calidad, cumplimiento y eficiencia.",
+                    },
+                    control: {
+                        title: "Control",
+                        description: "Monitoreamos el avance del proyecto, evaluamos resultados y aplicamos mejoras continuas para maximizar el impacto.",
+                    },
+                },
+                value: {
+                    title: "Del concepto a la realidad",
+                    text: "En Panamerican Private Investments impulsamos proyectos desde su concepción hasta su ejecución final. A través de un enfoque riguroso y metodológico, garantizamos que cada iniciativa alcance su máximo potencial.",
+                    button: "Contáctanos",
+                    imageAlt: "Diagrama de gestión de proyectos",
+                },
             }
 
 

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { wakeUpServer } from "../api/axios";
 import { useTranslation, Trans } from "react-i18next";
+import ScrollToTop from "../components/ScrollToTop";
 
 const HomePage = () => {
   useEffect(() => {
@@ -19,6 +20,7 @@ const HomePage = () => {
 
   return (
     <div className="flex flex-col text-sm md:text-base lg:text-lg leading-relaxed">
+      <ScrollToTop />
       {/* Hero Section */}
       <div className="relative h-screen w-full flex justify-center items-center overflow-hidden">
         <video
@@ -124,7 +126,7 @@ const HomePage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8">
           {[
             { id: 1, img: "global.jpg", link: "/consulting" },
-            { id: 2, img: "lightbulb.jpg", link: "/" },
+            { id: 2, img: "lightbulb.jpg", link: "/projectsbank" },
             { id: 3, img: "project.jpg", link: "/" },
             { id: 4, img: "trading.jpg", link: "/trading" },
           ].map(({ id, img, link }) => (
