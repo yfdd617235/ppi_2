@@ -65,8 +65,9 @@ const resources = {
                 video1: "Trading 525 USD in two minutes. SP500 futures",
                 video2: "Premarket Analysis",
                 video3: "Fibonacci Retracement",
-                video4: "Expert Advisor",
-                video5: "Balance",
+                video4: "Interview with the CEO",
+                video5: "Expert Advisor",
+                video6: "Balance",
             },
             footer: {
                 subtitle: "Innovation, precision, and integrity in every project we undertake.",
@@ -236,8 +237,9 @@ const resources = {
                 video1: "Trading 525 USD en dos minutos. Futuros del SP500",
                 video2: "Análisis Premercado",
                 video3: "Retroceso de Fibonacci",
-                video4: "Asesor Experto",
-                video5: "Balance",
+                video4: "Entrevista con el CEO",
+                video5: "Asesor Experto",
+                video6: "Balance",
             },
             footer: {
                 subtitle: "Innovación, precisión e integridad en cada proyecto que desarrollamos.",

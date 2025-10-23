@@ -33,7 +33,7 @@ function TradingPage() {
 
             {/* Videos Section */}
             <div className="mx-auto py-10 md:py-20 px-4 lg:px-20 2xl:px-60">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8">
                     {[
                         {
                             id: 1,
@@ -49,6 +49,11 @@ function TradingPage() {
                             id: 3,
                             src: "https://www.youtube.com/embed/gWySnIDaWUQ",
                             title: "Retroceso de Fibonacci",
+                        },
+                        {
+                            id: 4,
+                            src: "https://www.youtube.com/embed/bpEew1Jbc3A",
+                            title: "Entrevista con el CEO",
                         },
                     ].map((video) => (
                         <div
@@ -82,7 +87,7 @@ function TradingPage() {
                         {/* Expert Advisor Video */}
                         <div className="w-full">
                             <h3 className="text-green-900 font-bold text-center text-lg mb-3">
-                                {t("trading.video4")}
+                                {t("trading.video5")}
                             </h3>
                             <video
                                 autoPlay
@@ -97,7 +102,7 @@ function TradingPage() {
                         {/* Balance Video */}
                         <div className="w-full">
                             <h3 className="text-green-900 font-bold text-center text-lg mb-3">
-                                {t("trading.video5")}
+                                {t("trading.video6")}
                             </h3>
                             <video
                                 autoPlay
