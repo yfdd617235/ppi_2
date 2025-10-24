@@ -528,7 +528,7 @@ const HomePage = () => {
 
       {/* 🧱 Cards Section */}
       <motion.div
-        className="py-10 md:py-20 mx-auto px-4 lg:px-20 2xl:px-60 text-black"
+        className="py-10 md:py-20 mx-auto px-4 lg:px-20 2xl:px-40 text-black"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -544,22 +544,38 @@ const HomePage = () => {
               key={id}
               whileHover={{ y: -6 }}
               transition={{ duration: 0.3 }}
-              className="h-full shadow-lg shadow-[#DDEEE0] rounded-lg bg-white hover:bg-green-50"
+              className="flex flex-col h-full shadow-lg shadow-[#DDEEE0] rounded-lg bg-white hover:bg-green-50"
             >
-              <Link to={["/consulting", "/projectsbank", "/education", "/trading"][id - 1]}>
+              <Link
+                to={["/consulting", "/projectsbank", "/education", "/trading"][id - 1]}
+                className="flex flex-col h-full"
+              >
                 <img
-                  src={`${import.meta.env.BASE_URL}${["global.jpg", "lightbulb.jpg", "project.jpg", "trading.jpg"][id - 1]}`}
+                  src={`${import.meta.env.BASE_URL}${[
+                    "global.jpg",
+                    "lightbulb.jpg",
+                    "project.jpg",
+                    "trading.jpg",
+                  ][id - 1]}`}
                   alt={`Card ${id}`}
                   className="w-full h-64 object-cover rounded-t-lg"
                 />
-                <div className="p-6">
-                  <h5 className="text-green-900 text-center font-bold text-lg md:text-xl">
-                    {t(`cards.title${id}`)}
-                  </h5>
-                  <p className="mt-3 text-left">{t(`cards.message${id}`)}</p>
+                <div className="flex flex-col justify-between flex-grow">
+                  <div className="p-6">
+                    <h5 className="text-green-900 text-center font-bold text-lg md:text-xl">
+                      {t(`cards.title${id}`)}
+                    </h5>
+                    <p className="mt-3 text-left">{t(`cards.message${id}`)}</p>
+                  </div>
+
+                  {/* Este div queda fijo al fondo */}
+                  <div className="flex justify-end items-end p-2">
+                    <p className="text-green-500  font-extralight">{t(`cards.seemore`)}</p>
+                  </div>
                 </div>
               </Link>
             </motion.div>
+
           ))}
         </div>
       </motion.div>

@@ -40,7 +40,7 @@ const ConsultingPage = () => {
       <ScrollToTop />
 
       {/* HERO SECTION */}
-      <section className="py-10 pt-16 md:py-20 px-6 relative bg-gradient-to-br from-[#DDEEE0] to-white  text-center">
+      <section className="py-10 pt-20 md:py-24 px-6 relative bg-gradient-to-br from-[#DDEEE0] to-white  text-center">
         <motion.h1
           className="text-4xl md:text-5xl font-bold mb-6 text-green-900"
           initial={{ opacity: 0, y: 30 }}

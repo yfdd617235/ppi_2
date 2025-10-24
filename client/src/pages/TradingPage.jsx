@@ -10,7 +10,7 @@ function TradingPage() {
             <ScrollToTop />
 
             {/* Disclaimer Section */}
-            <div className="mx-auto py-16 px-4 lg:px-20 2xl:px-60 text-green-200 bg-black">
+            <div className="mx-auto py-10 pt-20 md:py-24 px-4 lg:px-20 2xl:px-60 text-green-200 bg-black">
                 <h1 className="text-2xl md:text-3xl font-bold mb-6">
                     {t("trading.titleDisclaimer")}
                 </h1>

@@ -7,6 +7,15 @@ const resources = {
     en: {
         translation: {
             navbar: {
+                home: "Home",
+                service: "Services",
+                services: {
+                    consulting: "Consulting",
+                    projects: "Projects Banck",
+                    education: "Education",
+                    software: "Software Development",
+                },
+                contact: "Contact"
             },
             jumbotron: {
             },
@@ -28,7 +37,9 @@ const resources = {
                 message3: "We provide advisory and training in strategy, financial markets, and risk management.",
 
                 title1: "Corporative Consulting",
-                message1: "We support the full investment cycle, from evaluation to project execution."
+                message1: "We support the full investment cycle, from evaluation to project execution.",
+
+                seemore: "See more"
 
             },
 
@@ -179,7 +190,16 @@ const resources = {
     },
     es: {
         translation: {
-            navbar: {
+           navbar: {
+                home: "Inicio",
+                service: "Servicios",
+                services: {
+                    consulting: "Consultoría",
+                    projects: "Banco de Proyectos",
+                    education: "Educación",
+                    software: "Desarrollo de Software",
+                },
+                contact: "Contacto"
             },
             jumbotron: {
             },
@@ -207,7 +227,9 @@ const resources = {
                 message3: "Ofrecemos asesoría y formación en estrategia, mercados financieros y gestión de riesgos.",
 
                 title1: "Consultoría Corporativa",
-                message1: "Acompañamos todo el ciclo de inversión, desde la evaluación hasta la ejecución del proyecto."
+                message1: "Acompañamos todo el ciclo de inversión, desde la evaluación hasta la ejecución del proyecto.",
+
+                seemore: "Ver mas"
 
             },
             global: {
