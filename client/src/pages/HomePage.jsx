@@ -445,7 +445,7 @@ const HomePage = () => {
           playsInline
           onError={(e) => (e.target.style.display = "none")}
         />
-        <div className="absolute top-0 left-0 w-full h-full bg-green-950 opacity-90 -z-10" />
+        <div className="absolute top-0 left-0 w-full h-full bg-green-950 opacity-80 -z-10" />
         <motion.img
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
